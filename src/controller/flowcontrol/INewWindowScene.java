@@ -3,7 +3,7 @@ package controller.flowcontrol;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import models.Main;
+import model.Main;
 
 import java.io.IOException;
 
