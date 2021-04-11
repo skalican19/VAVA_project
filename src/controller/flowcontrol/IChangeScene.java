@@ -9,7 +9,7 @@ import java.io.IOException;
 public interface IChangeScene {
 
     default void sceneChanger(String view) throws IOException {
-        FXMLLoader loader = new FXMLLoader(Main.class.getResource("/views/" + view + ".fxml"));
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("/view/" + view + ".fxml"));
         Scene scene = new Scene(loader.load());
         Main.primaryStage.setScene(scene);
         Main.primaryStage.show();

@@ -24,7 +24,7 @@ public class Main extends Application {
     }
 
     public static void mainScene() throws Exception {
-        Parent root = FXMLLoader.load(Main.class.getResource("/views/mainscene.fxml"));
+        Parent root = FXMLLoader.load(Main.class.getResource("/view/mainscene.fxml"));
         Scene scene = new Scene(root);
 
         primaryStage.setResizable(false);

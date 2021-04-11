@@ -1,4 +1,4 @@
-package calendar;
+package model.calendar;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
