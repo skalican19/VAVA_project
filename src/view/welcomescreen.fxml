@@ -10,17 +10,17 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.WelcomeScreenController">
    <children>
-      <Button layoutX="81.0" layoutY="429.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #d35f3f; -fx-border-color: #aa492e;" text="ZHRNÚŤ DEŇ" textFill="WHITE">
+      <Button layoutX="58.0" layoutY="429.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #d35f3f; -fx-border-color: #aa492e;" text="ZHRNÚŤ DEŇ" textFill="WHITE">
          <font>
             <Font name="System Bold" size="10.0" />
          </font>
       </Button>
-      <Button layoutX="81.0" layoutY="362.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #d35f3f; -fx-border-color: #aa492e;" text="PRIDAŤ AKTIVITU" textFill="WHITE">
+      <Button layoutX="58.0" layoutY="362.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #d35f3f; -fx-border-color: #aa492e;" text="PRIDAŤ AKTIVITU" textFill="WHITE">
          <font>
             <Font name="System Bold" size="10.0" />
          </font>
       </Button>
-      <Button layoutX="533.0" layoutY="637.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #d35f3f; -fx-border-color: #aa492e;" text="ZOBRAZIŤ KALENDÁR" textFill="WHITE">
+      <Button layoutX="487.0" layoutY="634.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #d35f3f; -fx-border-color: #aa492e;" text="ZOBRAZIŤ KALENDÁR" textFill="WHITE">
          <font>
             <Font name="System Bold" size="10.0" />
          </font>
@@ -39,36 +39,47 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane fx:id="paneView" layoutX="403.0" layoutY="221.0" prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: RED;" />
-      <Button layoutX="803.0" layoutY="258.0" mnemonicParsing="false" prefHeight="310.0" prefWidth="70.0" style="-fx-background-color: WHITE;" text="PRIDAŤ AKTIVITU" textFill="WHITE">
+      <Pane fx:id="paneView" layoutX="329.0" layoutY="221.0" prefHeight="400.0" prefWidth="480.0" style="-fx-background-color: RED;" />
+      <Button layoutX="809.0" layoutY="258.0" mnemonicParsing="false" prefHeight="310.0" prefWidth="70.0" style="-fx-background-color: WHITE;" text="PRIDAŤ AKTIVITU" textFill="WHITE">
          <font>
             <Font name="System Bold" size="10.0" />
          </font>
       </Button>
-      <Button layoutX="332.0" layoutY="258.0" mnemonicParsing="false" prefHeight="310.0" prefWidth="70.0" style="-fx-background-color: WHITE;" text="PRIDAŤ AKTIVITU" textFill="WHITE">
+      <Button layoutX="258.0" layoutY="258.0" mnemonicParsing="false" prefHeight="310.0" prefWidth="70.0" style="-fx-background-color: WHITE;" text="PRIDAŤ AKTIVITU" textFill="WHITE">
          <font>
             <Font name="System Bold" size="10.0" />
          </font>
       </Button>
-      <ImageView fitHeight="252.0" fitWidth="38.0" layoutX="339.0" layoutY="385.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="252.0" fitWidth="38.0" layoutX="272.0" layoutY="383.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Images/images.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="262.0" fitWidth="42.0" layoutX="806.0" layoutY="381.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="262.0" fitWidth="42.0" layoutX="827.0" layoutY="380.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Images/imagesright.png" />
          </image>
       </ImageView>
-      <Button layoutX="81.0" layoutY="498.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #d35f3f; -fx-border-color: #aa492e;" text="ZMENIŤ HESLO" textFill="WHITE">
+      <Button layoutX="58.0" layoutY="498.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #d35f3f; -fx-border-color: #aa492e;" text="ZMENIŤ HESLO" textFill="WHITE">
          <font>
             <Font name="System Bold" size="10.0" />
          </font>
       </Button>
-      <Button layoutX="81.0" layoutY="297.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #d35f3f; -fx-border-color: #aa492e;" text="PRIDAŤ DLHODOBÝ CIEĽ" textFill="WHITE">
+      <Button layoutX="58.0" layoutY="297.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #d35f3f; -fx-border-color: #aa492e;" text="PRIDAŤ DLHODOBÝ CIEĽ" textFill="WHITE">
          <font>
             <Font name="System Bold" size="10.0" />
          </font>
       </Button>
+      <Button layoutX="722.0" layoutY="186.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="86.0" style="-fx-background-color: #d35f3f;" text="NEXT" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </Button>
+      <Button layoutX="329.0" layoutY="186.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="86.0" style="-fx-background-color: #d35f3f;" text="PREV" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </Button>
+      <Label layoutX="555.0" layoutY="190.0" text="Date" />
    </children>
 </AnchorPane>
