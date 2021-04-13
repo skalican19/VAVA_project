@@ -84,13 +84,13 @@ public class WeatherDay {
         weatherHours.add(hour);
         if (hour.getTime() == LocalTime.of(12, 0, 0)) {
             this.noonTemperature = hour.getTemperature();
-            this.noonImage = hour.getWeatherState();
+            this.noonImage = hour.getWeatherImage();
         }
         else if (hour.getTime() == LocalTime.of(3, 0, 0)) {
             this.nightTemperature = hour.getTemperature();
         }
         if (hour.getTime() == LocalTime.of(0, 0, 0) && this.noonTemperature == null) {
-            this.noonImage = hour.getWeatherState();
+            this.noonImage = hour.getWeatherImage();
         }
     }
 }

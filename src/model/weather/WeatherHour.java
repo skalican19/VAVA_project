@@ -7,16 +7,18 @@ import java.time.LocalTime;
 public class WeatherHour {
     private int index;
     private LocalTime time;
-    private Image weatherState;
+    private Image weatherImage;
+    private String weatherState;
     private String precipitation;
     private String temperature;
     private String wind;
 
-    public WeatherHour(LocalTime time, String weatherState, String precipitation, String temperature, String wind) {
+    public WeatherHour(LocalTime time, String weatherState, String weatherImage, String precipitation, String temperature, String wind) {
         this.time = time;
+        this.weatherState = weatherState;
         setIndex();
-        String url = "http://openweathermap.org/img/wn/"+ weatherState + "@2x.png";
-        this.weatherState = new Image(url);
+        String url = "/Images/" + weatherImage + ".png";
+        this.weatherImage = new Image(url);
         this.precipitation = Math.round(Double.parseDouble(precipitation) * 100) + " %";
         double temp = Double.parseDouble(temperature) - 273;
         this.temperature = Math.round(temp*100.0) / 100.0 + " °C";
@@ -65,8 +67,8 @@ public class WeatherHour {
         return temperature;
     }
 
-    public Image getWeatherState() {
-        return weatherState;
+    public Image getWeatherImage() {
+        return weatherImage;
     }
 
     public String getPrecipitation() {

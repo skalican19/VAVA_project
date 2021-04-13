@@ -24,6 +24,15 @@ public class WeatherWeek {
         return weatherDays;
     }
 
+    public WeatherDay getDayFromDate(LocalDate date) {
+        for (WeatherDay day: weatherDays){
+            if (day.getDate().isEqual(date)) {
+                return day;
+            }
+        }
+        return null;
+    }
+
     public void parseWeatherXml(String city) {
         Document doc = loadWeatherXml(city);
         NodeList hourForecast = doc.getElementsByTagName("time");
@@ -41,12 +50,13 @@ public class WeatherWeek {
             LocalDateTime dateTime = LocalDateTime. parse(hour.getAttributes().item(0).getNodeValue().replace('T', ' '), formatter);
             LocalDateTime displayTime = LocalDateTime. parse(hour.getAttributes().item(1).getNodeValue().replace('T', ' '), formatter);
             LocalTime time = displayTime.toLocalTime();
-            String weatherState = hourData.item(0).getAttributes().getNamedItem("var").getNodeValue();
+            String weatherImage = hourData.item(0).getAttributes().getNamedItem("var").getNodeValue();
+            String weatherState = hourData.item(0).getAttributes().getNamedItem("name").getNodeValue();
             String precipitation = hourData.item(1).getAttributes().getNamedItem("probability").getNodeValue();
             String wind = hourData.item(3).getAttributes().getNamedItem("mps").getNodeValue();
             String temperature = hourData.item(4).getAttributes().getNamedItem("value").getNodeValue();
 
-            WeatherHour weatherHour = new WeatherHour(time, weatherState, precipitation, temperature, wind);
+            WeatherHour weatherHour = new WeatherHour(time, weatherState, weatherImage, precipitation, temperature, wind);
             if (!date.equals(dateTime.toLocalDate())){
                 date = dateTime.toLocalDate();
                 weatherDay = new WeatherDay(date);
