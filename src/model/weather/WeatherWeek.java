@@ -54,7 +54,7 @@ public class WeatherWeek {
             String weatherState = hourData.item(0).getAttributes().getNamedItem("name").getNodeValue();
             String precipitation = hourData.item(1).getAttributes().getNamedItem("probability").getNodeValue();
             String wind = hourData.item(3).getAttributes().getNamedItem("mps").getNodeValue();
-            String temperature = hourData.item(4).getAttributes().getNamedItem("value").getNodeValue();
+            String temperature = hourData.item(5).getAttributes().getNamedItem("value").getNodeValue();
 
             WeatherHour weatherHour = new WeatherHour(time, weatherState, weatherImage, precipitation, temperature, wind);
             if (!date.equals(dateTime.toLocalDate())){
