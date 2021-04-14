@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 public class DatabaseManager {
     public static DatabaseManager instance = null;
+//    private ArrayList<> usersDatabase = new DatabaseAdmin<>().download("kkti");
 
     private DatabaseManager() throws IOException {}
 
@@ -16,6 +17,20 @@ public class DatabaseManager {
 
         return instance;
     }
+
+//    public void updateRooms(Room r){
+//        this.rooms.add(r);
+//        new DatabaseAdmin<Room>().upload("Databases\\rooms", rooms);
+//    }
+//
+//    public void updateRooms(ArrayList<Room> r){
+//        new DatabaseAdmin<Room>().upload("Databases\\rooms", r);
+//    }
+
+//
+//    public ArrayList getUsersDatabase() {
+//        return usersDatabase;
+//    }
 
 
 }
