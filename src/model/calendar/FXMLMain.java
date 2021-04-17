@@ -9,23 +9,23 @@ import java.time.YearMonth;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-//public class FXMLMain extends Application {
+public class FXMLMain extends Application {
 
-//    @Override
-//    public void start(Stage primaryStage) throws Exception {
-//        Main.currentLocale = new Locale("sk", "SK");
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/fullCalendar.fxml"),
-//                ResourceBundle.getBundle("MessagesBundle", Main.currentLocale));
-//        primaryStage.setTitle("Full Calendar FXML Example");
-//        primaryStage.setScene(new Scene(loader.load()));
-//
-//        // Get the controller and add the model.calendar view to it
-//        CalendarController calendarController = loader.getController();
-//        calendarController.setCurrentYearMonth(YearMonth.now());
-//        primaryStage.show();
-//    }
-//
-//   // public static void main(String[] args) {
-//        launch(args);
-//    }
-//}
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        Main.currentLocale = new Locale("sk", "SK");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/fullCalendar.fxml"),
+                ResourceBundle.getBundle("MessagesBundle", Main.currentLocale));
+        primaryStage.setTitle("Full Calendar FXML Example");
+        primaryStage.setScene(new Scene(loader.load()));
+
+        // Get the controller and add the model.calendar view to it
+        CalendarController calendarController = loader.getController();
+        calendarController.setCurrentYearMonth(YearMonth.now());
+        primaryStage.show();
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+}

@@ -1,17 +1,25 @@
 package controller;
 
+import controller.flowcontrol.IChangeScene;
+import controller.flowcontrol.INewWindowScene;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+import model.Main;
 
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-public class WelcomeScreenController implements Initializable {
+public class WelcomeScreenController implements Initializable, IChangeScene, INewWindowScene {
+    Logger LOG = Logger.getLogger(IChangeScene.class.getName());
     @FXML Pane paneView;
     @FXML Label date;
 
@@ -66,5 +74,25 @@ public class WelcomeScreenController implements Initializable {
         displayDate = LocalDate.now();
         pane_no = 1;
         refresh();
+    }
+
+    public void btnAddActivityOnAction(){
+        createScene("createactivity");
+    }
+
+    public void btnShowActivityOnAction(){
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/showactivity.fxml"));
+        try {
+            Main.primaryStage.setScene(new Scene(loader.load()));
+            ShowActivityController c = loader.getController();
+            c.setCurrent(Main.activity);
+            Main.primaryStage.show();
+        } catch (IOException e) {
+            LOG.log(Level.SEVERE, "Súbor s danou cestou neexistuje.");
+        }
+    }
+
+    public void btnShowCalendarOnAction(){
+        sceneChanger("full_calendar");
     }
 }
