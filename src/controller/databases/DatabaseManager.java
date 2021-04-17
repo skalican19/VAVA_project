@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 public class DatabaseManager {
     public static DatabaseManager instance = null;
+//    private ArrayList<> usersDatabase = new DatabaseAdmin<>().download("kkti");
 
     private ArrayList<User> usersDatabase = new DatabaseAdmin<User>().download("databases/user_database");
 
@@ -42,6 +43,5 @@ public class DatabaseManager {
         }
         return null;
     }
-
 
 }

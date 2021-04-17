@@ -21,11 +21,17 @@ public class DatabaseAdmin<T> implements Serializable{
         }
     }
 
-    public ArrayList<T> download(String path) throws IOException {
+    public ArrayList<T> download(String path) {
         ArrayList<T> Database;
         Database = new ArrayList<>();
         File inFile= new File(path);
-        boolean newFile = inFile.createNewFile();
+        boolean newFile = false;
+
+        try {
+            newFile = inFile.createNewFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
 
         if (!newFile) {
