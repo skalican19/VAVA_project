@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.WelcomeScreenController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.WelcomeScreenController">
    <children>
       <Button layoutX="58.0" layoutY="429.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #d35f3f; -fx-border-color: #aa492e;" text="ZHRNÚŤ DEŇ" textFill="WHITE">
          <font>
@@ -20,7 +20,7 @@
             <Font name="System Bold" size="10.0" />
          </font>
       </Button>
-      <Button layoutX="487.0" layoutY="634.0" mnemonicParsing="false" onAction="#btnShowCalendarOnAction" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #d35f3f; -fx-border-color: #aa492e;" text="ZOBRAZIŤ KALENDÁR" textFill="WHITE">
+      <Button layoutX="491.0" layoutY="632.0" mnemonicParsing="false" onAction="#btnShowCalendarOnAction" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #d35f3f; -fx-border-color: #aa492e;" text="ZOBRAZIŤ KALENDÁR" textFill="WHITE">
          <font>
             <Font name="System Bold" size="10.0" />
          </font>
@@ -39,23 +39,23 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane fx:id="paneView" layoutX="329.0" layoutY="221.0" prefHeight="400.0" prefWidth="480.0" style="-fx-background-color: RED;" />
-      <Button layoutX="809.0" layoutY="258.0" mnemonicParsing="false" prefHeight="310.0" prefWidth="70.0" style="-fx-background-color: WHITE;" text="PRIDAŤ AKTIVITU" textFill="WHITE">
+      <Pane fx:id="paneView" layoutX="307.0" layoutY="221.0" prefHeight="400.0" prefWidth="530.0" style="-fx-background-color: #dbdbdb;" />
+      <Button layoutX="840.0" layoutY="258.0" mnemonicParsing="false" prefHeight="310.0" prefWidth="50.0" style="-fx-background-color: WHITE;" text="PRIDAŤ AKTIVITU" textFill="WHITE">
          <font>
             <Font name="System Bold" size="10.0" />
          </font>
       </Button>
-      <Button layoutX="258.0" layoutY="258.0" mnemonicParsing="false" prefHeight="310.0" prefWidth="70.0" style="-fx-background-color: WHITE;" text="PRIDAŤ AKTIVITU" textFill="WHITE">
+      <Button layoutX="258.0" layoutY="258.0" mnemonicParsing="false" prefHeight="310.0" prefWidth="50.0" style="-fx-background-color: WHITE;" text="PRIDAŤ AKTIVITU" textFill="WHITE">
          <font>
             <Font name="System Bold" size="10.0" />
          </font>
       </Button>
-      <ImageView fitHeight="252.0" fitWidth="38.0" layoutX="272.0" layoutY="383.0" onMouseClicked="#changePane" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="252.0" fitWidth="38.0" layoutX="258.0" layoutY="382.0" onMouseClicked="#changePane" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Images/images.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="262.0" fitWidth="42.0" layoutX="827.0" layoutY="380.0" onMouseClicked="#changePane" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="262.0" fitWidth="42.0" layoutX="844.0" layoutY="380.0" onMouseClicked="#changePane" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Images/imagesright.png" />
          </image>

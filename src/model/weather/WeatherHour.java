@@ -28,29 +28,29 @@ public class WeatherHour {
     public void setIndex() {
         String time = this.time.toString();
         switch (time) {
-            case "00:00":
-                this.index = 7;
-                break;
             case "03:00":
-                this.index = 0;
-                break;
-            case "06:00":
                 this.index = 1;
                 break;
-            case "09:00":
+            case "06:00":
                 this.index = 2;
                 break;
-            case "12:00":
+            case "09:00":
                 this.index = 3;
                 break;
-            case "15:00":
+            case "12:00":
                 this.index = 4;
                 break;
-            case "18:00":
+            case "15:00":
                 this.index = 5;
                 break;
-            case "21:00":
+            case "18:00":
                 this.index = 6;
+                break;
+            case "21:00":
+                this.index = 7;
+                break;
+            case "00:00":
+                this.index = 8;
                 break;
         }
     }

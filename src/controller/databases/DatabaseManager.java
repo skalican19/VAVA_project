@@ -27,7 +27,7 @@ public class DatabaseManager {
         new DatabaseAdmin<User>().upload("databases/user_database", usersDatabase);
     }
 
-    public void updateRooms(ArrayList<User> users){
+    public void updateUsers(ArrayList<User> users){
         new DatabaseAdmin<User>().upload("databases/user_database", users);
     }
 
