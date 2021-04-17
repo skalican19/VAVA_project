@@ -8,19 +8,19 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.WelcomeScreenController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.WelcomeScreenController">
    <children>
       <Button layoutX="58.0" layoutY="429.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #d35f3f; -fx-border-color: #aa492e;" text="ZHRNÚŤ DEŇ" textFill="WHITE">
          <font>
             <Font name="System Bold" size="10.0" />
          </font>
       </Button>
-      <Button layoutX="58.0" layoutY="362.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #d35f3f; -fx-border-color: #aa492e;" text="PRIDAŤ AKTIVITU" textFill="WHITE">
+      <Button layoutX="58.0" layoutY="362.0" mnemonicParsing="false" onAction="#btnAddActivityOnAction" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #d35f3f; -fx-border-color: #aa492e;" text="PRIDAŤ AKTIVITU" textFill="WHITE">
          <font>
             <Font name="System Bold" size="10.0" />
          </font>
       </Button>
-      <Button layoutX="487.0" layoutY="634.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #d35f3f; -fx-border-color: #aa492e;" text="ZOBRAZIŤ KALENDÁR" textFill="WHITE">
+      <Button layoutX="487.0" layoutY="634.0" mnemonicParsing="false" onAction="#btnShowCalendarOnAction" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #d35f3f; -fx-border-color: #aa492e;" text="ZOBRAZIŤ KALENDÁR" textFill="WHITE">
          <font>
             <Font name="System Bold" size="10.0" />
          </font>
@@ -84,5 +84,10 @@
          <font>
             <Font name="System Bold" size="23.0" />
          </font></Label>
+      <Button layoutX="58.0" layoutY="590.0" mnemonicParsing="false" onAction="#btnShowActivityOnAction" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #d35f3f; -fx-border-color: #aa492e;" text="ZOBRAZ AKTIVITKU" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="10.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

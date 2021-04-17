@@ -1,8 +1,8 @@
-package controller;
+package controller.creates;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import model.Task;
+import model.Days.Task;
 import java.time.LocalTime;
 
 public class CreateDayTasks {

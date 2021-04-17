@@ -108,7 +108,7 @@ public class CalendarController implements Initializable {
         this.allCalendarDays = allCalendarDays;
     }
 
-       public void setCurrentYearMonth(YearMonth currentYearMonth) {
+    public void setCurrentYearMonth(YearMonth currentYearMonth) {
         this.currentYearMonth = currentYearMonth;
     }
 }

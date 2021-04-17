@@ -5,7 +5,7 @@ import javafx.scene.control.ButtonType;
 
 public interface IPopupMethod {
 
-    default void warning(String text){
+    default void popup(String text){
         Alert alert = new Alert(Alert.AlertType.INFORMATION,text, ButtonType.CLOSE);
         alert.show();
     }

@@ -4,11 +4,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.Days.Activity;
+
 import java.util.Locale;
 
 public class Main extends Application {
     public static Stage primaryStage = new Stage();
     public static Locale currentLocale;
+    public static Activity activity;
 
 
 
@@ -19,6 +22,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        currentLocale = new Locale("sk", "SK");
         mainScene();
     }
 
@@ -30,8 +34,5 @@ public class Main extends Application {
         primaryStage.sizeToScene();
         primaryStage.setScene(scene);
         primaryStage.show();
-
     }
-
-
 }
