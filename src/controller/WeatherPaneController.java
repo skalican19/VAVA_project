@@ -73,4 +73,4 @@ public class WeatherPaneController implements Initializable {
         nightTemp.setText(day.getNightTemperature());
         showWeatherDay(day);
     }
-    }
+}
