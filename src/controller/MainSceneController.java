@@ -20,7 +20,7 @@ public class MainSceneController implements IChangeScene, IPopupMethod {
     @FXML PasswordField passwordLogin;
 
 
-    public void btnCloseOnAction() throws IOException {
+    public void btnCloseOnAction(){
         sceneChanger("welcomescreen");
     }
 
@@ -53,5 +53,4 @@ public class MainSceneController implements IChangeScene, IPopupMethod {
             AlertBox.show("Neplatná emailová adresa.", "Warning");
         }
     }
-
 }

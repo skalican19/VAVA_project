@@ -1,9 +1,11 @@
 package model.user;
 
 import controller.databases.DatabaseManager;
-
+import model.Days.Day;
 import java.io.IOException;
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -11,6 +13,8 @@ public class User implements Serializable {
     private String userName;
     private String email;
     private String password;
+    private HashMap<LocalDate, Day> recordedDays;
+    private Settings settings;
 
     public boolean registerUser(String userName, String email, String password) {
         if (this.validate(email)) {
@@ -49,4 +53,13 @@ public class User implements Serializable {
         return matcher.find();
     }
 
+    /***
+     * Author - Dušan
+     * @param date
+     * @param d
+     */
+    public void addDay(LocalDate date, Day d){
+        if (recordedDays == null) recordedDays = new HashMap<>();
+        recordedDays.put(date,d);
+    }
 }

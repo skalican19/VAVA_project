@@ -19,7 +19,7 @@ public interface IChangeScene {
         try {
             scene = new Scene(loader.load());
         } catch (IOException e) {
-            LOG.log(Level.SEVERE, "Súbor s danou cestou neexistuje.");
+            e.printStackTrace();
         }
         Main.primaryStage.setScene(scene);
         Main.primaryStage.show();

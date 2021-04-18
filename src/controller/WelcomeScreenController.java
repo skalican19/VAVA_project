@@ -8,7 +8,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 import model.Main;
 
 import java.io.IOException;
@@ -90,6 +89,10 @@ public class WelcomeScreenController implements Initializable, IChangeScene, INe
         } catch (IOException e) {
             LOG.log(Level.SEVERE, "Súbor s danou cestou neexistuje.");
         }
+    }
+
+    public void btnModifyDayOnAction(){
+
     }
 
     public void btnShowCalendarOnAction(){

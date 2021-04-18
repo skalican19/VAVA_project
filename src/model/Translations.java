@@ -10,13 +10,13 @@ public class Translations {
 
     public static Text[] translateDays(){
         return new Text[]{
-                new Text(bundle.getString("sunday")),
                 new Text(bundle.getString("monday")),
                 new Text(bundle.getString("tuesday")),
                 new Text(bundle.getString("wednesday")),
                 new Text(bundle.getString("thursday")),
                 new Text(bundle.getString("friday")),
-                new Text(bundle.getString("saturday"))
+                new Text(bundle.getString("saturday")),
+                new Text(bundle.getString("sunday"))
         };
     }
 
