@@ -28,7 +28,7 @@ import java.util.logging.Level;
 /***
  * Author Dušan
  */
-public class ChooseActivity implements INewWindowScene, Initializable {
+public class ChooseActivityController implements INewWindowScene, Initializable {
 
     @FXML private TableView<Activity> tableActivities;
     @FXML private TableColumn<Activity, String> columnName;
@@ -40,6 +40,7 @@ public class ChooseActivity implements INewWindowScene, Initializable {
     @FXML private ComboBox<Task> cbTasks;
     private final ArrayList<Activity> activities = Main.user.getActivities();
     private final ObservableList<Activity> obsList = FXCollections.observableArrayList(activities);
+    private TableView<Activity> tableOfDay;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -68,7 +69,11 @@ public class ChooseActivity implements INewWindowScene, Initializable {
     }
 
     public void btnDeleteOnAction(){
-        // TODO
+        Activity a = tableActivities.getSelectionModel().getSelectedItem();
+        if (a == null){
+            AlertBox.show("Zvoľte prosím aktivitu", "warning");
+            return;
+        }
     }
 
     private void initTable(){
@@ -105,5 +110,7 @@ public class ChooseActivity implements INewWindowScene, Initializable {
         tableActivities.getItems().addAll(obsList);
     }
 
-
+    public void setTableOfDay(TableView<Activity> tableOfDay) {
+        this.tableOfDay = tableOfDay;
+    }
 }

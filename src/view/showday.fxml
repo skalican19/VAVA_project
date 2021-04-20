@@ -23,7 +23,7 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <Button layoutX="414.0" layoutY="158.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="86.0" style="-fx-background-color: #d35f3f;" text="PRIDAŤ" textFill="WHITE">
+      <Button layoutX="414.0" layoutY="158.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="22.0" prefWidth="86.0" style="-fx-background-color: #d35f3f;" text="PRIDAŤ" textFill="WHITE">
          <font>
             <Font name="System Bold" size="11.0" />
          </font>
