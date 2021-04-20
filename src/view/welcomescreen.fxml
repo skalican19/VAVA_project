@@ -84,10 +84,5 @@
          <font>
             <Font name="System Bold" size="23.0" />
          </font></Label>
-      <Button layoutX="58.0" layoutY="590.0" mnemonicParsing="false" onAction="#btnShowActivityOnAction" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #d35f3f; -fx-border-color: #aa492e;" text="ZOBRAZ AKTIVITKU" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="10.0" />
-         </font>
-      </Button>
    </children>
 </AnchorPane>

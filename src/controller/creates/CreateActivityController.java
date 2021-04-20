@@ -8,13 +8,16 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import model.Days.Activity;
 import model.Days.Priority;
-import model.Days.Recreation;
+import model.Days.Hobby;
 import model.Days.Task;
 import model.Main;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/***
+ * Author Dušan
+ */
 public class CreateActivityController implements Initializable, IPopupMethod {
 
     @FXML ComboBox<String> cbType;
@@ -62,7 +65,7 @@ public class CreateActivityController implements Initializable, IPopupMethod {
             a = new Task(tfName.getText(),cbPriority.getValue(),tfDesc.getText(), dpDueDate.getValue());
         }
         else{
-            a = new Recreation(tfName.getText(),cbPriority.getValue(),tfDesc.getText(), choiceOutdoor.isSelected());
+            a = new Hobby(tfName.getText(),cbPriority.getValue(),tfDesc.getText(), choiceOutdoor.isSelected());
         }
         Main.activity = a;
     }

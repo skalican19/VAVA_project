@@ -4,6 +4,9 @@ import javafx.scene.text.Text;
 
 import java.util.ResourceBundle;
 
+/***
+ * Author Dušan
+ */
 public class Translations {
 
     public static ResourceBundle bundle = ResourceBundle.getBundle("MessagesBundle", Main.currentLocale);

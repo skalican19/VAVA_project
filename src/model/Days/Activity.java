@@ -3,13 +3,22 @@ package model.Days;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+/***
+ * Author Dušan
+ */
 public class Activity {
     private String name;
     private Priority priority;
     private String description;
     private LocalTime start;
     private LocalTime end;
+    private String type;
     private LocalDate lastDone;      // when was the activity last done for the user
+
+    public Activity(LocalTime start, LocalTime end){
+        this.start = start;
+        this.end = end;
+    }
 
     public Activity(String name, Priority priority, String description) {
         this.name = name;
@@ -47,5 +56,11 @@ public class Activity {
 
     public LocalDate getLastDone() {
         return lastDone;
+    }
+
+    public String getType(){
+        if (this instanceof Task) return "Task";
+        if (this instanceof Hobby) return "Recreation";
+        return "Activity";
     }
 }

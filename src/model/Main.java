@@ -5,6 +5,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import model.Days.Activity;
+import model.user.Settings;
 import model.user.User;
 
 import java.util.Locale;
@@ -13,7 +14,8 @@ public class Main extends Application {
     public static Stage primaryStage = new Stage();
     public static Locale currentLocale;
     public static Activity activity;
-    public static User user;
+    public static Settings settings = new Settings();
+    public static User user = new User();
 
 
 

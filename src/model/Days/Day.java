@@ -1,16 +1,53 @@
 package model.Days;
+import model.Main;
+
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 
+/***
+ * Author Dušan
+ */
 public class Day {
-    private LocalDate date;
+    private final LocalDate date;
     private ArrayList<Activity> activities;
     private String comment;
 
-    public Day(LocalDate date, String comment) {
+    public Day(LocalDate date) {
         this.date = date;
-        this.comment = comment;
+        initializeActivities();
     }
 
+    private void initializeActivities(){
+        LocalTime startTime = Main.settings.getDayStart();
+        LocalTime currentTime = LocalTime.of(startTime.getHour(), startTime.getMinute());
+        LocalTime endTime = Main.settings.getDayEnd();
 
+        activities = new ArrayList<>();
+
+        int counter = 0;
+        while (currentTime.getHour() <= endTime.getHour()) {
+            activities.add(new Activity(currentTime,moveCurrentTime(currentTime)));
+            currentTime = moveCurrentTime(currentTime);
+            counter++;
+            if (counter == 24) break;
+        }
+    }
+
+    private LocalTime moveCurrentTime(LocalTime current){
+        current = current.plusHours(Main.settings.getActivityLength().getHour());
+        current = current.plusMinutes(Main.settings.getActivityLength().getMinute());
+        return current;
+    }
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public ArrayList<Activity> getActivities() {
+        return activities;
+    }
+
+    public String getComment() {
+        return comment;
+    }
 }

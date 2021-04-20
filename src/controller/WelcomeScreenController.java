@@ -79,18 +79,6 @@ public class WelcomeScreenController implements Initializable, IChangeScene, INe
         createScene("createactivity");
     }
 
-    public void btnShowActivityOnAction(){
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/showactivity.fxml"));
-        try {
-            Main.primaryStage.setScene(new Scene(loader.load()));
-            ShowActivityController c = loader.getController();
-            c.setCurrent(Main.activity);
-            Main.primaryStage.show();
-        } catch (IOException e) {
-            LOG.log(Level.SEVERE, "Súbor s danou cestou neexistuje.");
-        }
-    }
-
     public void btnModifyDayOnAction(){
 
     }
