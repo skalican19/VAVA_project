@@ -14,6 +14,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.days.Activity;
 import model.days.Hobby;
+import model.days.PerformedActivity;
 import model.days.Task;
 import model.Main;
 
@@ -40,7 +41,7 @@ public class ChooseActivityController implements INewWindowScene, Initializable 
     @FXML private ComboBox<Task> cbTasks;
     private final ArrayList<Activity> activities = Main.user.getActivities();
     private final ObservableList<Activity> obsList = FXCollections.observableArrayList(activities);
-    private TableView<Activity> tableOfDay;
+    private TableView<PerformedActivity> tableOfDay;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -80,9 +81,8 @@ public class ChooseActivityController implements INewWindowScene, Initializable 
 
     public void btnChooseOnAction(){
         Activity a = tableActivities.getSelectionModel().getSelectedItem();
-        Activity selected  = tableOfDay.getSelectionModel().getSelectedItem();
-        selected.setStart(a.getStart());
-        selected.setEnd(a.getEnd());
+        PerformedActivity selected  = tableOfDay.getSelectionModel().getSelectedItem();
+        selected.setActivity(a);
         tableOfDay.refresh();
     }
 
@@ -120,7 +120,7 @@ public class ChooseActivityController implements INewWindowScene, Initializable 
         tableActivities.getItems().addAll(obsList);
     }
 
-    public void setTableOfDay(TableView<Activity> tableOfDay) {
+    public void setTableOfDay(TableView<PerformedActivity> tableOfDay) {
         this.tableOfDay = tableOfDay;
     }
 }

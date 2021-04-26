@@ -83,7 +83,4 @@ public class User implements Serializable {
     public void removeActivity(Activity a){
         activities.remove(a);
     }
-
-
-
 }
