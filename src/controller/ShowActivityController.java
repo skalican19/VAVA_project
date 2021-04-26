@@ -4,15 +4,18 @@ import controller.flowcontrol.IChangeScene;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import model.Days.Activity;
-import model.Days.Recreation;
-import model.Days.Task;
+import model.days.Activity;
+import model.days.Hobby;
+import model.days.Task;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/***
+ * Author Dušan
+ */
 public class ShowActivityController implements Initializable, IChangeScene {
     Logger LOG = Logger.getLogger(IChangeScene.class.getName());
     private Activity current;
@@ -55,7 +58,7 @@ public class ShowActivityController implements Initializable, IChangeScene {
             LOG.log(Level.SEVERE, "Nesprávne inicializovaná aktivita.");
             return;
         }
-        if(current instanceof Recreation){
+        if(current instanceof Hobby){
             btnAdd.setVisible(false);
             btnSub.setVisible(false);
             progress.setVisible(false);

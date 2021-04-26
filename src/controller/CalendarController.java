@@ -51,7 +51,6 @@ public class CalendarController implements Initializable {
         }
 
         populateCalendar(currentYearMonth);
-
     }
 
     /**
@@ -64,7 +63,7 @@ public class CalendarController implements Initializable {
         LocalDate calendarDate = LocalDate.of(yearMonth.getYear(), yearMonth.getMonthValue(), 1);
 
         // Dial back the day until it is SUNDAY (unless the month starts on a sunday)
-        while (!calendarDate.getDayOfWeek().toString().equals("SUNDAY") ) {
+        while (!calendarDate.getDayOfWeek().toString().equals("MONDAY") ) {
             calendarDate = calendarDate.minusDays(1);
         }
 

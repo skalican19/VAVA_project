@@ -1,26 +1,22 @@
 package controller;
-
 import controller.databases.DatabaseManager;
 import controller.flowcontrol.IChangeScene;
-import controller.flowcontrol.IPopupMethod;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import model.user.User;
 import controller.flowcontrol.AlertBox;
-
 import java.io.IOException;
 
-public class MainSceneController implements IChangeScene, IPopupMethod {
+public class MainSceneController implements IChangeScene {
     @FXML TextField nameRegistration;
     @FXML TextField emailRegistration;
     @FXML PasswordField passwordRegistration;
-
     @FXML TextField nameLogin;
     @FXML PasswordField passwordLogin;
 
 
-    public void btnCloseOnAction() throws IOException {
+    public void btnCloseOnAction(){
         sceneChanger("welcomescreen");
     }
 
@@ -53,5 +49,4 @@ public class MainSceneController implements IChangeScene, IPopupMethod {
             AlertBox.show("Neplatná emailová adresa.", "Warning");
         }
     }
-
 }

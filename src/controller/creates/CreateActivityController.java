@@ -1,21 +1,24 @@
 package controller.creates;
 
-import controller.flowcontrol.IPopupMethod;
+import controller.flowcontrol.AlertBox;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import model.Days.Activity;
-import model.Days.Priority;
-import model.Days.Recreation;
-import model.Days.Task;
+import model.days.Activity;
+import model.days.Priority;
+import model.days.Hobby;
+import model.days.Task;
 import model.Main;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CreateActivityController implements Initializable, IPopupMethod {
+/***
+ * Author Dušan
+ */
+public class CreateActivityController implements Initializable{
 
     @FXML ComboBox<String> cbType;
     @FXML TextField tfName;
@@ -62,9 +65,10 @@ public class CreateActivityController implements Initializable, IPopupMethod {
             a = new Task(tfName.getText(),cbPriority.getValue(),tfDesc.getText(), dpDueDate.getValue());
         }
         else{
-            a = new Recreation(tfName.getText(),cbPriority.getValue(),tfDesc.getText(), choiceOutdoor.isSelected());
+            a = new Hobby(tfName.getText(),cbPriority.getValue(),tfDesc.getText(), choiceOutdoor.isSelected());
         }
-        Main.activity = a;
+        clearAll();
+        Main.user.addActivity(a);
     }
 
     private void initComboboxes(){
@@ -76,17 +80,31 @@ public class CreateActivityController implements Initializable, IPopupMethod {
 
     private boolean validate(){
         if (cbType.getValue() == null){
-            popup("Zvoľte prosím typ aktivity.");
+            AlertBox.show("Zvoľte prosím typ aktivity.", "warning");
             return false;
         }
         if (tfName.getText().isEmpty() || tfDesc.getText().isEmpty()){
-            popup("Vyplňte prosím polia názov a popis.");
+            AlertBox.show("Vyplňte prosím polia názov a popis.", "warning");
             return false;
         }
         if (type.equals("Task") && (cbPriority.getValue() == null || dpDueDate.getValue() == null)){
-            popup("Zvoľte prosím prioritu danej úlohy a dátum, dokedy ju dokončiť.");
+            AlertBox.show("Zvoľte prosím prioritu danej úlohy a dátum, dokedy ju dokončiť.", "warning");
             return false;
         }
         return true;
+    }
+
+    private void clearAll(){
+        cbType.setValue(null);
+        tfName.setText(null);
+        tfDesc.setText(null);
+        choiceOutdoor.setVisible(false);
+        choiceOutdoor.setSelected(false);
+        lblPriority.setVisible(false);
+        lblDue.setVisible(false);
+        dpDueDate.setVisible(false);
+        dpDueDate.setValue(null);
+        cbPriority.setVisible(false);
+        cbPriority.setValue(null);
     }
 }

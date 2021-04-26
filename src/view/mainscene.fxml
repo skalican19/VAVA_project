@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainSceneController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainSceneController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e3e5e8" height="307.0" layoutX="455.0" layoutY="286.0" stroke="BLACK" strokeType="INSIDE" width="427.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e3e5e8" height="307.0" layoutX="19.0" layoutY="286.0" stroke="BLACK" strokeType="INSIDE" width="427.0" />
@@ -41,7 +41,7 @@
             <Font name="System Bold" size="10.0" />
          </font>
       </Button>
-      <TextField fx:id="nameLogin" layoutX="232.0" layoutY="370.0" prefHeight="26.0" prefWidth="149.0" />
+      <TextField fx:id="nameLogin" layoutX="232.0" layoutY="370.0" />
       <PasswordField fx:id="passwordLogin" layoutX="232.0" layoutY="442.0" />
       <Label layoutX="71.0" layoutY="365.0" prefHeight="53.0" prefWidth="133.0" text="MENO ALEBO EMAIL:" wrapText="true">
          <font>
@@ -53,20 +53,20 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="nameRegistration" layoutX="689.0" layoutY="340.0" />
-      <PasswordField fx:id="passwordRegistration" layoutX="689.0" layoutY="466.0" />
-      <Label layoutX="532.0" layoutY="337.0" prefHeight="30.0" prefWidth="133.0" text="MENO:">
+      <TextField fx:id="nameRegistration" layoutX="653.0" layoutY="343.0" />
+      <PasswordField fx:id="passwordRegistration" layoutX="653.0" layoutY="469.0" />
+      <Label layoutX="496.0" layoutY="340.0" prefHeight="30.0" prefWidth="133.0" text="MENO:">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="532.0" layoutY="463.0" prefHeight="30.0" prefWidth="133.0" text="HESLO:">
+      <Label layoutX="496.0" layoutY="466.0" prefHeight="30.0" prefWidth="133.0" text="HESLO:">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="emailRegistration" layoutX="689.0" layoutY="403.0" />
-      <Label layoutX="532.0" layoutY="400.0" prefHeight="30.0" prefWidth="133.0" text="E-MAIL:">
+      <TextField fx:id="emailRegistration" layoutX="653.0" layoutY="406.0" />
+      <Label layoutX="496.0" layoutY="403.0" prefHeight="30.0" prefWidth="133.0" text="E-MAIL:">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
@@ -76,7 +76,7 @@
             <Font name="System Bold" size="10.0" />
          </font>
       </Button>
-      <Button layoutX="723.0" layoutY="532.0" mnemonicParsing="false" onAction="#register" prefHeight="30.0" prefWidth="114.0" style="-fx-background-color: #d35f3f; -fx-border-color: #aa492e;" text="REGISTROVAŤ" textFill="WHITE">
+      <Button layoutX="687.0" layoutY="532.0" mnemonicParsing="false" onAction="#register" prefHeight="30.0" prefWidth="114.0" style="-fx-background-color: #d35f3f; -fx-border-color: #aa492e;" text="REGISTROVAŤ" textFill="WHITE">
          <font>
             <Font name="System Bold" size="10.0" />
          </font>

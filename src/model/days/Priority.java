@@ -1,5 +1,8 @@
-package model.Days;
+package model.days;
 
+/***
+ * Author Dušan
+ */
 public enum Priority {
     LOW,
     MEDIUM,

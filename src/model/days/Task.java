@@ -1,6 +1,9 @@
-package model.Days;
+package model.days;
 import java.time.LocalDate;
 
+/***
+ * Author Dušan
+ */
 public class Task extends Activity {
     private LocalDate dueDate;
     private int progress;

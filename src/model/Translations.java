@@ -4,19 +4,22 @@ import javafx.scene.text.Text;
 
 import java.util.ResourceBundle;
 
+/***
+ * Author Dušan
+ */
 public class Translations {
 
     public static ResourceBundle bundle = ResourceBundle.getBundle("MessagesBundle", Main.currentLocale);
 
     public static Text[] translateDays(){
         return new Text[]{
-                new Text(bundle.getString("sunday")),
                 new Text(bundle.getString("monday")),
                 new Text(bundle.getString("tuesday")),
                 new Text(bundle.getString("wednesday")),
                 new Text(bundle.getString("thursday")),
                 new Text(bundle.getString("friday")),
-                new Text(bundle.getString("saturday"))
+                new Text(bundle.getString("saturday")),
+                new Text(bundle.getString("sunday"))
         };
     }
 
