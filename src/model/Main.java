@@ -4,7 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import model.Days.Activity;
+import model.days.Activity;
 import model.user.Settings;
 import model.user.User;
 

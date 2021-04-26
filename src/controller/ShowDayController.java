@@ -1,6 +1,5 @@
 package controller;
 
-import controller.creates.CreateActivityController;
 import controller.flowcontrol.AlertBox;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,8 +11,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import model.Days.Activity;
-import model.Days.Day;
+import model.days.Activity;
+import model.days.Day;
 import model.Main;
 
 import java.io.IOException;
@@ -22,7 +21,6 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
 
 /***
  * Author Dušan
@@ -59,6 +57,7 @@ public class ShowDayController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }

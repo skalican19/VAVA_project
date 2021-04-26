@@ -1,4 +1,4 @@
-package model.Days;
+package model.days;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -56,6 +56,11 @@ public class Activity {
 
     public LocalDate getLastDone() {
         return lastDone;
+    }
+
+    @Override
+    public String toString(){
+        return this.name;
     }
 
     public String getType(){

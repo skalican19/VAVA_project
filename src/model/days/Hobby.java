@@ -1,6 +1,4 @@
-package model.Days;
-
-import java.time.LocalDate;
+package model.days;
 
 /***
  * Author Dušan

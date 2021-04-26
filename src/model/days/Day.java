@@ -1,4 +1,4 @@
-package model.Days;
+package model.days;
 import model.Main;
 
 import java.time.LocalDate;

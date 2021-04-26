@@ -1,8 +1,8 @@
 package model.user;
 
 import controller.databases.DatabaseManager;
-import model.Days.Activity;
-import model.Days.Day;
+import model.days.Activity;
+import model.days.Day;
 import java.io.IOException;
 import java.io.Serializable;
 import java.time.LocalDate;

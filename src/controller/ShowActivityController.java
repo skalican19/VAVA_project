@@ -4,9 +4,9 @@ import controller.flowcontrol.IChangeScene;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import model.Days.Activity;
-import model.Days.Hobby;
-import model.Days.Task;
+import model.days.Activity;
+import model.days.Hobby;
+import model.days.Task;
 
 import java.net.URL;
 import java.util.ResourceBundle;

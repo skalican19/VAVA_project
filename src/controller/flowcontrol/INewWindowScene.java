@@ -19,6 +19,7 @@ public interface INewWindowScene {
         } catch (IOException e) {
             LOG.log(Level.SEVERE, "Súbor s danou cestou neexistuje.");
         }
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }

@@ -27,7 +27,7 @@
             </ImageView>
          </children>
       </Pane>
-      <TableView fx:id="tableActivities" layoutX="30.0" layoutY="291.0" prefHeight="187.0" prefWidth="651.0">
+      <TableView fx:id="tableActivities" layoutX="30.0" layoutY="328.0" prefHeight="150.0" prefWidth="651.0">
          <columns>
             <TableColumn fx:id="columnType" prefWidth="92.79998588562012" text="Typ" />
             <TableColumn fx:id="columnPriority" prefWidth="59.19995880126953" text="Priorita" />
@@ -42,7 +42,7 @@
          </font>
       </Label>
       <ComboBox fx:id="cbTasks" layoutX="206.0" layoutY="193.0" prefWidth="150.0" promptText="Úlohy" />
-      <Button layoutX="594.0" layoutY="263.0" mnemonicParsing="false" onAction="#btnNewOnAction" prefHeight="22.0" prefWidth="86.0" style="-fx-background-color: #d35f3f;" text="NOVÁ" textFill="WHITE">
+      <Button layoutX="30.0" layoutY="297.0" mnemonicParsing="false" onAction="#btnNewOnAction" prefHeight="22.0" prefWidth="86.0" style="-fx-background-color: #d35f3f;" text="NOVÁ" textFill="WHITE">
          <font>
             <Font name="System Bold" size="11.0" />
          </font>
@@ -53,12 +53,17 @@
          </font>
       </Label>
       <ComboBox fx:id="cbActivities" layoutX="205.0" layoutY="240.0" prefWidth="150.0" promptText="Aktivity" />
-      <Button layoutX="495.0" layoutY="263.0" mnemonicParsing="false" onAction="#btnShowOnAction" prefHeight="22.0" prefWidth="86.0" style="-fx-background-color: #d35f3f;" text="ZOBRAZIŤ" textFill="WHITE">
+      <Button layoutX="496.0" layoutY="297.0" mnemonicParsing="false" onAction="#btnShowOnAction" prefHeight="22.0" prefWidth="86.0" style="-fx-background-color: #d35f3f;" text="ZOBRAZIŤ" textFill="WHITE">
          <font>
             <Font name="System Bold" size="11.0" />
          </font>
       </Button>
-      <Button layoutX="398.0" layoutY="263.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="22.0" prefWidth="86.0" style="-fx-background-color: #d35f3f;" text="VYMAZAŤ" textFill="WHITE">
+      <Button layoutX="128.0" layoutY="297.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="22.0" prefWidth="86.0" style="-fx-background-color: #d35f3f;" text="VYMAZAŤ" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </Button>
+      <Button layoutX="594.0" layoutY="297.0" mnemonicParsing="false" onAction="#btnChooseOnAction" prefHeight="22.0" prefWidth="86.0" style="-fx-background-color: #d35f3f;" text="VYBRAŤ" textFill="WHITE">
          <font>
             <Font name="System Bold" size="11.0" />
          </font>

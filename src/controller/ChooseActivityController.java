@@ -12,9 +12,9 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import model.Days.Activity;
-import model.Days.Hobby;
-import model.Days.Task;
+import model.days.Activity;
+import model.days.Hobby;
+import model.days.Task;
 import model.Main;
 
 import java.io.IOException;
@@ -46,11 +46,13 @@ public class ChooseActivityController implements INewWindowScene, Initializable 
     public void initialize(URL location, ResourceBundle resources) {
         initTable();
         initComboboxes();
+        fillTable();
     }
 
     public void btnNewOnAction(){
         createScene("createactivity");
     }
+
     public void btnShowOnAction(){
         Activity a = tableActivities.getSelectionModel().getSelectedItem();
         if (a == null){
@@ -76,10 +78,18 @@ public class ChooseActivityController implements INewWindowScene, Initializable 
         }
     }
 
+    public void btnChooseOnAction(){
+        Activity a = tableActivities.getSelectionModel().getSelectedItem();
+        Activity selected  = tableOfDay.getSelectionModel().getSelectedItem();
+        selected.setStart(a.getStart());
+        selected.setEnd(a.getEnd());
+        tableOfDay.refresh();
+    }
+
     private void initTable(){
         tableActivities.getItems().clear();
-        columnName.setCellValueFactory(new PropertyValueFactory<>("start"));
-        columnDesc.setCellValueFactory(new PropertyValueFactory<>("end"));
+        columnName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        columnDesc.setCellValueFactory(new PropertyValueFactory<>("description"));
         columnType.setCellValueFactory(new PropertyValueFactory<>("type"));
         columnPriority.setCellValueFactory(new PropertyValueFactory<>("priority"));
         columnLast.setCellValueFactory(new PropertyValueFactory<>("lastDone"));
