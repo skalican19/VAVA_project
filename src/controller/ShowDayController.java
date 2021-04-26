@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 import model.days.Activity;
 import model.days.Day;
 import model.Main;
+import model.days.PerformedActivity;
 
 import java.io.IOException;
 import java.net.URL;
@@ -29,11 +30,11 @@ public class ShowDayController implements Initializable {
 
     public static Day day;
     @FXML
-    private TableView<Activity> tableActivities;
+    private TableView<PerformedActivity> tableActivities;
     @FXML
-    private TableColumn<Activity, LocalTime> columnStart;
+    private TableColumn<PerformedActivity, LocalTime> columnStart;
     @FXML
-    private TableColumn<Activity, LocalTime> columnEnd;
+    private TableColumn<PerformedActivity, LocalTime> columnEnd;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -42,7 +43,7 @@ public class ShowDayController implements Initializable {
     }
 
     public void btnAddOnAction(){
-        Activity selected = tableActivities.getSelectionModel().getSelectedItem();
+        PerformedActivity selected = tableActivities.getSelectionModel().getSelectedItem();
         if (selected == null){
             AlertBox.show("Zvoľte prosím aktivitu", "warning");
             return;
@@ -71,8 +72,8 @@ public class ShowDayController implements Initializable {
 
     private void populateTable(){
         if (ShowDayController.day == null) day = new Day(LocalDate.now());
-        ArrayList<Activity> activities = day.getActivities();
-        ObservableList<Activity> obsList = FXCollections.observableArrayList(activities);
+        ArrayList<PerformedActivity> activities = day.getActivities();
+        ObservableList<PerformedActivity> obsList = FXCollections.observableArrayList(activities);
         tableActivities.getItems().setAll(obsList);
     }
 }

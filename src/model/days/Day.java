@@ -10,7 +10,7 @@ import java.util.ArrayList;
  */
 public class Day {
     private final LocalDate date;
-    private ArrayList<Activity> activities;
+    private ArrayList<PerformedActivity> activities;
     private String comment;
 
     public Day(LocalDate date) {
@@ -27,7 +27,7 @@ public class Day {
 
         int counter = 0;
         while (currentTime.getHour() <= endTime.getHour()) {
-            activities.add(new Activity(currentTime,moveCurrentTime(currentTime)));
+            activities.add(new PerformedActivity(currentTime,moveCurrentTime(currentTime)));
             currentTime = moveCurrentTime(currentTime);
             counter++;
             if (counter == 24) break;
@@ -43,7 +43,7 @@ public class Day {
         return date;
     }
 
-    public ArrayList<Activity> getActivities() {
+    public ArrayList<PerformedActivity> getActivities() {
         return activities;
     }
 
