@@ -1,5 +1,7 @@
 package model.days;
+import javafx.util.converter.LocalTimeStringConverter;
 import model.Main;
+import model.user.Settings;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -19,26 +21,14 @@ public class Day {
     }
 
     private void initializeActivities(){
-        LocalTime startTime = Main.settings.getDayStart();
-        LocalTime currentTime = LocalTime.of(startTime.getHour(), startTime.getMinute());
-        LocalTime endTime = Main.settings.getDayEnd();
-
+        ArrayList<LocalTime> validhours = Settings.getInstance().getValidHours();
         activities = new ArrayList<>();
 
-        int counter = 0;
-        while (currentTime.getHour() <= endTime.getHour()) {
-            activities.add(new PerformedActivity(currentTime,moveCurrentTime(currentTime)));
-            currentTime = moveCurrentTime(currentTime);
-            counter++;
-            if (counter == 24) break;
+        for(LocalTime hour: validhours){
+            activities.add(new PerformedActivity(hour,hour.plusHours(1)));
         }
     }
 
-    private LocalTime moveCurrentTime(LocalTime current){
-        current = current.plusHours(Main.settings.getActivityLength().getHour());
-        current = current.plusMinutes(Main.settings.getActivityLength().getMinute());
-        return current;
-    }
     public LocalDate getDate() {
         return date;
     }

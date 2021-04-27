@@ -1,7 +1,5 @@
 package model.days;
-
 import java.time.LocalDate;
-import java.time.LocalTime;
 
 /***
  * Author Dušan
