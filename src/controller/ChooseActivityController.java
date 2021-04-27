@@ -1,5 +1,6 @@
 package controller;
 
+import controller.creates.CreateActivityController;
 import controller.flowcontrol.AlertBox;
 import controller.flowcontrol.INewWindowScene;
 import javafx.collections.FXCollections;
@@ -12,6 +13,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import model.days.Activity;
 import model.days.Hobby;
 import model.days.PerformedActivity;
@@ -54,7 +56,20 @@ public class ChooseActivityController implements INewWindowScene, Initializable 
     }
 
     public void btnNewOnAction(){
-        createScene("createactivity");
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("/view/createactivity.fxml"));
+        Stage stage = new Stage();
+        Scene scene = null;
+        try {
+            scene = new Scene(loader.load());
+            CreateActivityController c = loader.getController();
+            c.setTableActivities(tableActivities);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        stage.setResizable(false);
+        stage.setScene(scene);
+        stage.sizeToScene();
+        stage.show();
     }
 
     public void btnShowOnAction(){
@@ -80,7 +95,7 @@ public class ChooseActivityController implements INewWindowScene, Initializable 
             AlertBox.show("Zvoľte prosím aktivitu", "warning");
             return;
         }
-        // TODO deleting activity
+        Main.user.removeActivity(a);
     }
 
     public void btnChooseOnAction(){
@@ -137,8 +152,6 @@ public class ChooseActivityController implements INewWindowScene, Initializable 
             AlertBox.show("Zvoľte prosím aktivitu na daný čas.","warning");
             return false;
         }
-
-
         return true;
     }
 

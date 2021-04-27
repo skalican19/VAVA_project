@@ -28,7 +28,7 @@ import java.util.ResourceBundle;
  */
 public class ShowDayController implements Initializable {
 
-    public static Day day;
+    private Day day = Main.user.getDay(WelcomeScreenController.displayDate);
     @FXML private TableView<PerformedActivity> tableActivities;
     @FXML private TableColumn<PerformedActivity, LocalTime> columnStart;
     @FXML private TableColumn<PerformedActivity, LocalTime> columnEnd;
@@ -66,7 +66,7 @@ public class ShowDayController implements Initializable {
     }
 
     private void populateTable(){
-        if (ShowDayController.day == null) day = new Day(LocalDate.now());
+        if (day == null) day = new Day(LocalDate.now());
         ArrayList<PerformedActivity> activities = day.getActivities();
         ObservableList<PerformedActivity> obsList = FXCollections.observableArrayList(activities);
         tableActivities.getItems().setAll(obsList);

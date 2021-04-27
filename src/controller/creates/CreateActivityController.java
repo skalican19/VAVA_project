@@ -28,6 +28,7 @@ public class CreateActivityController implements Initializable{
     @FXML Label lblDue;
     @FXML DatePicker dpDueDate;
     @FXML ComboBox<Priority> cbPriority;
+    private TableView<Activity> tableActivities = null;
     private String type;
 
 
@@ -69,6 +70,9 @@ public class CreateActivityController implements Initializable{
         }
         clearAll();
         Main.user.addActivity(a);
+        if (tableActivities != null){
+            tableActivities.getItems().add(a);
+        }
     }
 
     private void initComboboxes(){
@@ -106,5 +110,9 @@ public class CreateActivityController implements Initializable{
         dpDueDate.setValue(null);
         cbPriority.setVisible(false);
         cbPriority.setValue(null);
+    }
+
+    public void setTableActivities(TableView<Activity> tableActivities) {
+        this.tableActivities = tableActivities;
     }
 }

@@ -18,7 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class WelcomeScreenController implements Initializable, IChangeScene, INewWindowScene {
-    Logger LOG = Logger.getLogger(IChangeScene.class.getName());
+
     @FXML Pane paneView;
     @FXML Label date;
 
