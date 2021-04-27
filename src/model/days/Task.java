@@ -6,7 +6,7 @@ import java.time.LocalDate;
  */
 public class Task extends Activity {
     private LocalDate dueDate;
-    private int progress;
+    private double progress;
     private boolean goal;
     private boolean done;
 
@@ -19,7 +19,7 @@ public class Task extends Activity {
         return dueDate;
     }
 
-    public int getProgress() {
+    public double getProgress() {
         return progress;
     }
 
@@ -29,5 +29,21 @@ public class Task extends Activity {
 
     public boolean isDone() {
         return done;
+    }
+
+    public void setDueDate(LocalDate dueDate) {
+        this.dueDate = dueDate;
+    }
+
+    public void setProgress(double progress) {
+        this.progress = progress;
+    }
+
+    public void setGoal(boolean goal) {
+        this.goal = goal;
+    }
+
+    public void setDone(boolean done) {
+        this.done = done;
     }
 }

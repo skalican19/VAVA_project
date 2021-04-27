@@ -38,19 +38,32 @@ public class ShowActivityController implements Initializable, IChangeScene {
     }
 
     public void btnSaveOnAction(){
-        //TODO ulozit customera
+        current.setName(tfName.getText());
+        current.setDescription(taDescription.getText());
+        // TODO serialize user
+        if(current instanceof Task){
+            ((Task) current).setProgress(progress.getProgress());
+            ((Task) current).setDueDate(dpDueDate.getValue());
+        }
     }
 
     public void btnBackOnAction(){
+        // TODO zalezi kde sa bude picovinka zobrazovat
         sceneChanger("welcomescreen");
     }
 
     public void btnAddOnAction(){
-
+        if(progress.getProgress() < 100){
+            progressbar.setProgress(progressbar.getProgress() + 0.05);
+            progress.setProgress(progress.getProgress() + 0.05);
+        }
     }
 
     public void btnSubOnAction(){
-
+        if(progress.getProgress() > 0) {
+            progressbar.setProgress(progressbar.getProgress() - 0.05);
+            progress.setProgress(progress.getProgress() - 0.05);
+        }
     }
 
     private void setActivity(){
@@ -65,15 +78,17 @@ public class ShowActivityController implements Initializable, IChangeScene {
             progressbar.setVisible(false);
             lblDueDate.setVisible(false);
             lblProgress.setVisible(false);
+            dpDueDate.setVisible(false);
             tfAcName.setText("Voľnočasová aktivita");
             //TODO nastav obrazok
         }
         else{
             tfAcName.setText("Úloha");
-            double progressVal = ((double) ((Task) current).getProgress()) / 100;
+            double progressVal = ((double) ((Task) current).getProgress());
             progressbar.setProgress(progressVal);
             progress.setProgress(progressVal);
             dpDueDate.setValue(((Task) current).getDueDate());
+            progressbar.setProgress(progressVal);
             //TODO nastav obrazok
         }
         tfLastDate.setText(current.getLastDone()==null ? null : current.getLastDone().toString());

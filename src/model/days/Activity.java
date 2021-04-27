@@ -45,4 +45,24 @@ public class Activity {
         if (this instanceof Hobby) return "Recreation";
         return "Activity";
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPriority(Priority priority) {
+        this.priority = priority;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setLastDone(LocalDate lastDone) {
+        this.lastDone = lastDone;
+    }
 }

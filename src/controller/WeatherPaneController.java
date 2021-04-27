@@ -1,5 +1,6 @@
 package controller;
 
+import controller.flowcontrol.AlertBox;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
@@ -79,12 +80,17 @@ public class WeatherPaneController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         week.parseWeatherXml("Komárno");
 
-        WeatherDay day = week.getDayFromDate(WelcomeScreenController.displayDate);
-        image.setImage(day.getNoonImage());
-        dayName.setText(day.getDay());
-        date.setText(day.getDate().toString());
-        dayTemp.setText(day.getNoonTemperature());
-        nightTemp.setText(day.getNightTemperature());
-        showWeatherDay(day);
+        try{
+            WeatherDay day = week.getDayFromDate(WelcomeScreenController.displayDate);
+            image.setImage(day.getNoonImage());
+            dayName.setText(day.getDay());
+            date.setText(day.getDate().toString());
+            dayTemp.setText(day.getNoonTemperature());
+            nightTemp.setText(day.getNightTemperature());
+            showWeatherDay(day);
+        }
+        catch (Exception e){
+            AlertBox.show("Nepodarilo sa načítať predpoveď počasia na tento deň.", "warning");
+        }
     }
 }

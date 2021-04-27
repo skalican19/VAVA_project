@@ -85,7 +85,7 @@ public class ChooseActivityController implements INewWindowScene, Initializable 
             c.setCurrent(a);
             Main.primaryStage.show();
         } catch (IOException e) {
-            LOG.log(Level.SEVERE, "Súbor s danou cestou sa mepodarilo načítať.");
+            LOG.log(Level.SEVERE, "Súbor sa mepodarilo načítať.");
         }
     }
 
