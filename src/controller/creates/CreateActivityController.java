@@ -1,5 +1,6 @@
 package controller.creates;
 
+import controller.databases.DatabaseManager;
 import controller.flowcontrol.AlertBox;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,6 +13,7 @@ import model.days.Hobby;
 import model.days.Task;
 import model.Main;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -59,7 +61,7 @@ public class CreateActivityController implements Initializable{
 
     }
 
-    public void btnSaveOnAction(){
+    public void btnSaveOnAction() throws IOException {
         Activity a;
         if(!validate()) return;
         if (type.equals("Úloha")){
@@ -73,6 +75,7 @@ public class CreateActivityController implements Initializable{
         if (tableActivities != null){
             tableActivities.getItems().add(a);
         }
+        DatabaseManager.getInstance().saveUsers();
     }
 
     private void initComboboxes(){

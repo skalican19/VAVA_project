@@ -54,6 +54,7 @@
          </font>
       </Label>
       <TextField fx:id="nameRegistration" layoutX="653.0" layoutY="343.0" />
+      <TextField fx:id="emailRegistration" layoutX="653.0" layoutY="406.0" />
       <PasswordField fx:id="passwordRegistration" layoutX="653.0" layoutY="469.0" />
       <Label layoutX="496.0" layoutY="340.0" prefHeight="30.0" prefWidth="133.0" text="MENO:">
          <font>
@@ -65,7 +66,6 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="emailRegistration" layoutX="653.0" layoutY="406.0" />
       <Label layoutX="496.0" layoutY="403.0" prefHeight="30.0" prefWidth="133.0" text="E-MAIL:">
          <font>
             <Font name="System Bold" size="16.0" />

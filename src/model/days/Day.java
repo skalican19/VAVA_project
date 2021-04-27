@@ -3,6 +3,7 @@ import javafx.util.converter.LocalTimeStringConverter;
 import model.Main;
 import model.user.Settings;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -10,7 +11,7 @@ import java.util.ArrayList;
 /***
  * Author Dušan
  */
-public class Day {
+public class Day implements Serializable {
     private final LocalDate date;
     private ArrayList<PerformedActivity> activities;
     private String comment;

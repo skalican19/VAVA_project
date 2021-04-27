@@ -1,10 +1,11 @@
 package model.days;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 /***
  * Author Dušan
  */
-public class Activity {
+public class Activity implements Serializable {
     private String name;
     private Priority priority;
     private String description;

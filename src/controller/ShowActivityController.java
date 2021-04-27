@@ -1,5 +1,6 @@
 package controller;
 
+import controller.databases.DatabaseManager;
 import controller.flowcontrol.IChangeScene;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -8,6 +9,7 @@ import model.days.Activity;
 import model.days.Hobby;
 import model.days.Task;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -37,14 +39,14 @@ public class ShowActivityController implements Initializable, IChangeScene {
 
     }
 
-    public void btnSaveOnAction(){
+    public void btnSaveOnAction() throws IOException {
         current.setName(tfName.getText());
         current.setDescription(taDescription.getText());
-        // TODO serialize user
         if(current instanceof Task){
             ((Task) current).setProgress(progress.getProgress());
             ((Task) current).setDueDate(dpDueDate.getValue());
         }
+        DatabaseManager.getInstance().saveUsers();
     }
 
     public void btnBackOnAction(){
