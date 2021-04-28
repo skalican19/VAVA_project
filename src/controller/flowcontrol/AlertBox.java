@@ -10,6 +10,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.*;
+import model.Translations;
 
 
 public class AlertBox {
@@ -17,7 +18,7 @@ public class AlertBox {
     public static void show(String text, String title) {
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
-        window.setTitle(title);
+        window.setTitle(Translations.TranslateAlertBox(title));
         window.setMinWidth(300);
         window.setMinHeight(150);
         window.setResizable(false);

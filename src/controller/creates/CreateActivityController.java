@@ -45,7 +45,7 @@ public class CreateActivityController implements Initializable{
         String selected = cbType.getValue();
         if (selected == null) return;
         type = selected;
-        if(selected.equals("Úloha")){
+        if(selected.equals(Translations.Translate("task"))){
             choiceOutdoor.setVisible(false);
             lblPriority.setVisible(true);
             lblDue.setVisible(true);
@@ -65,7 +65,7 @@ public class CreateActivityController implements Initializable{
     public void btnSaveOnAction() throws IOException {
         Activity a;
         if(!validate()) return;
-        if (type.equals("Úloha")){
+        if (type.equals(Translations.Translate("hobby"))){
             a = new Task(tfName.getText(),cbPriority.getValue(),tfDesc.getText(),
                     dpDueDate.getValue() != null ? dpDueDate.getValue() : LocalDate.of(9999,12,31));
         }
@@ -96,7 +96,7 @@ public class CreateActivityController implements Initializable{
             AlertBox.show(Translations.TranslateAlertBox("alert_fill_name_desc"), "warning");
             return false;
         }
-        if (type.equals("Úloha")) {
+        if (type.equals(Translations.Translate("hobby"))) {
             if (cbPriority.getValue() == null) {
                 AlertBox.show(Translations.TranslateAlertBox("alert_fill_priority"), "warning");
                 return false;

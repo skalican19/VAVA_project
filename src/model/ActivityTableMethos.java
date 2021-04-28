@@ -16,7 +16,7 @@ public class ActivityTableMethos {
 
     public void showActivity(Activity a){
         if (a == null){
-            AlertBox.show("Zvoľte prosím aktivitu", "warning");
+            AlertBox.show(Translations.TranslateAlertBox("alert_choose_activity"), "warning");
             return;
         }
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/showactivity.fxml"),
@@ -27,13 +27,13 @@ public class ActivityTableMethos {
             c.setCurrent(a);
             Main.primaryStage.show();
         } catch (IOException e) {
-            LOG.log(Level.SEVERE, "Súbor sa mepodarilo načítať.");
+            LOG.log(Level.SEVERE, "Unable to load file.");
         }
     }
 
     public void removeActivity(Activity a){
         if (a == null){
-            AlertBox.show("Zvoľte prosím aktivitu", "warning");
+            AlertBox.show(Translations.TranslateAlertBox("alert_choose_activity"), "warning");
             return;
         }
         Main.user.removeActivity(a);
