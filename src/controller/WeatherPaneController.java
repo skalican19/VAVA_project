@@ -44,19 +44,19 @@ public class WeatherPaneController implements Initializable {
                 String text = "";
                 switch (row_index) {
                     case 1:
-                        informationLabel = new Label("Čas:");
+                        informationLabel = new Label(Translations.Translate("time"));
                         text = hour.getTime().toString();
                         break;
                     case 2:
-                        informationLabel = new Label("Teplota:");
+                        informationLabel = new Label(Translations.Translate("temperature"));
                         text = hour.getTemperature();
                         break;
                     case 3:
-                        informationLabel = new Label("Vietor:");
+                        informationLabel = new Label(Translations.Translate("wind"));
                         text = hour.getWind();
                         break;
                     case 4:
-                        informationLabel = new Label("Zrážky:");
+                        informationLabel = new Label(Translations.Translate("rainfall"));
                         text = hour.getPrecipitation();
                         break;
                 }

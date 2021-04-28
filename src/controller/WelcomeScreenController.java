@@ -89,7 +89,7 @@ public class WelcomeScreenController implements Initializable, IChangeScene, INe
         btnEng.setShape(new Circle(r));
         btnEng.setMinSize(2*r, 2*r);
         btnEng.setMaxSize(2*r, 2*r);
-        lblWelcome.setText(lblWelcome.getText() + Main.user.getUserName());
+        lblWelcome.setText(lblWelcome.getText() + " "  + Main.user.getUserName());
         refresh();
     }
 
@@ -111,9 +111,11 @@ public class WelcomeScreenController implements Initializable, IChangeScene, INe
 
     public void btnEngOnAction(){
         Main.currentLocale = new Locale("en", "US");
+        sceneChanger("welcomescreen");
     }
 
     public void btnSvkOnAction(){
         Main.currentLocale = new Locale("sk", "SK");
+        sceneChanger("welcomescreen");
     }
 }
