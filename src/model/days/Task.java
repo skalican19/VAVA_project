@@ -8,26 +8,23 @@ import java.time.LocalDate;
 public class Task extends Activity {
     private LocalDate dueDate;
     private long duration;
-    private int progress;
+    private double progress;
     private boolean goal;
     private boolean done;
 
     public Task(String name, Priority priority, String description, LocalDate dueDate) {
         super(name, priority, description);
         this.dueDate = dueDate;
-        this.duration = Duration.between(LocalDate.now(), dueDate).toDays();
+        this.duration = Duration.between(LocalDate.now(),dueDate).toDays();
     }
+
 
     public LocalDate getDueDate() {
         return dueDate;
     }
 
-    public int getProgress() {
+    public double getProgress() {
         return progress;
-    }
-
-    public long getDuration() {
-        return duration;
     }
 
     public boolean isGoal() {
@@ -37,4 +34,25 @@ public class Task extends Activity {
     public boolean isDone() {
         return done;
     }
+
+    public long getDuration() {
+        return duration;
+    }
+
+    public void setDueDate(LocalDate dueDate) {
+        this.dueDate = dueDate;
+    }
+
+    public void setProgress(double progress) {
+        this.progress = progress;
+    }
+
+    public void setGoal(boolean goal) {
+        this.goal = goal;
+    }
+
+    public void setDone(boolean done) {
+        this.done = done;
+    }
+
 }
