@@ -64,7 +64,7 @@ public class WeatherPaneController implements Initializable {
                         "-fx-text-fill: #ffffff;"
                         + "-fx-font-weight: bold;"
                         + "-fx-effect:  dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0)");
-                informationLabel.setFont(new Font("System", 10));
+                informationLabel.setFont(new Font("System", 9));
                 GridPane.setHalignment(informationLabel, HPos.CENTER);
 
                 Label label = new Label(text);
@@ -72,7 +72,7 @@ public class WeatherPaneController implements Initializable {
                         "-fx-text-fill: #ffffff;"
                         + "-fx-font-weight: bold;"
                         + "-fx-effect:  dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0)");
-                label.setFont(new Font("System", 10));
+                label.setFont(new Font("System", 9));
                 gridpane.add(label, hour.getIndex(), row_index);
                 GridPane.setHalignment(label, HPos.CENTER);
             }

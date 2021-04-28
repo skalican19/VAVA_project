@@ -19,6 +19,7 @@ public class Recommendation {
     public Recommendation() {
         this.tasks = 0;
         this.date = WelcomeScreenController.displayDate;
+        this.recommendations = new ArrayList<>();
     }
 
     public ArrayList<Activity> getRecommendations() {
@@ -48,7 +49,9 @@ public class Recommendation {
     }
 
     private boolean recommendTask(Task activity){
-        long daysBetween = Duration.between(LocalDate.now(), activity.getDueDate()).toDays();
+        long daysBetween = Duration.between(WelcomeScreenController.displayDate.atStartOfDay(),
+                activity.getDueDate().atStartOfDay()).toDays();
+
         if (activity.getPriority() == Priority.HIGH) {
             return true;
         }

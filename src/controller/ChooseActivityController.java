@@ -14,10 +14,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import model.days.Activity;
-import model.days.Hobby;
-import model.days.PerformedActivity;
-import model.days.Task;
+import model.days.*;
 import model.Main;
 import model.user.Settings;
 
@@ -119,15 +116,16 @@ public class ChooseActivityController implements INewWindowScene, Initializable 
     }
 
     private void initComboboxes(){
-        cbActivities.getItems().addAll(obsList);
+        Recommendation r = new Recommendation();
+        r.makeRecommendations();
+        ObservableList<Activity> recommendations = FXCollections.observableArrayList(r.getRecommendations());
         ObservableList<LocalTime> times = FXCollections.observableArrayList(Settings.getInstance().getValidHours());
 
+        cbActivities.getItems().addAll(recommendations);
         for(LocalTime hour: times){
             cbStart.getItems().add(hour);
             cbEnd.getItems().add(hour.plusHours(1));
         }
-
-        // TODO make this choose activities based on priorities and weather and shit
     }
 
     private void fillTable(){

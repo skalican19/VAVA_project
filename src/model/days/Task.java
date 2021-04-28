@@ -15,7 +15,7 @@ public class Task extends Activity {
     public Task(String name, Priority priority, String description, LocalDate dueDate) {
         super(name, priority, description);
         this.dueDate = dueDate;
-        this.duration = Duration.between(LocalDate.now(),dueDate).toDays();
+        this.duration = Duration.between(LocalDate.now().atStartOfDay(),dueDate.atStartOfDay()).toDays();
     }
 
 
