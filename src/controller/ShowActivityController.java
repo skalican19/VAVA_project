@@ -5,6 +5,8 @@ import controller.flowcontrol.IChangeScene;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import model.days.Activity;
 import model.days.Hobby;
 import model.days.Task;
@@ -32,6 +34,7 @@ public class ShowActivityController implements Initializable, IChangeScene {
     @FXML Button btnSub;
     @FXML Label lblDueDate;
     @FXML Label lblProgress;
+    @FXML ImageView activityImage;
 
 
     @Override
@@ -86,7 +89,7 @@ public class ShowActivityController implements Initializable, IChangeScene {
             lblProgress.setVisible(false);
             dpDueDate.setVisible(false);
             tfAcName.setText("Voľnočasová aktivita");
-            //TODO nastav obrazok
+            activityImage.setImage(new Image("/images/hobbys.png"));
         }
         else{
             tfAcName.setText("Úloha");
@@ -95,11 +98,12 @@ public class ShowActivityController implements Initializable, IChangeScene {
             progress.setProgress(progressVal);
             dpDueDate.setValue(((Task) current).getDueDate());
             progressbar.setProgress(progressVal);
-            //TODO nastav obrazok
+            activityImage.setImage(new Image("/images/tasks.png"));
         }
         tfLastDate.setText(current.getLastDone()==null ? null : current.getLastDone().toString());
         tfName.setText(current.getName());
         taDescription.setText(current.getDescription());
+        dpDueDate.setEditable(false);
     }
 
     public void setCurrent(Activity current) {
