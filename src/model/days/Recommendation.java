@@ -52,7 +52,7 @@ public class Recommendation {
         long daysBetween = Duration.between(WelcomeScreenController.displayDate.atStartOfDay(),
                 activity.getDueDate().atStartOfDay()).toDays();
 
-        if (activity.getPriority() == Priority.HIGH) {
+        if (activity.getPriority() == Priority.HIGH || activity.getPriority() == Priority.MEDIUM) {
             return true;
         }
         else if (daysBetween < activity.getDuration()/2 && activity.getProgress() < 0.5) {

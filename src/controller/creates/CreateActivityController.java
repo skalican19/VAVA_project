@@ -15,6 +15,7 @@ import model.Main;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 /***
@@ -42,8 +43,8 @@ public class CreateActivityController implements Initializable{
     public void cbTypeOnAction(){
         String selected = cbType.getValue();
         if (selected == null) return;
+        type = selected;
         if(selected.equals("Úloha")){
-            type = selected;
             choiceOutdoor.setVisible(false);
             lblPriority.setVisible(true);
             lblDue.setVisible(true);
@@ -51,7 +52,6 @@ public class CreateActivityController implements Initializable{
             cbPriority.setVisible(true);
         }
         else{
-            type = selected;
             choiceOutdoor.setVisible(true);
             lblPriority.setVisible(false);
             lblDue.setVisible(false);
@@ -94,9 +94,15 @@ public class CreateActivityController implements Initializable{
             AlertBox.show("Vyplňte prosím polia názov a popis.", "warning");
             return false;
         }
-        if (type.equals("Task") && (cbPriority.getValue() == null || dpDueDate.getValue() == null)){
-            AlertBox.show("Zvoľte prosím prioritu danej úlohy a dátum, dokedy ju dokončiť.", "warning");
-            return false;
+        if (type.equals("Úloha")) {
+            if (cbPriority.getValue() == null) {
+                AlertBox.show("Zvoľte prosím prioritu danej úlohy.", "warning");
+                return false;
+            }
+            if (dpDueDate.getValue() == null || dpDueDate.getValue().isBefore(LocalDate.now())) {
+                AlertBox.show("Zvoľte prosím platný dátum.", "warning");
+                return false;
+            }
         }
         return true;
     }
