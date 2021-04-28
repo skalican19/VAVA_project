@@ -80,17 +80,13 @@ public class WeatherPaneController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         week.parseWeatherXml("Komárno");
 
-        try{
-            WeatherDay day = week.getDayFromDate(WelcomeScreenController.displayDate);
-            image.setImage(day.getNoonImage());
-            dayName.setText(day.getDay());
-            date.setText(day.getDate().toString());
-            dayTemp.setText(day.getNoonTemperature());
-            nightTemp.setText(day.getNightTemperature());
-            showWeatherDay(day);
-        }
-        catch (Exception e){
-            AlertBox.show("Nepodarilo sa načítať predpoveď počasia na tento deň.", "warning");
-        }
+        WeatherDay day = week.getDayFromDate(WelcomeScreenController.displayDate);
+        image.setImage(day.getNoonImage());
+        dayName.setText(day.getDay());
+        date.setText(day.getDate().toString());
+        dayTemp.setText(day.getNoonTemperature());
+        nightTemp.setText(day.getNightTemperature());
+        showWeatherDay(day);
+
     }
 }
