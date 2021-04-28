@@ -16,6 +16,7 @@ public class Main extends Application {
     public static Activity activity;
     public static Settings settings = new Settings();
     public static User user = new User();
+    public static String city;
 
 
 

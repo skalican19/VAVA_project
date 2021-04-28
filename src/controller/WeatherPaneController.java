@@ -3,14 +3,15 @@ package controller;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
-import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import model.Main;
 import model.weather.WeatherDay;
 import model.weather.WeatherHour;
 import model.weather.WeatherWeek;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -23,7 +24,6 @@ public class WeatherPaneController implements Initializable {
 
     @FXML private GridPane gridpane;
 
-    WeatherWeek week = new WeatherWeek();
 
     public void showWeatherDay(WeatherDay day){
         gridpane.getChildren().clear();
@@ -77,14 +77,16 @@ public class WeatherPaneController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        week.parseWeatherXml("Komárno");
-
-        WeatherDay day = week.getDayFromDate(WelcomeScreenController.displayDate);
-        image.setImage(day.getNoonImage());
-        dayName.setText(day.getDay());
-        date.setText(day.getDate().toString());
-        dayTemp.setText(day.getNoonTemperature());
-        nightTemp.setText(day.getNightTemperature());
-        showWeatherDay(day);
+        WeatherWeek week = new WeatherWeek();
+        if(week.parseWeatherXml(Main.city)) {
+            week.parseWeatherXml(Main.city);
+            WeatherDay day = week.getDayFromDate(WelcomeScreenController.displayDate);
+            image.setImage(day.getNoonImage());
+            dayName.setText(day.getDay());
+            date.setText(day.getDate().toString());
+            dayTemp.setText(day.getNoonTemperature());
+            nightTemp.setText(day.getNightTemperature());
+            showWeatherDay(day);
+        }
     }
 }
