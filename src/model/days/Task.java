@@ -1,4 +1,5 @@
 package model.days;
+import java.time.Duration;
 import java.time.LocalDate;
 
 /***
@@ -6,6 +7,7 @@ import java.time.LocalDate;
  */
 public class Task extends Activity {
     private LocalDate dueDate;
+    private long duration;
     private double progress;
     private boolean goal;
     private boolean done;
@@ -13,7 +15,9 @@ public class Task extends Activity {
     public Task(String name, Priority priority, String description, LocalDate dueDate) {
         super(name, priority, description);
         this.dueDate = dueDate;
+        this.duration = Duration.between(LocalDate.now(),dueDate).toDays();
     }
+
 
     public LocalDate getDueDate() {
         return dueDate;
@@ -31,6 +35,10 @@ public class Task extends Activity {
         return done;
     }
 
+    public long getDuration() {
+        return duration;
+    }
+
     public void setDueDate(LocalDate dueDate) {
         this.dueDate = dueDate;
     }
@@ -46,4 +54,5 @@ public class Task extends Activity {
     public void setDone(boolean done) {
         this.done = done;
     }
+
 }
