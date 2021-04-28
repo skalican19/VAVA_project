@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import model.Main;
+import model.Translations;
 import model.user.User;
 import controller.flowcontrol.AlertBox;
 import java.io.IOException;
@@ -33,7 +34,7 @@ public class MainSceneController implements IChangeScene {
             }
 
             else {
-                AlertBox.show("Zlé meno alebo heslo.", "Warning");
+                AlertBox.show(Translations.TranslateAlertBox("alert_invalid_credentials"), "Warning");
             }
 
         } catch (IOException e) {
@@ -45,11 +46,11 @@ public class MainSceneController implements IChangeScene {
     public void register() {
         User user = new User();
         if (user.registerUser(nameRegistration.getText(), emailRegistration.getText(), passwordRegistration.getText())) {
-            AlertBox.show("Boli ste úspešne zaregistrovaný.", "Success");
+            AlertBox.show(Translations.TranslateAlertBox("alert_successful_registration"), "Success");
             clearAll();
         }
         else {
-            AlertBox.show("Neplatná emailová adresa.", "Warning");
+            AlertBox.show(Translations.TranslateAlertBox("alert_invalid_e-mail"), "Warning");
         }
     }
 

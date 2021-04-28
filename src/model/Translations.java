@@ -2,6 +2,7 @@ package model;
 
 import javafx.scene.text.Text;
 
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 /***
@@ -53,4 +54,22 @@ public class Translations {
                 return "Error loading month format.";
         }
     }
+
+    public static String Translate(String key){
+        return bundle.getString(key);
+    }
+
+    public static ArrayList<String> AtvitiyTypesStrings(){
+        return new ArrayList<String>() {
+            {
+                add(bundle.getString("hobby"));
+                add(bundle.getString("task"));
+            }
+        };
+    }
+
+    public static String TranslateAlertBox(String key){
+        return bundle.getString(key);
+    }
+
 }

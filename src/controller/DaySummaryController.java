@@ -14,6 +14,7 @@ import javafx.scene.control.cell.ProgressBarTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.ActivityTableMethos;
 import model.Main;
+import model.Translations;
 import model.days.Activity;
 import model.days.Day;
 import model.days.PerformedActivity;
@@ -98,7 +99,7 @@ public class DaySummaryController implements Initializable, IChangeScene {
             new ActivityTableMethos().showActivity(a);
         }
         catch (NullPointerException e){
-            AlertBox.show("Zvoľte prosím aktivitu", "warning");
+            AlertBox.show(Translations.TranslateAlertBox("alert_choose_activity"), "warning");
         }
     }
 

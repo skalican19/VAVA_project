@@ -28,7 +28,7 @@
       </Button>
       <Pane layoutY="54.0" prefHeight="100.0" prefWidth="900.0" style="-fx-background-color: #d35f3f;">
          <children>
-            <Label layoutX="94.0" layoutY="21.0" text="%welcome" textFill="WHITE">
+            <Label fx:id="lblWelcome" layoutX="94.0" layoutY="21.0" text="%welcome" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="40.0" />
                </font>

@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import model.Translations;
 import model.days.Activity;
 import model.days.Hobby;
 import model.days.Task;
@@ -77,10 +78,11 @@ public class ShowActivityController implements Initializable, IChangeScene {
 
     private void setActivity(){
         if (current == null){
-            LOG.log(Level.SEVERE, "Nesprávne inicializovaná aktivita.");
+            LOG.log(Level.SEVERE, "Activity was not initialized successfully");
             return;
         }
         if(current instanceof Hobby){
+            tfAcName.setText(Translations.Translate("hobby"));
             btnAdd.setVisible(false);
             btnSub.setVisible(false);
             progress.setVisible(false);
@@ -88,12 +90,11 @@ public class ShowActivityController implements Initializable, IChangeScene {
             lblDueDate.setVisible(false);
             lblProgress.setVisible(false);
             dpDueDate.setVisible(false);
-            tfAcName.setText("Voľnočasová aktivita");
             activityImage.setImage(new Image("/images/hobbys.png"));
         }
         else{
-            tfAcName.setText("Úloha");
-            double progressVal = ((double) ((Task) current).getProgress());
+            tfAcName.setText(Translations.Translate("task"));
+            double progressVal = ((Task) current).getProgress();
             progressbar.setProgress(progressVal);
             progress.setProgress(progressVal);
             dpDueDate.setValue(((Task) current).getDueDate());

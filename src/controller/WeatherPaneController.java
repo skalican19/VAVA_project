@@ -9,6 +9,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import model.Main;
+import model.Translations;
 import model.weather.WeatherDay;
 import model.weather.WeatherHour;
 import model.weather.WeatherWeek;
@@ -93,11 +94,11 @@ public class WeatherPaneController implements Initializable {
                 showWeatherDay(day);
             }
             catch (Exception e) {
-                AlertBox.show("Nie je dostupná predpoveď počasia na tento deň.", "Warning");
+                AlertBox.show(Translations.TranslateAlertBox("alert_weather_unavailable"), "Warning");
             }
         }
         else {
-            AlertBox.show("Obec sa nenachádza v databáze.", "Warning");
+            AlertBox.show(Translations.TranslateAlertBox("alert_unknown_location"), "Warning");
         }
     }
 }

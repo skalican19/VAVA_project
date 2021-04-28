@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import model.Translations;
 import model.days.Activity;
 import model.days.Priority;
 import model.days.Hobby;
@@ -80,7 +81,7 @@ public class CreateActivityController implements Initializable{
     }
 
     private void initComboboxes(){
-        ObservableList<String> types = FXCollections.observableArrayList("Úloha", "Záľuba");
+        ObservableList<String> types = FXCollections.observableArrayList(Translations.AtvitiyTypesStrings());
         cbType.getItems().setAll(types);
         ObservableList<Priority> priorities = FXCollections.observableArrayList(Priority.values());
         cbPriority.getItems().setAll(priorities);
@@ -88,20 +89,20 @@ public class CreateActivityController implements Initializable{
 
     private boolean validate(){
         if (cbType.getValue() == null){
-            AlertBox.show("Zvoľte prosím typ aktivity.", "warning");
+            AlertBox.show(Translations.TranslateAlertBox("alert_choose_activity_type"), "warning");
             return false;
         }
         if (tfName.getText().isEmpty() || tfDesc.getText().isEmpty()){
-            AlertBox.show("Vyplňte prosím polia názov a popis.", "warning");
+            AlertBox.show(Translations.TranslateAlertBox("alert_fill_name_desc"), "warning");
             return false;
         }
         if (type.equals("Úloha")) {
             if (cbPriority.getValue() == null) {
-                AlertBox.show("Zvoľte prosím prioritu danej úlohy.", "warning");
+                AlertBox.show(Translations.TranslateAlertBox("alert_fill_priority"), "warning");
                 return false;
             }
             if (dpDueDate.getValue() == null || dpDueDate.getValue().isBefore(LocalDate.now())) {
-                AlertBox.show("Zvoľte prosím platný dátum.", "warning");
+                AlertBox.show(Translations.TranslateAlertBox("alert_choose_valid_date"), "warning");
                 return false;
             }
         }

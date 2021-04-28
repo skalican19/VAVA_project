@@ -15,6 +15,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import model.ActivityTableMethos;
+import model.Translations;
 import model.days.*;
 import model.Main;
 import model.user.Settings;
@@ -123,15 +124,15 @@ public class ChooseActivityController implements INewWindowScene, Initializable 
     private boolean validate(){
 
         if(cbStart.getValue() == null || cbEnd.getValue() == null){
-            AlertBox.show("Zvoľte prosím čas, na ktorý chcete pridať aktivitu.","warning");
+            AlertBox.show(Translations.TranslateAlertBox("alert_choose_time"),"warning");
             return false;
         }
         if(cbEnd.getValue().isBefore(cbStart.getValue())){
-            AlertBox.show("Zvoľte prosím čas začiatku pred časom konca.","warning");
+            AlertBox.show(Translations.TranslateAlertBox("alert_choose_valid_time"),"warning");
             return false;
         }
         if (tableActivities.getSelectionModel().getSelectedItem() == null){
-            AlertBox.show("Zvoľte prosím aktivitu na daný čas.","warning");
+            AlertBox.show(Translations.TranslateAlertBox("alert_choose_activity"),"warning");
             return false;
         }
         return true;

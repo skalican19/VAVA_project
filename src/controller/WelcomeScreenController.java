@@ -20,6 +20,7 @@ public class WelcomeScreenController implements Initializable, IChangeScene, INe
 
     @FXML Pane paneView;
     @FXML Label date;
+    @FXML Label lblWelcome;
     @FXML TextField city;
     @FXML Button btnSvk;
     @FXML Button btnEng;
@@ -88,6 +89,7 @@ public class WelcomeScreenController implements Initializable, IChangeScene, INe
         btnEng.setShape(new Circle(r));
         btnEng.setMinSize(2*r, 2*r);
         btnEng.setMaxSize(2*r, 2*r);
+        lblWelcome.setText(lblWelcome.getText() + Main.user.getUserName());
         refresh();
     }
 
