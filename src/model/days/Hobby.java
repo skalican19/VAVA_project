@@ -10,4 +10,8 @@ public class Hobby extends Activity{
         super(name, priority, description);
         this.outdoor = outdoor;
     }
+
+    public boolean isOutdoor() {
+        return outdoor;
+    }
 }

@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import model.Main;
 
@@ -22,8 +23,9 @@ public class WelcomeScreenController implements Initializable, IChangeScene, INe
 
     @FXML Pane paneView;
     @FXML Label date;
+    @FXML TextField city;
 
-    static LocalDate displayDate;
+    public static LocalDate displayDate;
 
     private int pane_no;
 
@@ -45,6 +47,12 @@ public class WelcomeScreenController implements Initializable, IChangeScene, INe
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    public void changeLocation(){
+        Main.city = city.getText();
+        setPane("/view/weather_pane.fxml", 2);
     }
 
     @FXML

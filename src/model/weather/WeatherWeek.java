@@ -9,19 +9,20 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Calendar;
+
 
 public class WeatherWeek {
     private ArrayList<WeatherDay> weatherDays;
 
-    public ArrayList<WeatherDay> getWeatherDays() {
-        return weatherDays;
+    public WeatherWeek() {
     }
 
     public WeatherDay getDayFromDate(LocalDate date) {
@@ -33,8 +34,11 @@ public class WeatherWeek {
         return null;
     }
 
-    public void parseWeatherXml(String city) {
+    public boolean parseWeatherXml(String city) {
         Document doc = loadWeatherXml(city);
+        if (doc == null) {
+            return false;
+        }
         NodeList hourForecast = doc.getElementsByTagName("time");
         Node hour;
 
@@ -67,18 +71,44 @@ public class WeatherWeek {
             weatherDay.addToWeatherHours(weatherHour);
         }
         this.weatherDays = week;
+        return true;
     }
 
-    private Document loadWeatherXml(String city){
+    private Document loadWeatherXml(String city) {
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-        String url = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + ",sk&mode=xml&APPID=67a8a7b7f5444aaa03b228f1f4e68b32";
-        DocumentBuilder db = null;
-        try{
-            db = dbf.newDocumentBuilder();
-            return db.parse(new URL(url).openStream());
-        } catch(ParserConfigurationException | SAXException | IOException e) {
+        DocumentBuilder db;
+
+
+        try {
+            URL url = new URL("http://api.openweathermap.org/data/2.5/forecast?q=" + city + ",sk&mode=xml&APPID=67a8a7b7f5444aaa03b228f1f4e68b32");
+            if (checkCity(city, url)) {
+                try {
+                    db = dbf.newDocumentBuilder();
+                    return db.parse(url.openStream());
+                } catch (ParserConfigurationException | SAXException | IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            return null;
+        } catch (MalformedURLException e) {
             e.printStackTrace();
         }
+
         return null;
+    }
+
+    private boolean checkCity(String city, URL url) {
+        int code = 0;
+        try {
+
+            HttpURLConnection connection = (HttpURLConnection)url.openConnection();
+            connection.setRequestMethod("GET");
+            connection.connect();
+            code = connection.getResponseCode();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return code != 404;
     }
 }

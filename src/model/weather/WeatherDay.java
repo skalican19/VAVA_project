@@ -12,6 +12,7 @@ public class WeatherDay {
     private ArrayList<WeatherHour> weatherHours;
     private LocalDate date;
     private Image noonImage;
+    private boolean badWeather;
     private String noonTemperature;
     private String nightTemperature;
     private String day;
@@ -45,6 +46,10 @@ public class WeatherDay {
             return "-------";
         }
         return nightTemperature;
+    }
+
+    public boolean isBadWeather() {
+        return badWeather;
     }
 
     public String getDay() {
@@ -92,5 +97,15 @@ public class WeatherDay {
         if (hour.getTime() == LocalTime.of(0, 0, 0) && this.noonTemperature == null) {
             this.noonImage = hour.getWeatherImage();
         }
+        ArrayList<String> badWeather = new ArrayList<String>(){{
+            add("09d");
+            add("10d");
+            add("11d");
+            add("13d");
+            add("50d");
+        }};
+
+        this.badWeather = badWeather.contains(hour.getWeatherState());
+
     }
 }
