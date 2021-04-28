@@ -16,7 +16,7 @@
    <children>
       <Pane layoutY="38.0" prefHeight="50.0" prefWidth="500.0" style="-fx-background-color: #d35f3f;">
          <children>
-            <Label layoutX="27.0" layoutY="9.0" text="Nová aktivita" textFill="WHITE">
+            <Label layoutX="27.0" layoutY="9.0" text="%new_activity" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
@@ -28,18 +28,18 @@
             </ImageView>
          </children>
       </Pane>
-      <Label layoutX="64.0" layoutY="138.0" text="Typ:">
+      <Label layoutX="64.0" layoutY="138.0" text="%type">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="64.0" layoutY="178.0" text="Názov:">
+      <Label layoutX="64.0" layoutY="178.0" text="%activity">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <ComboBox fx:id="cbType" layoutX="230.0" layoutY="138.0" onAction="#cbTypeOnAction" prefWidth="150.0" promptText="Typ aktivity" style="-fx-border-color: #d35f3f; -fx-background-color: #efefef;" />
-      <Label layoutX="64.0" layoutY="218.0" text="Opis:">
+      <ComboBox fx:id="cbType" layoutX="230.0" layoutY="138.0" onAction="#cbTypeOnAction" prefWidth="150.0" promptText="%activity_type" style="-fx-border-color: #d35f3f; -fx-background-color: #efefef;" />
+      <Label layoutX="64.0" layoutY="218.0" text="%description">
          <font>
             <Font size="18.0" />
          </font>
@@ -51,20 +51,20 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button layoutX="207.0" layoutY="352.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="22.0" prefWidth="86.0" style="-fx-background-color: #d35f3f;" text="ULOŽIŤ" textFill="WHITE">
+      <Button layoutX="207.0" layoutY="352.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="22.0" prefWidth="86.0" style="-fx-background-color: #d35f3f;" text="%save" textFill="WHITE">
          <font>
             <Font name="System Bold" size="11.0" />
          </font>
       </Button>
-      <ComboBox fx:id="cbPriority" layoutX="230.0" layoutY="259.0" prefWidth="150.0" promptText="Priorita úlohy" style="-fx-border-color: #d35f3f; -fx-background-color: #efefef;" visible="false" />
-      <Label fx:id="lblPriority" layoutX="64.0" layoutY="258.0" text="Pirorita:" visible="false">
+      <ComboBox fx:id="cbPriority" layoutX="230.0" layoutY="259.0" prefWidth="150.0" promptText="%task_priority" style="-fx-border-color: #d35f3f; -fx-background-color: #efefef;" visible="false" />
+      <Label fx:id="lblPriority" layoutX="64.0" layoutY="258.0" text="%priority" visible="false">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <CheckBox fx:id="choiceOutdoor" layoutX="393.0" layoutY="143.0" mnemonicParsing="false" text="Vonkajšia" visible="false" />
+      <CheckBox fx:id="choiceOutdoor" layoutX="393.0" layoutY="143.0" mnemonicParsing="false" text="%outdoors" visible="false" />
       <DatePicker fx:id="dpDueDate" layoutX="230.0" layoutY="299.0" visible="false" />
-      <Label fx:id="lblDue" layoutX="64.0" layoutY="298.0" text="Dokončiť do:" visible="false">
+      <Label fx:id="lblDue" layoutX="64.0" layoutY="298.0" text="%due_date" visible="false">
          <font>
             <Font size="18.0" />
          </font>

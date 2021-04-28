@@ -13,6 +13,7 @@ import model.Main;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class WelcomeScreenController implements Initializable, IChangeScene, INewWindowScene {
@@ -40,7 +41,8 @@ public class WelcomeScreenController implements Initializable, IChangeScene, INe
     public void setPane(String fxml, int pane) {
         paneView.getChildren().clear();
         try {
-            paneView.getChildren().add(FXMLLoader.load(getClass().getResource(fxml)));
+            paneView.getChildren().add(FXMLLoader.load(getClass().getResource(fxml),
+                    ResourceBundle.getBundle("MessagesBundle", Main.currentLocale)));
             pane_no = pane;
         } catch (IOException e) {
             e.printStackTrace();
@@ -103,5 +105,13 @@ public class WelcomeScreenController implements Initializable, IChangeScene, INe
 
     public void btnShowCalendarOnAction(){
         sceneChanger("full_calendar");
+    }
+
+    public void btnEngOnAction(){
+        Main.currentLocale = new Locale("en", "US");
+    }
+
+    public void btnSvkOnAction(){
+        Main.currentLocale = new Locale("sk", "SK");
     }
 }

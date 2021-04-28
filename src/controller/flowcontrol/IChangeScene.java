@@ -1,14 +1,9 @@
 package controller.flowcontrol;
-
-import controller.databases.DatabaseManager;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import model.Main;
-
 import java.io.IOException;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public interface IChangeScene {
 

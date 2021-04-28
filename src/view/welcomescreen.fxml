@@ -11,24 +11,24 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.WelcomeScreenController">
    <children>
-      <Button layoutX="58.0" layoutY="389.0" mnemonicParsing="false" onAction="#btnSummarizeDayOnAction" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #d35f3f; -fx-border-color: #aa492e;" text="ZHRNÚŤ DEŇ" textFill="WHITE">
+      <Button layoutX="58.0" layoutY="389.0" mnemonicParsing="false" onAction="#btnSummarizeDayOnAction" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #d35f3f; -fx-border-color: #aa492e;" text="%summarize_day" textFill="WHITE">
          <font>
             <Font name="System Bold" size="10.0" />
          </font>
       </Button>
-      <Button layoutX="58.0" layoutY="322.0" mnemonicParsing="false" onAction="#btnAddActivityOnAction" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #d35f3f; -fx-border-color: #aa492e;" text="PRIDAŤ AKTIVITU" textFill="WHITE">
+      <Button layoutX="58.0" layoutY="322.0" mnemonicParsing="false" onAction="#btnAddActivityOnAction" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #d35f3f; -fx-border-color: #aa492e;" text="%add_activity" textFill="WHITE">
          <font>
             <Font name="System Bold" size="10.0" />
          </font>
       </Button>
-      <Button layoutX="491.0" layoutY="632.0" mnemonicParsing="false" onAction="#btnShowCalendarOnAction" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #d35f3f; -fx-border-color: #aa492e;" text="ZOBRAZIŤ KALENDÁR" textFill="WHITE">
+      <Button layoutX="491.0" layoutY="632.0" mnemonicParsing="false" onAction="#btnShowCalendarOnAction" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #d35f3f; -fx-border-color: #aa492e;" text="%show_calendar" textFill="WHITE">
          <font>
             <Font name="System Bold" size="10.0" />
          </font>
       </Button>
       <Pane layoutY="54.0" prefHeight="100.0" prefWidth="900.0" style="-fx-background-color: #d35f3f;">
          <children>
-            <Label layoutX="94.0" layoutY="21.0" text="VITAJ, PRIMITIV." textFill="WHITE">
+            <Label layoutX="94.0" layoutY="21.0" text="%welcome" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="40.0" />
                </font>
@@ -61,17 +61,17 @@
             <Image url="@../Images/imagesright.png" />
          </image>
       </ImageView>
-      <Button layoutX="58.0" layoutY="458.0" mnemonicParsing="false" onAction="#btnSettingsOnAction" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #d35f3f; -fx-border-color: #aa492e;" text="NASTAVENIA" textFill="WHITE">
+      <Button layoutX="58.0" layoutY="458.0" mnemonicParsing="false" onAction="#btnSettingsOnAction" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #d35f3f; -fx-border-color: #aa492e;" text="%settings" textFill="WHITE">
          <font>
             <Font name="System Bold" size="10.0" />
          </font>
       </Button>
-      <Button layoutX="750.0" layoutY="186.0" mnemonicParsing="false" onAction="#addDay" prefHeight="22.0" prefWidth="86.0" style="-fx-background-color: #d35f3f;" text="NEXT" textFill="WHITE">
+      <Button layoutX="750.0" layoutY="186.0" mnemonicParsing="false" onAction="#addDay" prefHeight="22.0" prefWidth="86.0" style="-fx-background-color: #d35f3f;" text="%next" textFill="WHITE">
          <font>
             <Font name="System Bold" size="11.0" />
          </font>
       </Button>
-      <Button layoutX="307.0" layoutY="186.0" mnemonicParsing="false" onAction="#subDay" prefHeight="22.0" prefWidth="86.0" style="-fx-background-color: #d35f3f;" text="PREV" textFill="WHITE">
+      <Button layoutX="307.0" layoutY="186.0" mnemonicParsing="false" onAction="#subDay" prefHeight="22.0" prefWidth="86.0" style="-fx-background-color: #d35f3f;" text="%prev" textFill="WHITE">
          <font>
             <Font name="System Bold" size="11.0" />
          </font>
@@ -80,13 +80,13 @@
          <font>
             <Font name="System Bold" size="23.0" />
          </font></Label>
-      <TextField fx:id="city" layoutX="34.0" layoutY="221.0" onAction="#changeLocation" prefHeight="26.0" prefWidth="210.0" promptText="Zadaj lokáciu pre počasie" />
-      <Button fx:id="btnSvk" layoutX="68.0" layoutY="568.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="58.0" style="-fx-background-color: #d35f3f;" text="SK" textFill="WHITE">
+      <TextField fx:id="city" layoutX="34.0" layoutY="221.0" onAction="#changeLocation" prefHeight="26.0" prefWidth="210.0" promptText="%set_city" />
+      <Button fx:id="btnSvk" layoutX="68.0" layoutY="568.0" mnemonicParsing="false" onAction="#btnSvkOnAction" prefHeight="24.0" prefWidth="58.0" style="-fx-background-color: #d35f3f;" text="SK" textFill="WHITE">
          <font>
             <Font name="System Bold" size="11.0" />
          </font>
       </Button>
-      <Button fx:id="btnEng" layoutX="152.0" layoutY="568.0" mnemonicParsing="false" onAction="#subDay" prefHeight="24.0" prefWidth="58.0" style="-fx-background-color: #d35f3f;" text="EN" textFill="WHITE">
+      <Button fx:id="btnEng" layoutX="152.0" layoutY="568.0" mnemonicParsing="false" onAction="#btnEngOnAction" prefHeight="24.0" prefWidth="58.0" style="-fx-background-color: #d35f3f;" text="EN" textFill="WHITE">
          <font>
             <Font name="System Bold" size="11.0" />
          </font>

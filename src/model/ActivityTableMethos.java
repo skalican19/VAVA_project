@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import model.days.Activity;
 
 import java.io.IOException;
+import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -18,7 +19,8 @@ public class ActivityTableMethos {
             AlertBox.show("Zvoľte prosím aktivitu", "warning");
             return;
         }
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/showactivity.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/showactivity.fxml"),
+                ResourceBundle.getBundle("MessagesBundle", Main.currentLocale));
         try {
             Main.primaryStage.setScene(new Scene(loader.load()));
             ShowActivityController c = loader.getController();

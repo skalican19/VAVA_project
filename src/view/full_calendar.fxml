@@ -74,14 +74,14 @@
             </Button>
          </right>
          <top>
-            <Label fx:id="lblMonth" text="MESIAC" BorderPane.alignment="CENTER">
+            <Label fx:id="lblMonth" text="%month" BorderPane.alignment="CENTER">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
          </top>
       </BorderPane>
-      <Button layoutX="391.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnBackOnAction" prefHeight="26.0" prefWidth="118.0" style="-fx-background-color: #d35f3f;" text="SPÄŤ" textFill="WHITE">
+      <Button layoutX="391.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnBackOnAction" prefHeight="26.0" prefWidth="118.0" style="-fx-background-color: #d35f3f;" text="%back" textFill="WHITE">
          <font>
             <Font name="System Bold" size="11.0" />
          </font>

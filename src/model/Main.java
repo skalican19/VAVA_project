@@ -9,6 +9,7 @@ import model.user.Settings;
 import model.user.User;
 import java.io.IOException;
 import java.util.Locale;
+import java.util.ResourceBundle;
 
 public class Main extends Application {
     public static Stage primaryStage = new Stage();
@@ -26,12 +27,13 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        currentLocale = new Locale("sk", "SK");
+        currentLocale = new Locale("en", "US");
         mainScene();
     }
 
     public static void mainScene() throws Exception {
-        Parent root = FXMLLoader.load(Main.class.getResource("/view/mainscene.fxml"));
+        Parent root = FXMLLoader.load(Main.class.getResource("/view/mainscene.fxml"),
+                ResourceBundle.getBundle("MessagesBundle", Main.currentLocale));
         Scene scene = new Scene(root);
 
         primaryStage.setResizable(false);

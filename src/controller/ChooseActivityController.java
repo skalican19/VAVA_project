@@ -51,7 +51,8 @@ public class ChooseActivityController implements INewWindowScene, Initializable 
     }
 
     public void btnNewOnAction(){
-        FXMLLoader loader = new FXMLLoader(Main.class.getResource("/view/createactivity.fxml"));
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("/view/createactivity.fxml"),
+                ResourceBundle.getBundle("MessagesBundle", Main.currentLocale));
         Stage stage = new Stage();
         Scene scene = null;
         try {

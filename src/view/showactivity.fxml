@@ -13,19 +13,19 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ShowActivityController">
+<AnchorPane prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ShowActivityController">
    <children>
-      <Label layoutX="53.0" layoutY="202.0" text="Typ:">
+      <Label layoutX="53.0" layoutY="202.0" text="%type">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="53.0" layoutY="242.0" text="Názov:">
+      <Label layoutX="53.0" layoutY="242.0" text="%activity">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="53.0" layoutY="282.0" text="Opis:">
+      <Label layoutX="53.0" layoutY="282.0" text="%description">
          <font>
             <Font size="18.0" />
          </font>
@@ -35,7 +35,7 @@
       <TextArea fx:id="taDescription" layoutX="219.0" layoutY="282.0" prefHeight="127.0" prefWidth="291.0" />
       <Pane layoutY="60.0" prefHeight="100.0" prefWidth="900.0" style="-fx-background-color: #d35f3f;">
          <children>
-            <Label layoutX="48.0" layoutY="21.0" text="Aktivita" textFill="WHITE">
+            <Label layoutX="48.0" layoutY="21.0" text="%activity" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="40.0" />
                </font>
@@ -48,45 +48,45 @@
          </children>
       </Pane>
       <ProgressIndicator fx:id="progress" layoutX="436.0" layoutY="516.0" progress="0.0" />
-      <Label fx:id="lblProgress" layoutX="53.0" layoutY="515.0" text="Progress:">
+      <Label fx:id="lblProgress" layoutX="53.0" layoutY="515.0" text="%progress">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="53.0" layoutY="431.0" text="Posledný záznam:">
+      <Label layoutX="53.0" layoutY="431.0" text="%last_done">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
       <TextField fx:id="tfLastDate" editable="false" layoutX="216.0" layoutY="432.0" />
-      <Button layoutX="249.0" layoutY="612.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="26.0" prefWidth="118.0" style="-fx-background-color: #d35f3f;" text="ULOŽIŤ ZMENY" textFill="WHITE">
+      <Button layoutX="249.0" layoutY="612.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="26.0" prefWidth="118.0" style="-fx-background-color: #d35f3f;" text="%save" textFill="WHITE">
          <font>
             <Font name="System Bold" size="11.0" />
          </font>
       </Button>
-      <Button layoutX="41.0" layoutY="612.0" mnemonicParsing="false" onAction="#btnBackOnAction" prefHeight="26.0" prefWidth="118.0" style="-fx-background-color: #d35f3f;" text="SPÄŤ" textFill="WHITE">
+      <Button layoutX="41.0" layoutY="612.0" mnemonicParsing="false" onAction="#btnBackOnAction" prefHeight="26.0" prefWidth="118.0" style="-fx-background-color: #d35f3f;" text="%back" textFill="WHITE">
          <font>
             <Font name="System Bold" size="11.0" />
          </font>
       </Button>
       <ImageView fx:id="imgActivityType" fitHeight="290.0" fitWidth="334.0" layoutX="546.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="btnAdd" layoutX="567.0" layoutY="515.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="26.0" prefWidth="73.0" style="-fx-background-color: #d35f3f;" text="PRIDAŤ" textFill="WHITE">
+      <Button fx:id="btnAdd" layoutX="567.0" layoutY="515.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="26.0" prefWidth="73.0" style="-fx-background-color: #d35f3f;" text="%increase" textFill="WHITE">
          <font>
             <Font name="System Bold" size="11.0" />
          </font>
       </Button>
-      <Label fx:id="lblDueDate" layoutX="53.0" layoutY="470.0" text="Dátum konca:">
+      <Label fx:id="lblDueDate" layoutX="53.0" layoutY="470.0" text="%due_date">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
       <DatePicker fx:id="dpDueDate" layoutX="216.0" layoutY="471.0" />
       <ProgressBar fx:id="progressbar" layoutX="219.0" layoutY="519.0" prefWidth="200.0" progress="0.0" />
-      <Button fx:id="btnSub" layoutX="480.0" layoutY="515.0" mnemonicParsing="false" onAction="#btnSubOnAction" prefHeight="26.0" prefWidth="73.0" style="-fx-background-color: #d35f3f;" text="ODOBRAŤ" textFill="WHITE">
+      <Button fx:id="btnSub" layoutX="480.0" layoutY="515.0" mnemonicParsing="false" onAction="#btnSubOnAction" prefHeight="26.0" prefWidth="73.0" style="-fx-background-color: #d35f3f;" text="%decrease" textFill="WHITE">
          <font>
             <Font name="System Bold" size="11.0" />
          </font>
       </Button>
-      <ImageView fx:id="activityImage" fitHeight="226.0" fitWidth="226.0" layoutX="613.0" layoutY="203.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="activityImage" fitHeight="226.0" fitWidth="226.0" layoutX="600.0" layoutY="233.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

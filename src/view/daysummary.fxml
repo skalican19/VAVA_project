@@ -16,7 +16,7 @@
    <children>
       <Pane layoutY="50.0" prefHeight="100.0" prefWidth="900.0" style="-fx-background-color: #d35f3f;">
          <children>
-            <Label layoutX="94.0" layoutY="21.0" text="Zhrnutie dňa" textFill="WHITE">
+            <Label layoutX="94.0" layoutY="21.0" text="%day_summary" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="40.0" />
                </font>
@@ -30,76 +30,61 @@
       </Pane>
       <TableView fx:id="tableActivities" layoutX="56.0" layoutY="460.0" prefHeight="167.0" prefWidth="394.0">
          <columns>
-            <TableColumn fx:id="columnStart" prefWidth="96.80001068115234" text="Začiatok" />
-            <TableColumn fx:id="columnEnd" prefWidth="124.0" text="Koniec" />
-            <TableColumn fx:id="columnActivity" prefWidth="173.60003662109375" text="Aktivita" />
+            <TableColumn fx:id="columnStart" prefWidth="96.80001068115234" text="%start_activity" />
+            <TableColumn fx:id="columnEnd" prefWidth="124.0" text="%end_activity" />
+            <TableColumn fx:id="columnActivity" prefWidth="173.60003662109375" text="%activity" />
          </columns>
       </TableView>
-      <Button layoutX="56.0" layoutY="654.0" mnemonicParsing="false" onAction="#btnBackOnAction" prefHeight="22.0" prefWidth="86.0" style="-fx-background-color: #d35f3f;" text="SPÄŤ" textFill="WHITE">
+      <Button layoutX="56.0" layoutY="654.0" mnemonicParsing="false" onAction="#btnBackOnAction" prefHeight="22.0" prefWidth="86.0" style="-fx-background-color: #d35f3f;" text="%back" textFill="WHITE">
          <font>
             <Font name="System Bold" size="11.0" />
          </font>
       </Button>
       <TableView fx:id="tableTasks" layoutX="477.0" layoutY="460.0" prefHeight="167.0" prefWidth="394.0">
         <columns>
-          <TableColumn fx:id="columnTask" prefWidth="199.19998168945312" text="Úloha" />
-          <TableColumn fx:id="columnProgress" prefWidth="194.4000244140625" text="Progress" />
+          <TableColumn fx:id="columnTask" prefWidth="199.19998168945312" text="%task" />
+          <TableColumn fx:id="columnProgress" prefWidth="194.4000244140625" text="%progress" />
         </columns>
       </TableView>
       <TextArea fx:id="taComment" layoutX="163.0" layoutY="254.0" prefHeight="95.0" prefWidth="272.0" />
-      <Label layoutX="56.0" layoutY="254.0" text="Poznámka:">
+      <Label layoutX="56.0" layoutY="254.0" text="%comment">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="55.0" layoutY="189.0" text="Dátum:">
+      <Label layoutX="55.0" layoutY="189.0" text="%date">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <TextField fx:id="tfDate" editable="false" layoutX="163.0" layoutY="190.0" prefHeight="26.0" prefWidth="272.0" />
-      <Label layoutX="484.0" layoutY="189.0" text="Čas venovaný úlohám:">
+      <TextField fx:id="tfDate" layoutX="163.0" layoutY="190.0" prefHeight="26.0" prefWidth="272.0" />
+      <Label layoutX="484.0" layoutY="189.0" text="%task_time">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="484.0" layoutY="254.0" text="Čas venovaný hobby:">
+      <Label layoutX="484.0" layoutY="254.0" text="%hobby_time">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="489.0" layoutY="319.0" text="Nezaradený čas:">
+      <Label layoutX="489.0" layoutY="319.0" text="%free_time">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <TextField fx:id="tfTasks" editable="false" layoutX="687.0" layoutY="190.0" prefHeight="26.0" prefWidth="156.0" />
-      <TextField fx:id="tfHobby" editable="false" layoutX="687.0" layoutY="254.0" prefHeight="26.0" prefWidth="156.0" />
-      <TextField fx:id="tfFree" editable="false" layoutX="687.0" layoutY="319.0" prefHeight="26.0" prefWidth="156.0" />
-      <Button layoutX="363.0" layoutY="419.0" mnemonicParsing="false" onAction="#btnDeleteActivityOnAction" prefHeight="24.0" prefWidth="86.0" style="-fx-background-color: #d35f3f;" text="ZMAZAŤ" textFill="WHITE">
+      <TextField fx:id="tfTasks" layoutX="687.0" layoutY="190.0" prefHeight="26.0" prefWidth="156.0" />
+      <TextField fx:id="tfHobby" layoutX="687.0" layoutY="254.0" prefHeight="26.0" prefWidth="156.0" />
+      <TextField fx:id="tfFree" layoutX="687.0" layoutY="319.0" prefHeight="26.0" prefWidth="156.0" />
+      <Button layoutX="363.0" layoutY="419.0" mnemonicParsing="false" onAction="#btnDeleteActivityOnAction" prefHeight="24.0" prefWidth="86.0" style="-fx-background-color: #d35f3f;" text="%delete" textFill="WHITE">
          <font>
             <Font name="System Bold" size="11.0" />
          </font>
       </Button>
-      <Button layoutX="267.0" layoutY="419.0" mnemonicParsing="false" onAction="#btnShowActivityOnAction" prefHeight="24.0" prefWidth="86.0" style="-fx-background-color: #d35f3f;" text="ZOBRAZIŤ" textFill="WHITE">
+      <Button layoutX="267.0" layoutY="419.0" mnemonicParsing="false" onAction="#btnShowActivityOnAction" prefHeight="24.0" prefWidth="86.0" style="-fx-background-color: #d35f3f;" text="%show" textFill="WHITE">
          <font>
             <Font name="System Bold" size="11.0" />
          </font>
       </Button>
-      <Button layoutX="163.0" layoutY="654.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="22.0" prefWidth="86.0" style="-fx-background-color: #d35f3f;" text="ULOŽIŤ" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="11.0" />
-         </font>
-      </Button>
-      <Label layoutX="55.0" layoutY="418.0" text="Zoznam aktivít:">
-         <font>
-            <Font name="System Bold" size="17.0" />
-         </font>
-      </Label>
-      <Label layoutX="477.0" layoutY="418.0" text="Dnešné úlohy a ich progress:">
-         <font>
-            <Font name="System Bold" size="17.0" />
-         </font>
-      </Label>
    </children>
 </AnchorPane>

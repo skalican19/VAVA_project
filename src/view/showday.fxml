@@ -12,18 +12,18 @@
    <children>
       <TableView fx:id="tableActivities" layoutX="25.0" layoutY="191.0" prefHeight="187.0" prefWidth="476.0">
          <columns>
-            <TableColumn fx:id="columnStart" prefWidth="94.4000244140625" text="Začiatok" />
-            <TableColumn fx:id="columnEnd" prefWidth="164.7999725341797" text="Koniec" />
-            <TableColumn fx:id="columnActivity" prefWidth="215.20001220703125" text="Aktivita" />
+            <TableColumn fx:id="columnStart" prefWidth="113.60004043579102" text="%start_activity" />
+            <TableColumn fx:id="columnEnd" prefWidth="146.3999481201172" text="%end_activity" />
+            <TableColumn fx:id="columnActivity" prefWidth="215.20001220703125" text="%activity" />
          </columns>
       </TableView>
       <TextArea layoutX="132.0" layoutY="38.0" prefHeight="95.0" prefWidth="368.0" />
-      <Label layoutX="25.0" layoutY="38.0" text="Poznámka:">
+      <Label layoutX="25.0" layoutY="38.0" text="%comment">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <Button layoutX="351.0" layoutY="158.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="24.0" prefWidth="149.0" style="-fx-background-color: #d35f3f;" text="PRIDAŤ ČINNOSŤ" textFill="WHITE">
+      <Button layoutX="351.0" layoutY="158.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="24.0" prefWidth="149.0" style="-fx-background-color: #d35f3f;" text="%create_timetable" textFill="WHITE">
          <font>
             <Font name="System Bold" size="11.0" />
          </font>
