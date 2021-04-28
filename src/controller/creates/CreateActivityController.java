@@ -15,6 +15,7 @@ import model.Main;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 /***
@@ -65,7 +66,8 @@ public class CreateActivityController implements Initializable{
         Activity a;
         if(!validate()) return;
         if (type.equals("Úloha")){
-            a = new Task(tfName.getText(),cbPriority.getValue(),tfDesc.getText(), dpDueDate.getValue());
+            a = new Task(tfName.getText(),cbPriority.getValue(),tfDesc.getText(),
+                    dpDueDate.getValue() != null ? dpDueDate.getValue() : LocalDate.of(9999,12,31));
         }
         else{
             a = new Hobby(tfName.getText(),cbPriority.getValue(),tfDesc.getText(), choiceOutdoor.isSelected());

@@ -88,8 +88,8 @@ public class WelcomeScreenController implements Initializable, IChangeScene, INe
         createScene("createactivity");
     }
 
-    public void btnModifyDayOnAction(){
-
+    public void btnSummarizeDayOnAction(){
+        sceneChanger("daysummary");
     }
 
     public void btnShowCalendarOnAction(){
