@@ -78,4 +78,8 @@ public class WeatherHour {
     public String getWind() {
         return wind;
     }
+
+    public String getWeatherState() {
+        return weatherState;
+    }
 }

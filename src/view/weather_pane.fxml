@@ -40,12 +40,6 @@
             <RowConstraints maxHeight="152.0" minHeight="10.0" prefHeight="87.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="152.0" minHeight="10.0" prefHeight="87.0" vgrow="SOMETIMES" />
          </rowConstraints>
-         <children>
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="73.0" text="Čas:" GridPane.rowIndex="1" />
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="69.0" text="Teplota:" GridPane.rowIndex="2" />
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="59.0" text="Vietor:" GridPane.rowIndex="3" />
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="77.0" text="Zrážky:" GridPane.rowIndex="4" />
-         </children>
       </GridPane>
       <Label fx:id="dayTemp" alignment="CENTER" layoutX="322.0" layoutY="26.0" prefHeight="67.0" prefWidth="173.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);" text="day" textFill="WHITE">
          <font>
