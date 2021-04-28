@@ -15,7 +15,7 @@ public class User implements Serializable {
     private String userName;
     private String email;
     private String password;
-    private HashMap<LocalDate, Day> recordedDays;
+    private HashMap<LocalDate, Day> recordedDays = new HashMap<>();
     private ArrayList<Activity> activities;
 
     public boolean registerUser(String userName, String email, String password) {
@@ -67,7 +67,8 @@ public class User implements Serializable {
 
     public Day getDay(LocalDate date){
         if (recordedDays.containsKey(date)) return recordedDays.get(date);
-        return new Day(date);
+        recordedDays.put(date, new Day(date));
+        return recordedDays.get(date);
     }
 
     public ArrayList<Activity> getActivities() {

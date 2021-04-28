@@ -28,13 +28,11 @@ import java.util.ResourceBundle;
  */
 public class ShowDayController implements Initializable {
 
-    public static Day day;
-    @FXML
-    private TableView<PerformedActivity> tableActivities;
-    @FXML
-    private TableColumn<PerformedActivity, LocalTime> columnStart;
-    @FXML
-    private TableColumn<PerformedActivity, LocalTime> columnEnd;
+    private Day day = Main.user.getDay(WelcomeScreenController.displayDate);
+    @FXML private TableView<PerformedActivity> tableActivities;
+    @FXML private TableColumn<PerformedActivity, LocalTime> columnStart;
+    @FXML private TableColumn<PerformedActivity, LocalTime> columnEnd;
+    @FXML private TableColumn<PerformedActivity, LocalTime> columnActivity;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -43,11 +41,6 @@ public class ShowDayController implements Initializable {
     }
 
     public void btnAddOnAction(){
-        PerformedActivity selected = tableActivities.getSelectionModel().getSelectedItem();
-        if (selected == null){
-            AlertBox.show("Zvoľte prosím aktivitu", "warning");
-            return;
-        }
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("/view/chooseactivity.fxml"));
         Stage stage = new Stage();
         Scene scene = null;
@@ -60,6 +53,7 @@ public class ShowDayController implements Initializable {
         }
         stage.setResizable(false);
         stage.setScene(scene);
+        stage.sizeToScene();
         stage.show();
     }
 
@@ -68,10 +62,11 @@ public class ShowDayController implements Initializable {
         tableActivities.getItems().clear();
         columnStart.setCellValueFactory(new PropertyValueFactory<>("start"));
         columnEnd.setCellValueFactory(new PropertyValueFactory<>("end"));
+        columnActivity.setCellValueFactory(new PropertyValueFactory<>("activity"));
     }
 
     private void populateTable(){
-        if (ShowDayController.day == null) day = new Day(LocalDate.now());
+        if (day == null) day = new Day(LocalDate.now());
         ArrayList<PerformedActivity> activities = day.getActivities();
         ObservableList<PerformedActivity> obsList = FXCollections.observableArrayList(activities);
         tableActivities.getItems().setAll(obsList);

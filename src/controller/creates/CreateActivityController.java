@@ -1,5 +1,6 @@
 package controller.creates;
 
+import controller.databases.DatabaseManager;
 import controller.flowcontrol.AlertBox;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,6 +13,7 @@ import model.days.Hobby;
 import model.days.Task;
 import model.Main;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -28,6 +30,7 @@ public class CreateActivityController implements Initializable{
     @FXML Label lblDue;
     @FXML DatePicker dpDueDate;
     @FXML ComboBox<Priority> cbPriority;
+    private TableView<Activity> tableActivities = null;
     private String type;
 
 
@@ -58,7 +61,7 @@ public class CreateActivityController implements Initializable{
 
     }
 
-    public void btnSaveOnAction(){
+    public void btnSaveOnAction() throws IOException {
         Activity a;
         if(!validate()) return;
         if (type.equals("Úloha")){
@@ -69,6 +72,10 @@ public class CreateActivityController implements Initializable{
         }
         clearAll();
         Main.user.addActivity(a);
+        if (tableActivities != null){
+            tableActivities.getItems().add(a);
+        }
+        DatabaseManager.getInstance().saveUsers();
     }
 
     private void initComboboxes(){
@@ -106,5 +113,9 @@ public class CreateActivityController implements Initializable{
         dpDueDate.setValue(null);
         cbPriority.setVisible(false);
         cbPriority.setValue(null);
+    }
+
+    public void setTableActivities(TableView<Activity> tableActivities) {
+        this.tableActivities = tableActivities;
     }
 }

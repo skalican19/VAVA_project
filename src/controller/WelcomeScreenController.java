@@ -1,5 +1,6 @@
 package controller;
 
+import controller.flowcontrol.AlertBox;
 import controller.flowcontrol.IChangeScene;
 import controller.flowcontrol.INewWindowScene;
 import javafx.fxml.FXML;
@@ -19,7 +20,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class WelcomeScreenController implements Initializable, IChangeScene, INewWindowScene {
-    Logger LOG = Logger.getLogger(IChangeScene.class.getName());
+
     @FXML Pane paneView;
     @FXML Label date;
     @FXML TextField city;

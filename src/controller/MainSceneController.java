@@ -4,6 +4,7 @@ import controller.flowcontrol.IChangeScene;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import model.Main;
 import model.user.User;
 import controller.flowcontrol.AlertBox;
 import java.io.IOException;
@@ -27,6 +28,7 @@ public class MainSceneController implements IChangeScene {
             User user = manager.getUser(nameLogin.getText());
 
             if(user != null && user.verifyLogin(passwordLogin.getText())){
+                Main.user = user;
                 sceneChanger("welcomescreen");
             }
 
@@ -44,9 +46,16 @@ public class MainSceneController implements IChangeScene {
         User user = new User();
         if (user.registerUser(nameRegistration.getText(), emailRegistration.getText(), passwordRegistration.getText())) {
             AlertBox.show("Boli ste úspešne zaregistrovaný.", "Success");
+            clearAll();
         }
         else {
             AlertBox.show("Neplatná emailová adresa.", "Warning");
         }
+    }
+
+    private void clearAll(){
+        nameRegistration.clear();
+        emailRegistration.clear();
+        passwordRegistration.clear();
     }
 }

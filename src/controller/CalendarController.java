@@ -1,4 +1,5 @@
 package controller;
+import controller.flowcontrol.IChangeScene;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
@@ -19,7 +20,7 @@ import model.calendar.AnchorPaneNode;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CalendarController implements Initializable {
+public class CalendarController implements Initializable, IChangeScene {
 
     @FXML Pane calendarPane;
     @FXML GridPane gridCalendar;
@@ -97,6 +98,10 @@ public class CalendarController implements Initializable {
     public void btnNextOnAction() {
         currentYearMonth = currentYearMonth.plusMonths(1);
         populateCalendar(currentYearMonth);
+    }
+
+    public void btnBackOnAction() {
+        sceneChanger("welcomescreen");
     }
 
     public ArrayList<AnchorPaneNode> getAllCalendarDays() {

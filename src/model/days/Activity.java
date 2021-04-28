@@ -1,12 +1,11 @@
 package model.days;
-
+import java.io.Serializable;
 import java.time.LocalDate;
-import java.time.LocalTime;
 
 /***
  * Author Dušan
  */
-public class Activity {
+public class Activity implements Serializable {
     private String name;
     private Priority priority;
     private String description;
@@ -46,5 +45,25 @@ public class Activity {
         if (this instanceof Task) return "Task";
         if (this instanceof Hobby) return "Recreation";
         return "Activity";
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPriority(Priority priority) {
+        this.priority = priority;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setLastDone(LocalDate lastDone) {
+        this.lastDone = lastDone;
     }
 }

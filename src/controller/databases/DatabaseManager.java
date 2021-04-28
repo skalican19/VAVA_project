@@ -13,7 +13,6 @@ public class DatabaseManager {
 
     private ArrayList<User> usersDatabase = new DatabaseAdmin<User>().download("databases/user_database");
 
-    private DatabaseManager() throws IOException {}
 
     public static DatabaseManager getInstance() throws IOException {
         if (instance == null)
@@ -29,6 +28,10 @@ public class DatabaseManager {
 
     public void updateUsers(ArrayList<User> users){
         new DatabaseAdmin<User>().upload("databases/user_database", users);
+    }
+
+    public void saveUsers(){
+        new DatabaseAdmin<User>().upload("databases/user_database", usersDatabase);
     }
 
     public ArrayList getUsersDatabase() {

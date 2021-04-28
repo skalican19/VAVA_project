@@ -1,5 +1,6 @@
 package controller;
 
+import controller.creates.CreateActivityController;
 import controller.flowcontrol.AlertBox;
 import controller.flowcontrol.INewWindowScene;
 import javafx.collections.FXCollections;
@@ -12,15 +13,18 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import model.days.Activity;
 import model.days.Hobby;
 import model.days.PerformedActivity;
 import model.days.Task;
 import model.Main;
+import model.user.Settings;
 
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.ResourceBundle;
@@ -37,8 +41,9 @@ public class ChooseActivityController implements INewWindowScene, Initializable 
     @FXML private TableColumn<Activity, String> columnType;
     @FXML private TableColumn<Activity, String> columnPriority;
     @FXML private TableColumn<Activity, LocalDate> columnLast;
-    @FXML private ComboBox<Hobby> cbActivities;
-    @FXML private ComboBox<Task> cbTasks;
+    @FXML private ComboBox<Activity> cbActivities;
+    @FXML private ComboBox<LocalTime> cbStart;
+    @FXML private ComboBox<LocalTime> cbEnd;
     private final ArrayList<Activity> activities = Main.user.getActivities();
     private final ObservableList<Activity> obsList = FXCollections.observableArrayList(activities);
     private TableView<PerformedActivity> tableOfDay;
@@ -51,7 +56,20 @@ public class ChooseActivityController implements INewWindowScene, Initializable 
     }
 
     public void btnNewOnAction(){
-        createScene("createactivity");
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("/view/createactivity.fxml"));
+        Stage stage = new Stage();
+        Scene scene = null;
+        try {
+            scene = new Scene(loader.load());
+            CreateActivityController c = loader.getController();
+            c.setTableActivities(tableActivities);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        stage.setResizable(false);
+        stage.setScene(scene);
+        stage.sizeToScene();
+        stage.show();
     }
 
     public void btnShowOnAction(){
@@ -67,7 +85,7 @@ public class ChooseActivityController implements INewWindowScene, Initializable 
             c.setCurrent(a);
             Main.primaryStage.show();
         } catch (IOException e) {
-            LOG.log(Level.SEVERE, "Súbor s danou cestou sa mepodarilo načítať.");
+            LOG.log(Level.SEVERE, "Súbor sa mepodarilo načítať.");
         }
     }
 
@@ -77,12 +95,17 @@ public class ChooseActivityController implements INewWindowScene, Initializable 
             AlertBox.show("Zvoľte prosím aktivitu", "warning");
             return;
         }
+        Main.user.removeActivity(a);
     }
 
     public void btnChooseOnAction(){
-        Activity a = tableActivities.getSelectionModel().getSelectedItem();
-        PerformedActivity selected  = tableOfDay.getSelectionModel().getSelectedItem();
-        selected.setActivity(a);
+        if (!validate()) return;
+        for(PerformedActivity a : tableOfDay.getItems()){
+            if(a.getStart().isBefore(cbEnd.getValue()) &&
+                    (a.getStart().isAfter(cbStart.getValue()) || a.getStart().equals(cbStart.getValue()))){
+                a.setActivity(tableActivities.getSelectionModel().getSelectedItem());
+            }
+        }
         tableOfDay.refresh();
     }
 
@@ -96,23 +119,14 @@ public class ChooseActivityController implements INewWindowScene, Initializable 
     }
 
     private void initComboboxes(){
-        ArrayList<Task> tasks = new ArrayList<>();
-        ArrayList<Hobby> hobbies = new ArrayList<>();
+        cbActivities.getItems().addAll(obsList);
+        ObservableList<LocalTime> times = FXCollections.observableArrayList(Settings.getInstance().getValidHours());
 
-        for(Activity a: activities){
-            if (a instanceof Task) {
-                tasks.add((Task) a);
-                break;
-            }
-            if (a instanceof Hobby){
-                hobbies.add((Hobby) a);
-                break;
-            }
+        for(LocalTime hour: times){
+            cbStart.getItems().add(hour);
+            cbEnd.getItems().add(hour.plusHours(1));
         }
 
-        obsList.sort(Comparator.comparing(Activity::getLastDone));
-        cbActivities.getItems().addAll(hobbies);
-        cbTasks.getItems().addAll(tasks);
         // TODO make this choose activities based on priorities and weather and shit
     }
 
@@ -123,4 +137,22 @@ public class ChooseActivityController implements INewWindowScene, Initializable 
     public void setTableOfDay(TableView<PerformedActivity> tableOfDay) {
         this.tableOfDay = tableOfDay;
     }
+
+    private boolean validate(){
+
+        if(cbStart.getValue() == null || cbEnd.getValue() == null){
+            AlertBox.show("Zvoľte prosím čas, na ktorý chcete pridať aktivitu.","warning");
+            return false;
+        }
+        if(cbEnd.getValue().isBefore(cbStart.getValue())){
+            AlertBox.show("Zvoľte prosím čas začiatku pred časom konca.","warning");
+            return false;
+        }
+        if (tableActivities.getSelectionModel().getSelectedItem() == null){
+            AlertBox.show("Zvoľte prosím aktivitu na daný čas.","warning");
+            return false;
+        }
+        return true;
+    }
+
 }
