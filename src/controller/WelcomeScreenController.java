@@ -1,29 +1,27 @@
 package controller;
-
-import controller.flowcontrol.AlertBox;
 import controller.flowcontrol.IChangeScene;
 import controller.flowcontrol.INewWindowScene;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
+import javafx.scene.shape.Circle;
 import model.Main;
-
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class WelcomeScreenController implements Initializable, IChangeScene, INewWindowScene {
 
     @FXML Pane paneView;
     @FXML Label date;
     @FXML TextField city;
+    @FXML Button btnSvk;
+    @FXML Button btnEng;
 
     public static LocalDate displayDate;
 
@@ -81,6 +79,13 @@ public class WelcomeScreenController implements Initializable, IChangeScene, INe
     public void initialize(URL location, ResourceBundle resources) {
         displayDate = LocalDate.now();
         pane_no = 1;
+        double r=30;
+        btnSvk.setShape(new Circle(r));
+        btnSvk.setMinSize(2*r, 2*r);
+        btnSvk.setMaxSize(2*r, 2*r);
+        btnEng.setShape(new Circle(r));
+        btnEng.setMinSize(2*r, 2*r);
+        btnEng.setMaxSize(2*r, 2*r);
         refresh();
     }
 
@@ -89,6 +94,10 @@ public class WelcomeScreenController implements Initializable, IChangeScene, INe
     }
 
     public void btnSummarizeDayOnAction(){
+        sceneChanger("daysummary");
+    }
+
+    public void btnSettingsOnAction(){
         sceneChanger("daysummary");
     }
 

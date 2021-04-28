@@ -11,12 +11,12 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.WelcomeScreenController">
    <children>
-      <Button layoutX="58.0" layoutY="429.0" mnemonicParsing="false" onAction="#btnSummarizeDayOnAction" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #d35f3f; -fx-border-color: #aa492e;" text="ZHRNÚŤ DEŇ" textFill="WHITE">
+      <Button layoutX="58.0" layoutY="389.0" mnemonicParsing="false" onAction="#btnSummarizeDayOnAction" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #d35f3f; -fx-border-color: #aa492e;" text="ZHRNÚŤ DEŇ" textFill="WHITE">
          <font>
             <Font name="System Bold" size="10.0" />
          </font>
       </Button>
-      <Button layoutX="58.0" layoutY="362.0" mnemonicParsing="false" onAction="#btnAddActivityOnAction" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #d35f3f; -fx-border-color: #aa492e;" text="PRIDAŤ AKTIVITU" textFill="WHITE">
+      <Button layoutX="58.0" layoutY="322.0" mnemonicParsing="false" onAction="#btnAddActivityOnAction" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #d35f3f; -fx-border-color: #aa492e;" text="PRIDAŤ AKTIVITU" textFill="WHITE">
          <font>
             <Font name="System Bold" size="10.0" />
          </font>
@@ -61,12 +61,7 @@
             <Image url="@../Images/imagesright.png" />
          </image>
       </ImageView>
-      <Button layoutX="58.0" layoutY="498.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #d35f3f; -fx-border-color: #aa492e;" text="ZMENIŤ HESLO" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="10.0" />
-         </font>
-      </Button>
-      <Button layoutX="58.0" layoutY="297.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #d35f3f; -fx-border-color: #aa492e;" text="PRIDAŤ DLHODOBÝ CIEĽ" textFill="WHITE">
+      <Button layoutX="58.0" layoutY="458.0" mnemonicParsing="false" onAction="#btnSettingsOnAction" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #d35f3f; -fx-border-color: #aa492e;" text="NASTAVENIA" textFill="WHITE">
          <font>
             <Font name="System Bold" size="10.0" />
          </font>
@@ -85,6 +80,16 @@
          <font>
             <Font name="System Bold" size="23.0" />
          </font></Label>
-      <TextField fx:id="city" layoutX="58.0" layoutY="186.0" onAction="#changeLocation" prefHeight="25.0" prefWidth="163.0" promptText="Zadaj lokáciu pre počasie" />
+      <TextField fx:id="city" layoutX="34.0" layoutY="221.0" onAction="#changeLocation" prefHeight="26.0" prefWidth="210.0" promptText="Zadaj lokáciu pre počasie" />
+      <Button fx:id="btnSvk" layoutX="68.0" layoutY="568.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="58.0" style="-fx-background-color: #d35f3f;" text="SK" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnEng" layoutX="152.0" layoutY="568.0" mnemonicParsing="false" onAction="#subDay" prefHeight="24.0" prefWidth="58.0" style="-fx-background-color: #d35f3f;" text="EN" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

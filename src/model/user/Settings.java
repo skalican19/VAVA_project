@@ -4,13 +4,14 @@ import model.Main;
 import model.days.PerformedActivity;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
 /***
  * Author Dušan
  */
-public class Settings {
+public class Settings implements Serializable {
     public static Settings instance = null;
     private String city = "Bratislava";
     private LocalTime dayStart;

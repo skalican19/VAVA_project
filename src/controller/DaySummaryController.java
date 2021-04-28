@@ -1,5 +1,6 @@
 package controller;
 import controller.databases.DatabaseManager;
+import controller.flowcontrol.AlertBox;
 import controller.flowcontrol.IChangeScene;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -19,6 +20,7 @@ import model.days.PerformedActivity;
 import model.days.Task;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -39,7 +41,7 @@ public class DaySummaryController implements Initializable, IChangeScene {
     @FXML private TextField tfHobby;
     @FXML private TextField tfFree;
 
-    private Day day = Main.user.getDay(WelcomeScreenController.displayDate);
+    private Day day = Main.user.getDay(LocalDate.now());
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -91,14 +93,23 @@ public class DaySummaryController implements Initializable, IChangeScene {
     }
 
     public void btnShowActivityOnAction(){
-        Activity a = tableActivities.getSelectionModel().getSelectedItem().getActivity();
-        new ActivityTableMethos().showActivity(a);
+        try {
+            Activity a = tableActivities.getSelectionModel().getSelectedItem().getActivity();
+            new ActivityTableMethos().showActivity(a);
+        }
+        catch (NullPointerException e){
+            AlertBox.show("Zvoľte prosím aktivitu", "warning");
+        }
     }
 
     public void btnDeleteActivityOnAction(){
         PerformedActivity a = tableActivities.getSelectionModel().getSelectedItem();
-        day.getActivities().remove(a);
-        tableActivities.getItems().remove(a);
+        int index = day.getActivities().indexOf(a);
+
+        day.getActivities().get(index).setActivity(null);
+        tableActivities.refresh();
+        tableTasks.refresh();
+        setHours();
     }
 
     public void btnSaveOnAction() throws IOException {
@@ -107,5 +118,9 @@ public class DaySummaryController implements Initializable, IChangeScene {
 
     public void btnBackOnAction(){
         sceneChanger("welcomescreen");
+    }
+
+    public void btnSettingsOnAction(){
+
     }
 }
