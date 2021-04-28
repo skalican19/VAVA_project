@@ -12,6 +12,7 @@ import java.util.ArrayList;
  */
 public class Settings {
     public static Settings instance = null;
+    private String city = "Bratislava";
     private LocalTime dayStart;
     private LocalTime dayEnd;
     private LocalTime activityLength;
@@ -47,6 +48,10 @@ public class Settings {
 
     public LocalTime getActivityLength() {
         return activityLength;
+    }
+
+    public String getCity() {
+        return city;
     }
 
     public ArrayList<LocalTime> getValidHours(){
