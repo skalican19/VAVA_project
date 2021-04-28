@@ -30,6 +30,36 @@ public class Day implements Serializable {
         }
     }
 
+    public int getFreeHours(){
+        int sum = 0;
+        for(PerformedActivity a : activities){
+            if (a.getActivity() == null){
+                sum++;
+            }
+        }
+        return sum;
+    }
+
+    public int getHobbyHours(){
+        int sum = 0;
+        for(PerformedActivity a : activities){
+            if (a.getActivity() instanceof Hobby){
+                sum++;
+            }
+        }
+        return sum;
+    }
+
+    public int getTaskHours(){
+        int sum = 0;
+        for(PerformedActivity a : activities){
+            if (a.getActivity() instanceof Task){
+                sum++;
+            }
+        }
+        return sum;
+    }
+
     public LocalDate getDate() {
         return date;
     }

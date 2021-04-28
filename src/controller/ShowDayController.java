@@ -1,5 +1,6 @@
 package controller;
 
+import controller.databases.DatabaseManager;
 import controller.flowcontrol.AlertBox;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -54,6 +55,13 @@ public class ShowDayController implements Initializable {
         stage.setResizable(false);
         stage.setScene(scene);
         stage.sizeToScene();
+        stage.setOnHiding( event -> {
+            try {
+                DatabaseManager.getInstance().saveUsers();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } );
         stage.show();
     }
 

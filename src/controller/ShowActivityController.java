@@ -68,6 +68,10 @@ public class ShowActivityController implements Initializable, IChangeScene {
         if(progress.getProgress() > 0) {
             progressbar.setProgress(progressbar.getProgress() - 0.05);
             progress.setProgress(progress.getProgress() - 0.05);
+            if(progress.getProgress() < 0){
+                progress.setProgress(0);
+                progressbar.setProgress(0);
+            }
         }
     }
 

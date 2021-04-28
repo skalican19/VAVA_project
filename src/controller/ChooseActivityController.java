@@ -14,18 +14,16 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import model.ActivityTableMethos;
 import model.days.*;
 import model.Main;
 import model.user.Settings;
-
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
 
 /***
  * Author Dušan
@@ -72,28 +70,12 @@ public class ChooseActivityController implements INewWindowScene, Initializable 
 
     public void btnShowOnAction(){
         Activity a = tableActivities.getSelectionModel().getSelectedItem();
-        if (a == null){
-            AlertBox.show("Zvoľte prosím aktivitu", "warning");
-            return;
-        }
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/showactivity.fxml"));
-        try {
-            Main.primaryStage.setScene(new Scene(loader.load()));
-            ShowActivityController c = loader.getController();
-            c.setCurrent(a);
-            Main.primaryStage.show();
-        } catch (IOException e) {
-            LOG.log(Level.SEVERE, "Súbor sa mepodarilo načítať.");
-        }
+        new ActivityTableMethos().showActivity(a);
     }
 
     public void btnDeleteOnAction(){
         Activity a = tableActivities.getSelectionModel().getSelectedItem();
-        if (a == null){
-            AlertBox.show("Zvoľte prosím aktivitu", "warning");
-            return;
-        }
-        Main.user.removeActivity(a);
+        new ActivityTableMethos().removeActivity(a);
     }
 
     public void btnChooseOnAction(){

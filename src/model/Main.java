@@ -1,4 +1,5 @@
 package model;
+import controller.databases.DatabaseManager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -6,7 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import model.user.Settings;
 import model.user.User;
-
+import java.io.IOException;
 import java.util.Locale;
 
 public class Main extends Application {
@@ -36,6 +37,13 @@ public class Main extends Application {
         primaryStage.setResizable(false);
         primaryStage.sizeToScene();
         primaryStage.setScene(scene);
+        primaryStage.setOnHiding( event -> {
+            try {
+                DatabaseManager.getInstance().saveUsers();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } );
         primaryStage.show();
     }
 }

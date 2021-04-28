@@ -1,5 +1,6 @@
 package controller.flowcontrol;
 
+import controller.databases.DatabaseManager;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import model.Main;
@@ -10,7 +11,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public interface IChangeScene {
-    Logger LOG = Logger.getLogger(IChangeScene.class.getName());
 
     default void sceneChanger(String view){
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/" + view + ".fxml"),
