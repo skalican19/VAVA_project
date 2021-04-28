@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ShowActivityController">
+<AnchorPane prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ShowActivityController">
    <children>
       <Label layoutX="53.0" layoutY="202.0" text="Typ:">
          <font>
@@ -87,5 +87,6 @@
             <Font name="System Bold" size="11.0" />
          </font>
       </Button>
+      <ImageView fx:id="activityImage" fitHeight="226.0" fitWidth="226.0" layoutX="613.0" layoutY="203.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

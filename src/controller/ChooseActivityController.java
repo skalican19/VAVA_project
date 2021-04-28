@@ -66,7 +66,8 @@ public class ChooseActivityController implements INewWindowScene, Initializable 
         stage.setResizable(false);
         stage.setScene(scene);
         stage.sizeToScene();
-        stage.show();
+        stage.showAndWait();
+        initComboboxes();
     }
 
     public void btnShowOnAction(){
