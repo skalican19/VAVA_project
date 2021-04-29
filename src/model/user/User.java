@@ -103,6 +103,28 @@ public class User implements Serializable {
         return null;
     }
 
+    public ArrayList<Activity> getActivitiesDue(LocalDate date){
+        ArrayList<Activity> activitiesDue = new ArrayList<>();
+
+        if (activities == null) return null;
+        for(Activity a: activities){
+            if(a instanceof Task && (((Task) a).getDueDate().equals(date))){
+                activitiesDue.add(a);
+            }
+        }
+        return activitiesDue;
+    }
+
+    public boolean isActivitiesDue(LocalDate date){
+        if (activities == null) return false;
+        for(Activity a: activities){
+            if(a instanceof Task && (((Task) a).getDueDate().equals(date))){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void removeActivity(Activity a){
         activities.remove(a);
     }

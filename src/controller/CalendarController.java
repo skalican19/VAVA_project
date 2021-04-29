@@ -1,6 +1,9 @@
 package controller;
 import controller.flowcontrol.IChangeScene;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -19,6 +22,7 @@ import model.calendar.AnchorPaneNode;
 import model.days.Activity;
 
 import java.net.URL;
+import java.util.Observable;
 import java.util.ResourceBundle;
 
 
@@ -59,6 +63,7 @@ public class CalendarController implements Initializable, IChangeScene {
 
         populateCalendar(currentYearMonth);
     }
+
 
     /**
      * Set the days of the model.calendar to correspond to the appropriate date
@@ -125,9 +130,8 @@ public class CalendarController implements Initializable, IChangeScene {
 
 
     private void addNote(AnchorPaneNode ap, LocalDate calendarDate){
-        Activity a = Main.user.getActivityDue(calendarDate);
-        if(a == null) return;
-        Label lbl = new Label(a.getName());
+        if(!Main.user.isActivitiesDue(calendarDate)) return;
+        Label lbl = new Label(Translations.Translate("due_activity"));
         lbl.setWrapText(true);
         ap.getChildren().add(lbl);
         lbl.setMaxWidth(Double.MAX_VALUE);
