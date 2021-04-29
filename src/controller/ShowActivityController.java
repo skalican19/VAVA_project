@@ -1,6 +1,7 @@
 package controller;
 
 import controller.databases.DatabaseManager;
+import controller.flowcontrol.AlertBox;
 import controller.flowcontrol.IChangeScene;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -54,6 +55,7 @@ public class ShowActivityController implements Initializable, IChangeScene {
             ((Task) current).setDueDate(dpDueDate.getValue());
         }
         DatabaseManager.getInstance().saveUsers();
+        AlertBox.show(Translations.TranslateAlertBox("alert_successfully_saved"), "Success");
     }
 
     public void btnBackOnAction(){
