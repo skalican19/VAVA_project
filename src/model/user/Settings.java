@@ -28,6 +28,7 @@ public class Settings implements Serializable {
         return dayStart;
     }
 
+
     public LocalTime getDayEnd() {
         return dayEnd;
     }
@@ -70,6 +71,8 @@ public class Settings implements Serializable {
     public String getDefaultCity() {
         return defaultCity;
     }
+
+
 
     public void setShownCity(String shownCity) {
         this.shownCity = shownCity;

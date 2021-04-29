@@ -1,6 +1,7 @@
 package controller.flowcontrol;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import model.Main;
 import java.io.IOException;
@@ -21,9 +22,9 @@ public interface INewWindowScene {
         } catch (IOException e) {
            e.printStackTrace();
         }
+        stage.getIcons().add(new Image("/Images/Logo.png"));
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }
-
 }

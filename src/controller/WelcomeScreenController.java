@@ -96,8 +96,11 @@ public class WelcomeScreenController implements Initializable, IChangeScene, INe
         sceneChanger("daysummary");
     }
 
-    public void btnSettingsOnAction() {
-        sceneChanger("daysummary");
+
+    public void btnSettingsOnAction(){
+        sceneChanger("settings");
+
+
     }
 
     public void btnShowCalendarOnAction() {
