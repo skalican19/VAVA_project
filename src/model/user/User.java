@@ -3,6 +3,8 @@ package model.user;
 import controller.databases.DatabaseManager;
 import model.days.Activity;
 import model.days.Day;
+import model.days.Task;
+
 import java.io.IOException;
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -18,7 +20,7 @@ public class User implements Serializable {
     private String password;
     private Settings settings;
     private HashMap<LocalDate, Day> recordedDays = new HashMap<>();
-    private ArrayList<Activity> activities;
+    private ArrayList<Activity> activities = new ArrayList<>();
 
 
     public User() {
@@ -89,6 +91,16 @@ public class User implements Serializable {
     public void addActivity(Activity a){
         if (activities == null) activities = new ArrayList<>();
         activities.add(a);
+    }
+
+    public Activity getActivityDue(LocalDate date){
+        if (activities == null) return null;
+        for(Activity a: activities){
+            if(a instanceof Task && (((Task) a).getDueDate().equals(date))){
+                return a;
+            }
+        }
+        return null;
     }
 
     public void removeActivity(Activity a){

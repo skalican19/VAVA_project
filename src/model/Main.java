@@ -5,10 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import model.user.Settings;
 import model.user.User;
 import java.io.IOException;
-import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class Main extends Application {

@@ -16,6 +16,7 @@ import javafx.scene.layout.*;
 import model.Main;
 import model.Translations;
 import model.calendar.AnchorPaneNode;
+import model.days.Activity;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -75,6 +76,7 @@ public class CalendarController implements Initializable, IChangeScene {
             }
             Text txt = new Text(String.valueOf(calendarDate.getDayOfMonth()));
             ap.setDate(calendarDate);
+            addNote(ap, calendarDate);
             AnchorPane.setTopAnchor(txt, 5.0);
             AnchorPane.setLeftAnchor(txt, 5.0);
             ap.getChildren().add(txt);
@@ -114,5 +116,18 @@ public class CalendarController implements Initializable, IChangeScene {
 
     public void setCurrentYearMonth(YearMonth currentYearMonth) {
         this.currentYearMonth = currentYearMonth;
+    }
+
+
+    private void addNote(AnchorPaneNode ap, LocalDate calendarDate){
+        Activity a = Main.user.getActivityDue(calendarDate);
+        if(a == null) return;
+        Label lbl = new Label(a.getName());
+        lbl.setWrapText(true);
+        ap.getChildren().add(lbl);
+        ap.setLeftAnchor(lbl, 2.0);
+        ap.setTopAnchor(lbl, 30.0);
+        ap.setRightAnchor(lbl, 2.0);
+        ap.setBottomAnchor(lbl, 30.0);
     }
 }
