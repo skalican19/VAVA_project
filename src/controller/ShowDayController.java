@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import model.days.Activity;
 import model.days.Day;
@@ -55,6 +56,7 @@ public class ShowDayController implements Initializable {
         }
         stage.setResizable(false);
         stage.setScene(scene);
+        stage.getIcons().add(new Image("/Images/Logo.png"));
         stage.sizeToScene();
         stage.setOnHiding( event -> {
             try {

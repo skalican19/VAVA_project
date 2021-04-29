@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import model.user.User;
 import java.io.IOException;
@@ -30,6 +31,7 @@ public class Main extends Application {
         primaryStage.setResizable(false);
         primaryStage.sizeToScene();
         primaryStage.setScene(scene);
+        primaryStage.getIcons().add(new Image("/Images/Logo.png"));
         primaryStage.setOnHiding( event -> {
             try {
                 DatabaseManager.getInstance().saveUsers();

@@ -103,7 +103,7 @@ public class WelcomeScreenController implements Initializable, IChangeScene, INe
     }
 
     public void btnSettingsOnAction(){
-        sceneChanger("daysummary");
+        sceneChanger("settings");
     }
 
     public void btnShowCalendarOnAction(){

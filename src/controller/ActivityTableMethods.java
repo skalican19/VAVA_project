@@ -3,6 +3,7 @@ package controller;
 import controller.flowcontrol.AlertBox;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import model.Main;
 import model.Translations;
@@ -27,6 +28,7 @@ public class ActivityTableMethods {
             try {
                 Main.primaryStage.setScene(new Scene(loader.load()));
                 ShowActivityController c = loader.getController();
+                Main.primaryStage.getIcons().add(new Image("/Images/Logo.png"));
                 c.setCurrent(a, true);
                 Main.primaryStage.show();
             } catch (IOException e) {
@@ -38,6 +40,7 @@ public class ActivityTableMethods {
                 Stage stage = new Stage();
                 stage.setScene(new Scene(loader.load()));
                 ShowActivityController c = loader.getController();
+                stage.getIcons().add(new Image("/Images/Logo.png"));
                 c.setCurrent(a, false);
                 stage.show();
             } catch (IOException e) {
