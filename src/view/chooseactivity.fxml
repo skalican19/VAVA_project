@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ChooseActivityController">
+<AnchorPane prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ChooseActivityController">
    <children>
       <Pane layoutY="50.0" prefHeight="100.0" prefWidth="700.0" style="-fx-background-color: #d35f3f;">
          <children>
@@ -27,7 +27,7 @@
             </ImageView>
          </children>
       </Pane>
-      <TableView fx:id="tableActivities" layoutX="29.0" layoutY="335.0" prefHeight="150.0" prefWidth="649.0">
+      <TableView fx:id="tableActivities" layoutX="29.0" layoutY="335.0" onMouseClicked="#tableOnClick" prefHeight="150.0" prefWidth="649.0">
          <columns>
             <TableColumn fx:id="columnType" prefWidth="92.79998588562012" text="%type" />
             <TableColumn fx:id="columnPriority" prefWidth="59.19995880126953" text="%priority" />
@@ -46,7 +46,7 @@
             <Font name="System Bold" size="11.0" />
          </font>
       </Button>
-      <ComboBox fx:id="cbActivities" layoutX="255.0" layoutY="165.0" prefWidth="150.0" promptText="Aktivity" />
+      <ComboBox fx:id="cbActivities" layoutX="255.0" layoutY="165.0" onMouseClicked="#boxOnClick" prefWidth="150.0" promptText="Aktivity" />
       <Button layoutX="501.0" layoutY="297.0" mnemonicParsing="false" onAction="#btnShowOnAction" prefHeight="22.0" prefWidth="86.0" style="-fx-background-color: #d35f3f;" text="%show" textFill="WHITE">
          <font>
             <Font name="System Bold" size="11.0" />
