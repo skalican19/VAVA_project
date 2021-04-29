@@ -41,7 +41,7 @@ public class CalendarController implements Initializable, IChangeScene {
                 allCalendarDays.add(ap);
             }
         }
-        Text[] dayNames = Translations.translateDays();
+        Text[] dayNames = Translations.TranslateDays();
         int col = 0;
         for (Text txt : dayNames) {
             HBox ap = new HBox();
@@ -81,7 +81,7 @@ public class CalendarController implements Initializable, IChangeScene {
             calendarDate = calendarDate.plusDays(1);
         }
         // Change the title of the model.calendar
-        lblMonth.setText(Translations.translateMonth(yearMonth.getMonth().toString()) + " " + yearMonth.getYear());
+        lblMonth.setText(Translations.TranslateMonth(yearMonth.getMonth().toString()) + " " + yearMonth.getYear());
     }
 
     /**

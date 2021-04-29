@@ -19,7 +19,7 @@ public class MainSceneController implements IChangeScene {
 
 
     public void btnCloseOnAction(){
-        sceneChanger("welcomescreen");
+        Main.primaryStage.close();
     }
 
     @FXML

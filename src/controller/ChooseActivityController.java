@@ -76,6 +76,7 @@ public class ChooseActivityController implements INewWindowScene, Initializable 
 
     public void btnDeleteOnAction(){
         Activity a = tableActivities.getSelectionModel().getSelectedItem();
+        tableActivities.getItems().remove(a);
         new ActivityTableMethods().removeActivity(a);
     }
 
@@ -105,6 +106,7 @@ public class ChooseActivityController implements INewWindowScene, Initializable 
         ObservableList<Activity> recommendations = FXCollections.observableArrayList(r.getRecommendations());
         ObservableList<LocalTime> times = FXCollections.observableArrayList(Settings.getInstance().getValidHours());
 
+        clearComboboxes();
         cbActivities.getItems().addAll(recommendations);
         for(LocalTime hour: times){
             cbStart.getItems().add(hour);
@@ -135,6 +137,12 @@ public class ChooseActivityController implements INewWindowScene, Initializable 
             return false;
         }
         return true;
+    }
+
+    private void clearComboboxes(){
+        cbActivities.getItems().clear();
+        cbStart.getItems().clear();
+        cbEnd.getItems().clear();
     }
 
 }

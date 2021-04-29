@@ -18,12 +18,9 @@ public class Main extends Application {
     public static User user = new User();
     public static String city = Settings.getInstance().getCity();
 
-
-
     public static void main(String[] args) {
         launch(args);
     }
-
 
     @Override
     public void start(Stage primaryStage) throws Exception {
