@@ -1,31 +1,24 @@
 package model.user;
-import controller.databases.DatabaseManager;
 import model.Main;
-import model.days.PerformedActivity;
-
-import java.io.IOException;
 import java.io.Serializable;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Locale;
 
 /***
  * Author Dušan
  */
 public class Settings implements Serializable {
-    public static Settings instance = null;
-    private String city = "Bratislava";
+    private Locale currentLocale;
+    private String defaultCity;
+    private String shownCity;
     private LocalTime dayStart;
     private LocalTime dayEnd;
     private LocalTime activityLength;
 
-    public static Settings getInstance(){
-        if (instance == null)
-            instance = new Settings();
-
-        return instance;
-    }
-
     public Settings() {
+        this.defaultCity = "Bratislava";
+        this.currentLocale = new Locale("sk", "SK");
         this.dayStart = LocalTime.of(8,0);
         this.dayEnd = LocalTime.of(22,0);
         this.activityLength = LocalTime.of(1,0);
@@ -51,15 +44,11 @@ public class Settings implements Serializable {
         return activityLength;
     }
 
-    public String getCity() {
-        return city;
-    }
-
     public ArrayList<LocalTime> getValidHours(){
         ArrayList<LocalTime> validHours = new ArrayList<>();
-        LocalTime startTime = Main.settings.getDayStart();
+        LocalTime startTime = Main.user.getSettings().getDayStart();
         LocalTime currentTime = LocalTime.of(startTime.getHour(), startTime.getMinute());
-        LocalTime endTime = Main.settings.getDayEnd();
+        LocalTime endTime = Main.user.getSettings().getDayEnd();
         int counter = 0;
 
         while (currentTime.getHour() < endTime.getHour()) {
@@ -73,8 +62,39 @@ public class Settings implements Serializable {
     }
 
     private LocalTime moveCurrentTime(LocalTime current){
-        current = current.plusHours(Main.settings.getActivityLength().getHour());
-        current = current.plusMinutes(Main.settings.getActivityLength().getMinute());
+        current = current.plusHours(Main.user.getSettings().getActivityLength().getHour());
+        current = current.plusMinutes(Main.user.getSettings().getActivityLength().getMinute());
         return current;
+    }
+
+    /**
+     * City shown if no other city is requested to be shown, also the city upon which the recommendation
+     * of outdoor activities is made. May be changed in settings, default is Bratislava.
+     */
+    public void setDefaultCity(String city) {
+        this.defaultCity = city;
+    }
+
+    public String getDefaultCity() {
+        return defaultCity;
+    }
+
+    public void setShownCity(String shownCity) {
+        this.shownCity = shownCity;
+    }
+
+    /***
+     * City you are currently requesting the weather for
+     */
+    public String getShownCity() {
+        return shownCity == null? defaultCity : shownCity;
+    }
+
+    public Locale getCurrentLocale() {
+        return currentLocale;
+    }
+
+    public void setCurrentLocale(Locale currentLocale) {
+        this.currentLocale = currentLocale;
     }
 }

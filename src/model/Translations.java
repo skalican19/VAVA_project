@@ -14,14 +14,14 @@ public class Translations {
 
 
     public static String Translate(String key){
-        bundle = ResourceBundle.getBundle("MessagesBundle", Main.currentLocale);
+        bundle = ResourceBundle.getBundle("MessagesBundle", Main.user.getLocale());
         return bundle.getString(key);
     }
 
 
 
     public static Text[] TranslateDays(){
-        bundle = ResourceBundle.getBundle("MessagesBundle", Main.currentLocale);
+        bundle = ResourceBundle.getBundle("MessagesBundle", Main.user.getLocale());
         return new Text[]{
                 new Text(bundle.getString("monday")),
                 new Text(bundle.getString("tuesday")),
@@ -34,7 +34,7 @@ public class Translations {
     }
 
     public static String TranslateMonth(String month){
-        bundle = ResourceBundle.getBundle("MessagesBundle", Main.currentLocale);
+        bundle = ResourceBundle.getBundle("MessagesBundle", Main.user.getLocale());
         switch (month){
             case "JANUARY":
                 return bundle.getString("january");
@@ -67,7 +67,7 @@ public class Translations {
 
 
     public static ArrayList<String> ActivityTypesStrings(){
-        bundle = ResourceBundle.getBundle("MessagesBundle", Main.currentLocale);
+        bundle = ResourceBundle.getBundle("MessagesBundle", Main.user.getLocale());
         return new ArrayList<String>() {
             {
                 add(bundle.getString("hobby"));
@@ -77,7 +77,7 @@ public class Translations {
     }
 
     public static String TranslateAlertBox(String key){
-        bundle = ResourceBundle.getBundle("MessagesBundle", Main.currentLocale);
+        bundle = ResourceBundle.getBundle("MessagesBundle", Main.user.getLocale());
         return bundle.getString(key);
     }
 

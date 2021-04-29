@@ -37,7 +37,7 @@ public class Recommendation {
         }
 
         WeatherWeek weatherWeek = new WeatherWeek();
-        if (weatherWeek.parseWeatherXml(Main.city)) {
+        if (weatherWeek.parseWeatherXml(Main.user.getSettings().getDefaultCity())) {
             for (Activity activity : Main.user.getActivities()) {
                 if (activity instanceof Hobby) {
                     if (recommendHobby((Hobby) activity, weatherWeek)) {

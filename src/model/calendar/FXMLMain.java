@@ -13,9 +13,9 @@ public class FXMLMain extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Main.currentLocale = new Locale("sk", "SK");
+        Main.user.setLocale(new Locale("sk", "SK"));
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/fullCalendar.fxml"),
-                ResourceBundle.getBundle("MessagesBundle", Main.currentLocale));
+                ResourceBundle.getBundle("MessagesBundle", Main.user.getLocale()));
         primaryStage.setTitle("Full Calendar FXML Example");
         primaryStage.setScene(new Scene(loader.load()));
 

@@ -8,6 +8,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -15,14 +16,21 @@ public class User implements Serializable {
     private String userName;
     private String email;
     private String password;
+    private Settings settings;
     private HashMap<LocalDate, Day> recordedDays = new HashMap<>();
     private ArrayList<Activity> activities;
+
+
+    public User() {
+        this.settings = new Settings();
+    }
 
     public boolean registerUser(String userName, String email, String password) {
         if (this.validate(email)) {
             this.userName = userName;
             this.email = email;
             this.password = password;
+            this.settings = new Settings();
             try {
                 DatabaseManager manager = DatabaseManager.getInstance();
                 manager.updateUsers(this);
@@ -57,8 +65,6 @@ public class User implements Serializable {
 
     /***
      * Author - Dušan
-     * @param date
-     * @param d
      */
     public void addDay(LocalDate date, Day d){
         if (recordedDays == null) recordedDays = new HashMap<>();
@@ -87,5 +93,17 @@ public class User implements Serializable {
 
     public void removeActivity(Activity a){
         activities.remove(a);
+    }
+
+    public Settings getSettings() {
+        return settings;
+    }
+
+    public Locale getLocale(){
+        return this.settings.getCurrentLocale();
+    }
+
+    public void setLocale(Locale currentLocale) {
+        this.settings.setCurrentLocale(currentLocale);
     }
 }

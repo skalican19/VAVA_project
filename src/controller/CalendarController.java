@@ -27,7 +27,7 @@ public class CalendarController implements Initializable, IChangeScene {
     @FXML GridPane gridDays;
     @FXML Label lblMonth;
     private ArrayList<AnchorPaneNode> allCalendarDays = new ArrayList<>(35);
-    private ResourceBundle bundle = ResourceBundle.getBundle("MessagesBundle", Main.currentLocale);
+    private ResourceBundle bundle = ResourceBundle.getBundle("MessagesBundle", Main.user.getLocale());
     private YearMonth currentYearMonth;
 
     @Override

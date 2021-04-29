@@ -29,7 +29,7 @@ public class AnchorPaneNode extends AnchorPane {
             try {
                 Parent root;
                 FXMLLoader loader =  new FXMLLoader(Main.class.getResource("/view/showday.fxml"),
-                        ResourceBundle.getBundle("MessagesBundle", Main.currentLocale));
+                        ResourceBundle.getBundle("MessagesBundle", Main.user.getLocale()));
                 root = loader.load();
                 ShowDayController c = loader.getController();
                 c.setDay(Main.user.getDay(date));

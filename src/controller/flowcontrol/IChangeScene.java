@@ -9,7 +9,7 @@ public interface IChangeScene {
 
     default void sceneChanger(String view){
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/" + view + ".fxml"),
-                ResourceBundle.getBundle("MessagesBundle", Main.currentLocale));
+                ResourceBundle.getBundle("MessagesBundle", Main.user.getLocale()));
         Scene scene = null;
         try {
             scene = new Scene(loader.load());

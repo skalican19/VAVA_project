@@ -43,7 +43,7 @@ public class ShowDayController implements Initializable {
 
     public void btnAddOnAction(){
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("/view/chooseactivity.fxml"),
-                ResourceBundle.getBundle("MessagesBundle", Main.currentLocale));
+                ResourceBundle.getBundle("MessagesBundle", Main.user.getLocale()));
         Stage stage = new Stage();
         Scene scene = null;
         try {
