@@ -1,6 +1,8 @@
 package model.weather;
 
 import javafx.scene.image.Image;
+import model.Translations;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.ZoneId;
@@ -62,25 +64,25 @@ public class WeatherDay {
         c.setTime(Date.from(this.date.atStartOfDay(defaultZoneId).toInstant()));
         switch (c.get(Calendar.DAY_OF_WEEK)) {
             case 1:
-                this.day = "Ne";
+                this.day = Translations.Translate("sun");
                 break;
             case 2:
-                this.day = "Po";
+                this.day = Translations.Translate("mon");
                 break;
             case 3:
-                this.day = "Ut";
+                this.day = Translations.Translate("tue");
                 break;
             case 4:
-                this.day = "St";
+                this.day = Translations.Translate("wed");
                 break;
             case 5:
-                this.day = "Št";
+                this.day = Translations.Translate("thu");
                 break;
             case 6:
-                this.day = "Pi";
+                this.day = Translations.Translate("fri");
                 break;
             case 7:
-                this.day = "So";
+                this.day = Translations.Translate("sat");
                 break;
         }
     }

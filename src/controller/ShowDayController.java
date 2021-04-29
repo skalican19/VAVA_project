@@ -80,4 +80,10 @@ public class ShowDayController implements Initializable {
         ObservableList<PerformedActivity> obsList = FXCollections.observableArrayList(activities);
         tableActivities.getItems().setAll(obsList);
     }
+
+    public void setDay(Day day) {
+        this.day = day;
+        setTable();
+        populateTable();
+    }
 }

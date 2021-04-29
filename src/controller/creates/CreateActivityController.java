@@ -65,7 +65,7 @@ public class CreateActivityController implements Initializable{
     public void btnSaveOnAction() throws IOException {
         Activity a;
         if(!validate()) return;
-        if (type.equals(Translations.Translate("hobby"))){
+        if (type.equals(Translations.Translate("task"))){
             a = new Task(tfName.getText(),cbPriority.getValue(),tfDesc.getText(),
                     dpDueDate.getValue() != null ? dpDueDate.getValue() : LocalDate.of(9999,12,31));
         }

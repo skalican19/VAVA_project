@@ -1,4 +1,6 @@
 package model.days;
+import model.Translations;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 
@@ -30,8 +32,6 @@ public class Activity implements Serializable {
         return description;
     }
 
-
-
     public LocalDate getLastDone() {
         return lastDone;
     }
@@ -41,10 +41,10 @@ public class Activity implements Serializable {
         return this.name;
     }
 
-    public String getType(){
-        if (this instanceof Task) return "Task";
-        if (this instanceof Hobby) return "Recreation";
-        return "Activity";
+    public String getType(){                                            // Dont delete it do stuff ok
+        if (this instanceof Task) return Translations.Translate("task");
+        if (this instanceof Hobby) return Translations.Translate("hobby");
+        return Translations.Translate("activity");
     }
 
     public void setName(String name) {

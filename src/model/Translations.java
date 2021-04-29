@@ -10,9 +10,18 @@ import java.util.ResourceBundle;
  */
 public class Translations {
 
-    public static ResourceBundle bundle = ResourceBundle.getBundle("MessagesBundle", Main.currentLocale);
+    public static ResourceBundle bundle;
 
-    public static Text[] translateDays(){
+
+    public static String Translate(String key){
+        bundle = ResourceBundle.getBundle("MessagesBundle", Main.currentLocale);
+        return bundle.getString(key);
+    }
+
+
+
+    public static Text[] TranslateDays(){
+        bundle = ResourceBundle.getBundle("MessagesBundle", Main.currentLocale);
         return new Text[]{
                 new Text(bundle.getString("monday")),
                 new Text(bundle.getString("tuesday")),
@@ -24,7 +33,8 @@ public class Translations {
         };
     }
 
-    public static String translateMonth(String month){
+    public static String TranslateMonth(String month){
+        bundle = ResourceBundle.getBundle("MessagesBundle", Main.currentLocale);
         switch (month){
             case "JANUARY":
                 return bundle.getString("january");
@@ -55,11 +65,9 @@ public class Translations {
         }
     }
 
-    public static String Translate(String key){
-        return bundle.getString(key);
-    }
 
     public static ArrayList<String> ActivityTypesStrings(){
+        bundle = ResourceBundle.getBundle("MessagesBundle", Main.currentLocale);
         return new ArrayList<String>() {
             {
                 add(bundle.getString("hobby"));
@@ -69,6 +77,7 @@ public class Translations {
     }
 
     public static String TranslateAlertBox(String key){
+        bundle = ResourceBundle.getBundle("MessagesBundle", Main.currentLocale);
         return bundle.getString(key);
     }
 

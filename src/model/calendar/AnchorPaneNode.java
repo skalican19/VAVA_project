@@ -1,5 +1,6 @@
 package model.calendar;
 
+import controller.ShowDayController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -16,8 +17,6 @@ import java.util.ResourceBundle;
  * Create an anchor pane that can store additional data.
  */
 public class AnchorPaneNode extends AnchorPane {
-
-    // Date associated with this pane
     private LocalDate date;
 
     /**
@@ -32,8 +31,10 @@ public class AnchorPaneNode extends AnchorPane {
                 FXMLLoader loader =  new FXMLLoader(Main.class.getResource("/view/showday.fxml"),
                         ResourceBundle.getBundle("MessagesBundle", Main.currentLocale));
                 root = loader.load();
+                ShowDayController c = loader.getController();
+                c.setDay(Main.user.getDay(date));
                 Stage stage = new Stage();
-                stage.setTitle("Day");
+                stage.setTitle(date.toString());
                 Scene scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
