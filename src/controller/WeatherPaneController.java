@@ -31,12 +31,39 @@ public class WeatherPaneController implements Initializable {
     public void showWeatherDay(WeatherDay day){
         gridpane.getChildren().clear();
 
+        Label informationLabel = new Label();
+
+        for (int row_index = 1; row_index < 5; row_index++) {
+            switch (row_index) {
+                case 1:
+                    informationLabel = new Label(Translations.Translate("time"));
+                    break;
+                case 2:
+                    informationLabel = new Label(Translations.Translate("temperature"));
+                    break;
+                case 3:
+                    informationLabel = new Label(Translations.Translate("wind"));
+                    break;
+                case 4:
+                    informationLabel = new Label(Translations.Translate("rainfall"));
+                    break;
+            }
+            gridpane.add(informationLabel, 0, row_index);
+            informationLabel.setStyle("-fx-alignment:  center;" +
+                    "-fx-text-fill: #ffffff;"
+                    + "-fx-font-weight: bold;"
+                    + "-fx-effect:  dropshadow(three-pass-box, rgba(0,0,0,0.9), 15, 0.6, 0, 0)");
+            informationLabel.setFont(new Font("System", 9));
+            GridPane.setHalignment(informationLabel, HPos.CENTER);
+        }
+
+
+
         for(WeatherHour hour: day.getWeatherHours()) {
-            Label informationLabel = new Label();
             ImageView image = new ImageView(hour.getWeatherImage());
             image.setFitHeight(50);
             image.setFitWidth(50);
-            image.setStyle("-fx-effect:  dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0)");
+            image.setStyle("-fx-effect:  dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0.3, 0, 0)");
             gridpane.add(image, hour.getIndex(), 0);
             GridPane.setHalignment(image, HPos.CENTER);
 
@@ -44,35 +71,23 @@ public class WeatherPaneController implements Initializable {
                 String text = "";
                 switch (row_index) {
                     case 1:
-                        informationLabel = new Label(Translations.Translate("time"));
                         text = hour.getTime().toString();
                         break;
                     case 2:
-                        informationLabel = new Label(Translations.Translate("temperature"));
                         text = hour.getTemperature();
                         break;
                     case 3:
-                        informationLabel = new Label(Translations.Translate("wind"));
                         text = hour.getWind();
                         break;
                     case 4:
-                        informationLabel = new Label(Translations.Translate("rainfall"));
                         text = hour.getPrecipitation();
                         break;
                 }
-                gridpane.add(informationLabel, 0, row_index);
-                informationLabel.setStyle("-fx-alignment:  center;" +
-                        "-fx-text-fill: #ffffff;"
-                        + "-fx-font-weight: bold;"
-                        + "-fx-effect:  dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0)");
-                informationLabel.setFont(new Font("System", 9));
-                GridPane.setHalignment(informationLabel, HPos.CENTER);
-
                 Label label = new Label(text);
                 label.setStyle("-fx-alignment:  center;" +
                         "-fx-text-fill: #ffffff;"
                         + "-fx-font-weight: bold;"
-                        + "-fx-effect:  dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0)");
+                        + "-fx-effect:  dropshadow(three-pass-box, rgba(0,0,0,0.9), 15, 0.6, 0, 0)");
                 label.setFont(new Font("System", 9));
                 gridpane.add(label, hour.getIndex(), row_index);
                 GridPane.setHalignment(label, HPos.CENTER);

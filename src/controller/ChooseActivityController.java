@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -82,13 +83,28 @@ public class ChooseActivityController implements INewWindowScene, Initializable 
 
     public void btnChooseOnAction(){
         if (!validate()) return;
+
+        Activity activity = cbActivities.getValue();
+        if (activity == null) {
+            activity = tableActivities.getSelectionModel().getSelectedItem();
+        }
+
         for(PerformedActivity a : tableOfDay.getItems()){
             if(a.getStart().isBefore(cbEnd.getValue()) &&
                     (a.getStart().isAfter(cbStart.getValue()) || a.getStart().equals(cbStart.getValue()))){
-                a.setActivity(tableActivities.getSelectionModel().getSelectedItem());
+                a.setActivity(activity);
             }
         }
         tableOfDay.refresh();
+        AlertBox.show(Translations.Translate("alert_activity_added"), "Success");
+    }
+
+    public void tableOnClick(){
+        cbActivities.valueProperty().set(null);
+    }
+
+    public void boxOnClick(){
+        tableActivities.getSelectionModel().clearSelection();
     }
 
     private void initTable(){
