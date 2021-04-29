@@ -59,7 +59,7 @@ public class Translations {
         return bundle.getString(key);
     }
 
-    public static ArrayList<String> AtvitiyTypesStrings(){
+    public static ArrayList<String> ActivityTypesStrings(){
         return new ArrayList<String>() {
             {
                 add(bundle.getString("hobby"));

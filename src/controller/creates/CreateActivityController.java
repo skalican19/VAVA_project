@@ -81,7 +81,7 @@ public class CreateActivityController implements Initializable{
     }
 
     private void initComboboxes(){
-        ObservableList<String> types = FXCollections.observableArrayList(Translations.AtvitiyTypesStrings());
+        ObservableList<String> types = FXCollections.observableArrayList(Translations.ActivityTypesStrings());
         cbType.getItems().setAll(types);
         ObservableList<Priority> priorities = FXCollections.observableArrayList(Priority.values());
         cbPriority.getItems().setAll(priorities);
@@ -96,7 +96,7 @@ public class CreateActivityController implements Initializable{
             AlertBox.show(Translations.TranslateAlertBox("alert_fill_name_desc"), "warning");
             return false;
         }
-        if (type.equals(Translations.Translate("hobby"))) {
+        if (type.equals(Translations.Translate("task"))) {
             if (cbPriority.getValue() == null) {
                 AlertBox.show(Translations.TranslateAlertBox("alert_fill_priority"), "warning");
                 return false;

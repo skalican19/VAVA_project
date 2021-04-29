@@ -12,7 +12,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.ProgressBarTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
-import model.ActivityTableMethos;
 import model.Main;
 import model.Translations;
 import model.days.Activity;
@@ -96,7 +95,7 @@ public class DaySummaryController implements Initializable, IChangeScene {
     public void btnShowActivityOnAction(){
         try {
             Activity a = tableActivities.getSelectionModel().getSelectedItem().getActivity();
-            new ActivityTableMethos().showActivity(a);
+            new ActivityTableMethods().showActivity(a, true);
         }
         catch (NullPointerException e){
             AlertBox.show(Translations.TranslateAlertBox("alert_choose_activity"), "warning");

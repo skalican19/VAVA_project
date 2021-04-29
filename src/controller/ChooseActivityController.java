@@ -14,7 +14,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import model.ActivityTableMethos;
 import model.Translations;
 import model.days.*;
 import model.Main;
@@ -72,12 +71,12 @@ public class ChooseActivityController implements INewWindowScene, Initializable 
 
     public void btnShowOnAction(){
         Activity a = tableActivities.getSelectionModel().getSelectedItem();
-        new ActivityTableMethos().showActivity(a);
+        new ActivityTableMethods().showActivity(a, false);
     }
 
     public void btnDeleteOnAction(){
         Activity a = tableActivities.getSelectionModel().getSelectedItem();
-        new ActivityTableMethos().removeActivity(a);
+        new ActivityTableMethods().removeActivity(a);
     }
 
     public void btnChooseOnAction(){

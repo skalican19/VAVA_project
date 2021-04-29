@@ -24,6 +24,7 @@ import java.util.logging.Logger;
 public class ShowActivityController implements Initializable, IChangeScene {
     Logger LOG = Logger.getLogger(IChangeScene.class.getName());
     private Activity current;
+    private boolean backBtn;
     @FXML TextField tfName;
     @FXML TextField tfLastDate;
     @FXML TextField tfAcName;
@@ -33,6 +34,7 @@ public class ShowActivityController implements Initializable, IChangeScene {
     @FXML ProgressIndicator progress;
     @FXML Button btnAdd;
     @FXML Button btnSub;
+    @FXML Button btnBack;
     @FXML Label lblDueDate;
     @FXML Label lblProgress;
     @FXML ImageView activityImage;
@@ -54,8 +56,7 @@ public class ShowActivityController implements Initializable, IChangeScene {
     }
 
     public void btnBackOnAction(){
-        // TODO zalezi kde sa bude picovinka zobrazovat
-        sceneChanger("welcomescreen");
+        sceneChanger("daysummary");
     }
 
     public void btnAddOnAction(){
@@ -107,9 +108,10 @@ public class ShowActivityController implements Initializable, IChangeScene {
         dpDueDate.setEditable(false);
     }
 
-    public void setCurrent(Activity current) {
+    public void setCurrent(Activity current, Boolean backButton) {
         this.current = current;
         setActivity();
+        btnBack.setVisible(backButton);
     }
 
 }

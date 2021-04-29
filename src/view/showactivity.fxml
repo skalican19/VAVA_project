@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ShowActivityController">
+<AnchorPane prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ShowActivityController">
    <children>
       <Label layoutX="53.0" layoutY="202.0" text="%type">
          <font>
@@ -30,9 +30,9 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="tfName" layoutX="219.0" layoutY="243.0" />
-      <TextField fx:id="tfAcName" editable="false" layoutX="219.0" layoutY="203.0" />
-      <TextArea fx:id="taDescription" layoutX="219.0" layoutY="282.0" prefHeight="127.0" prefWidth="291.0" />
+      <TextField fx:id="tfName" layoutX="245.0" layoutY="243.0" />
+      <TextField fx:id="tfAcName" editable="false" layoutX="245.0" layoutY="203.0" />
+      <TextArea fx:id="taDescription" layoutX="245.0" layoutY="283.0" prefHeight="127.0" prefWidth="291.0" />
       <Pane layoutY="60.0" prefHeight="100.0" prefWidth="900.0" style="-fx-background-color: #d35f3f;">
          <children>
             <Label layoutX="48.0" layoutY="21.0" text="%activity" textFill="WHITE">
@@ -47,7 +47,7 @@
             </ImageView>
          </children>
       </Pane>
-      <ProgressIndicator fx:id="progress" layoutX="436.0" layoutY="516.0" progress="0.0" />
+      <ProgressIndicator fx:id="progress" layoutX="465.0" layoutY="519.0" progress="0.0" />
       <Label fx:id="lblProgress" layoutX="53.0" layoutY="515.0" text="%progress">
          <font>
             <Font size="18.0" />
@@ -58,19 +58,19 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="tfLastDate" editable="false" layoutX="216.0" layoutY="432.0" />
-      <Button layoutX="249.0" layoutY="612.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="26.0" prefWidth="118.0" style="-fx-background-color: #d35f3f;" text="%save" textFill="WHITE">
+      <TextField fx:id="tfLastDate" editable="false" layoutX="245.0" layoutY="435.0" />
+      <Button layoutX="53.0" layoutY="612.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="26.0" prefWidth="118.0" style="-fx-background-color: #d35f3f;" text="%save" textFill="WHITE">
          <font>
             <Font name="System Bold" size="11.0" />
          </font>
       </Button>
-      <Button layoutX="41.0" layoutY="612.0" mnemonicParsing="false" onAction="#btnBackOnAction" prefHeight="26.0" prefWidth="118.0" style="-fx-background-color: #d35f3f;" text="%back" textFill="WHITE">
+      <Button fx:id="btnBack" layoutX="260.0" layoutY="612.0" mnemonicParsing="false" onAction="#btnBackOnAction" prefHeight="26.0" prefWidth="118.0" style="-fx-background-color: #d35f3f;" text="%back" textFill="WHITE">
          <font>
             <Font name="System Bold" size="11.0" />
          </font>
       </Button>
       <ImageView fx:id="imgActivityType" fitHeight="290.0" fitWidth="334.0" layoutX="546.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="btnAdd" layoutX="567.0" layoutY="515.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="26.0" prefWidth="73.0" style="-fx-background-color: #d35f3f;" text="%increase" textFill="WHITE">
+      <Button fx:id="btnAdd" layoutX="596.0" layoutY="518.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="26.0" prefWidth="73.0" style="-fx-background-color: #d35f3f;" text="%increase" textFill="WHITE">
          <font>
             <Font name="System Bold" size="11.0" />
          </font>
@@ -80,9 +80,9 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <DatePicker fx:id="dpDueDate" layoutX="216.0" layoutY="471.0" />
-      <ProgressBar fx:id="progressbar" layoutX="219.0" layoutY="519.0" prefWidth="200.0" progress="0.0" />
-      <Button fx:id="btnSub" layoutX="480.0" layoutY="515.0" mnemonicParsing="false" onAction="#btnSubOnAction" prefHeight="26.0" prefWidth="73.0" style="-fx-background-color: #d35f3f;" text="%decrease" textFill="WHITE">
+      <DatePicker fx:id="dpDueDate" layoutX="245.0" layoutY="474.0" />
+      <ProgressBar fx:id="progressbar" layoutX="245.0" layoutY="522.0" prefWidth="200.0" progress="0.0" />
+      <Button fx:id="btnSub" layoutX="509.0" layoutY="518.0" mnemonicParsing="false" onAction="#btnSubOnAction" prefHeight="26.0" prefWidth="73.0" style="-fx-background-color: #d35f3f;" text="%decrease" textFill="WHITE">
          <font>
             <Font name="System Bold" size="11.0" />
          </font>
