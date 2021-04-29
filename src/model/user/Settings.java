@@ -19,8 +19,8 @@ public class Settings implements Serializable {
     public Settings() {
         this.defaultCity = "Bratislava";
         this.currentLocale = new Locale("sk", "SK");
-        this.dayStart = LocalTime.of(8,0);
-        this.dayEnd = LocalTime.of(22,0);
+        this.dayStart = LocalTime.of(5,0);
+        this.dayEnd = LocalTime.of(23,0);
         this.activityLength = LocalTime.of(1,0);
     }
 
@@ -28,16 +28,8 @@ public class Settings implements Serializable {
         return dayStart;
     }
 
-    public void setDayStart(LocalTime dayStart) {
-        this.dayStart = dayStart;
-    }
-
     public LocalTime getDayEnd() {
         return dayEnd;
-    }
-
-    public void setDayEnd(LocalTime dayEnd) {
-        this.dayEnd = dayEnd;
     }
 
     public LocalTime getActivityLength() {

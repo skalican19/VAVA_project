@@ -2,21 +2,49 @@ package controller;
 import controller.databases.DatabaseManager;
 import controller.flowcontrol.IChangeScene;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.shape.Circle;
 import model.Main;
 import model.Translations;
 import model.user.User;
 import controller.flowcontrol.AlertBox;
 import java.io.IOException;
+import java.net.URL;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
-public class MainSceneController implements IChangeScene {
+public class MainSceneController implements IChangeScene, Initializable {
     @FXML TextField nameRegistration;
     @FXML TextField emailRegistration;
     @FXML PasswordField passwordRegistration;
     @FXML TextField nameLogin;
     @FXML PasswordField passwordLogin;
+    @FXML Button btnSvk;
+    @FXML Button btnEng;
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        double r=28;
+        btnSvk.setShape(new Circle(r));
+        btnSvk.setMinSize(2*r, 2*r);
+        btnSvk.setMaxSize(2*r, 2*r);
+        btnEng.setShape(new Circle(r));
+        btnEng.setMinSize(2*r, 2*r);
+        btnEng.setMaxSize(2*r, 2*r);
+    }
+
+    public void btnEngOnAction(){
+        Main.user.setLocale(new Locale("en", "US"));
+        sceneChanger("welcomescreen");
+    }
+
+    public void btnSvkOnAction(){
+        Main.user.setLocale(new Locale("sk", "SK"));
+        sceneChanger("welcomescreen");
+    }
 
     public void btnCloseOnAction(){
         Main.primaryStage.close();
