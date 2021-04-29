@@ -1,6 +1,10 @@
 package model.days;
+import controller.WelcomeScreenController;
+import model.Main;
+
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.HashMap;
 
 /***
  * Author Dušan
@@ -31,9 +35,26 @@ public class Activity implements Serializable {
     }
 
 
-
     public LocalDate getLastDone() {
-        return lastDone;
+        HashMap<LocalDate, Day> recordedDays =  Main.user.getRecordedDays();
+        LocalDate maxDate = null;
+
+        for(Day day: recordedDays.values()) {
+
+            for (PerformedActivity activity: day.getActivities()) {
+                if (activity.getActivity() == null) { continue; }
+                if (activity.getActivity().getName().equals(this.getName())) {
+
+                    if (maxDate == null || maxDate.isBefore(day.getDate())) {
+
+                        if (day.getDate().isBefore(WelcomeScreenController.displayDate)) {
+                            maxDate = day.getDate();
+                        }
+                    }
+                }
+            }
+        }
+        return maxDate;
     }
 
     @Override

@@ -81,7 +81,7 @@ public class WeatherWeek {
 
         try {
             URL url = new URL("http://api.openweathermap.org/data/2.5/forecast?q=" + city + ",sk&mode=xml&APPID=67a8a7b7f5444aaa03b228f1f4e68b32");
-            if (checkCity(city, url)) {
+            if (checkCity(url)) {
                 try {
                     db = dbf.newDocumentBuilder();
                     return db.parse(url.openStream());
@@ -97,10 +97,9 @@ public class WeatherWeek {
         return null;
     }
 
-    private boolean checkCity(String city, URL url) {
+    private boolean checkCity(URL url) {
         int code = 0;
         try {
-
             HttpURLConnection connection = (HttpURLConnection)url.openConnection();
             connection.setRequestMethod("GET");
             connection.connect();

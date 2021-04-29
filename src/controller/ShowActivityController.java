@@ -14,6 +14,7 @@ import model.days.Task;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -99,11 +100,14 @@ public class ShowActivityController implements Initializable, IChangeScene {
             progressbar.setProgress(progressVal);
             progress.setProgress(progressVal);
             dpDueDate.setValue(((Task) current).getDueDate());
+
             progressbar.setProgress(progressVal);
             activityImage.setImage(new Image("/images/tasks.png"));
         }
-        tfLastDate.setText(current.getLastDone()==null ? null : current.getLastDone().toString());
         tfName.setText(current.getName());
+        LocalDate lastDate = current.getLastDone();
+        if (lastDate != null) { tfLastDate.setText(lastDate.toString()); }
+
         taDescription.setText(current.getDescription());
         dpDueDate.setEditable(false);
     }
