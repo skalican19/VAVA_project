@@ -71,6 +71,10 @@ public class User implements Serializable {
         return recordedDays.get(date);
     }
 
+    public HashMap<LocalDate, Day> getRecordedDays(){
+        return recordedDays;
+    }
+
     public ArrayList<Activity> getActivities() {
         if (activities == null) return new ArrayList<>();
         return activities;
