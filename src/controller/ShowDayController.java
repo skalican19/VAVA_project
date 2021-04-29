@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -31,6 +32,7 @@ import java.util.ResourceBundle;
 public class ShowDayController implements Initializable {
 
     private Day day = Main.user.getDay(WelcomeScreenController.displayDate);
+    @FXML ComboBox<Activity> cbActivities;
     @FXML private TableView<PerformedActivity> tableActivities;
     @FXML private TableColumn<PerformedActivity, LocalTime> columnStart;
     @FXML private TableColumn<PerformedActivity, LocalTime> columnEnd;
@@ -38,8 +40,15 @@ public class ShowDayController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        setCombobox();
         setTable();
         populateTable();
+    }
+
+    private void setCombobox(){
+        ObservableList<Activity> obActivitiesDue =
+                FXCollections.observableArrayList(Main.user.getActivitiesDue(day.getDate()));
+        cbActivities.getItems().setAll(obActivitiesDue);
     }
 
     public void btnAddOnAction(){
@@ -86,6 +95,7 @@ public class ShowDayController implements Initializable {
     public void setDay(Day day) {
         this.day = day;
         setTable();
+        setCombobox();
         populateTable();
     }
 }

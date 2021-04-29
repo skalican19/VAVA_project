@@ -33,7 +33,6 @@ public class Settings implements Serializable {
         return dayEnd;
     }
 
-
     public LocalTime getActivityLength() {
         return activityLength;
     }
