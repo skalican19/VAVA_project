@@ -52,7 +52,7 @@ public class ChooseActivityController implements INewWindowScene, Initializable 
 
     public void btnNewOnAction(){
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("/view/createactivity.fxml"),
-                ResourceBundle.getBundle("MessagesBundle", Main.currentLocale));
+                ResourceBundle.getBundle("MessagesBundle", Main.user.getLocale()));
         Stage stage = new Stage();
         Scene scene = null;
         try {
@@ -104,7 +104,7 @@ public class ChooseActivityController implements INewWindowScene, Initializable 
         Recommendation r = new Recommendation();
         r.makeRecommendations();
         ObservableList<Activity> recommendations = FXCollections.observableArrayList(r.getRecommendations());
-        ObservableList<LocalTime> times = FXCollections.observableArrayList(Settings.getInstance().getValidHours());
+        ObservableList<LocalTime> times = FXCollections.observableArrayList(Main.user.getSettings().getValidHours());
 
         clearComboboxes();
         cbActivities.getItems().addAll(recommendations);

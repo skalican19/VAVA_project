@@ -14,6 +14,10 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 /**
+ *
+ * Author: GitHub user SirGoose3432
+ * Modified by: Dušan
+ *
  * Create an anchor pane that can store additional data.
  */
 public class AnchorPaneNode extends AnchorPane {
@@ -29,7 +33,7 @@ public class AnchorPaneNode extends AnchorPane {
             try {
                 Parent root;
                 FXMLLoader loader =  new FXMLLoader(Main.class.getResource("/view/showday.fxml"),
-                        ResourceBundle.getBundle("MessagesBundle", Main.currentLocale));
+                        ResourceBundle.getBundle("MessagesBundle", Main.user.getLocale()));
                 root = loader.load();
                 ShowDayController c = loader.getController();
                 c.setDay(Main.user.getDay(date));

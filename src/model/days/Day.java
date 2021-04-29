@@ -22,7 +22,7 @@ public class Day implements Serializable {
     }
 
     private void initializeActivities(){
-        ArrayList<LocalTime> validhours = Settings.getInstance().getValidHours();
+        ArrayList<LocalTime> validhours = Main.user.getSettings().getValidHours();
         activities = new ArrayList<>();
 
         for(LocalTime hour: validhours){

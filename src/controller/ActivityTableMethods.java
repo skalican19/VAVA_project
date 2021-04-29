@@ -22,7 +22,7 @@ public class ActivityTableMethods {
             return;
         }
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/showactivity.fxml"),
-                ResourceBundle.getBundle("MessagesBundle", Main.currentLocale));
+                ResourceBundle.getBundle("MessagesBundle", Main.user.getLocale()));
         if (backBtnVisible) {
             try {
                 Main.primaryStage.setScene(new Scene(loader.load()));

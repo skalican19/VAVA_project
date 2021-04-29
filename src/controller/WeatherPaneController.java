@@ -83,7 +83,7 @@ public class WeatherPaneController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         WeatherWeek week = new WeatherWeek();
-        if(week.parseWeatherXml(Main.city)) {
+        if(week.parseWeatherXml(Main.user.getSettings().getShownCity())) {
             try {
                 WeatherDay day = week.getDayFromDate(WelcomeScreenController.displayDate);
                 image.setImage(day.getNoonImage());

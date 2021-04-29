@@ -43,7 +43,7 @@ public class WelcomeScreenController implements Initializable, IChangeScene, INe
         paneView.getChildren().clear();
         try {
             paneView.getChildren().add(FXMLLoader.load(getClass().getResource(fxml),
-                    ResourceBundle.getBundle("MessagesBundle", Main.currentLocale)));
+                    ResourceBundle.getBundle("MessagesBundle", Main.user.getLocale())));
             pane_no = pane;
         } catch (IOException e) {
             e.printStackTrace();
@@ -52,7 +52,7 @@ public class WelcomeScreenController implements Initializable, IChangeScene, INe
 
     @FXML
     public void changeLocation(){
-        Main.city = city.getText();
+        Main.user.getSettings().setShownCity(city.getText());
         setPane("/view/weather_pane.fxml", 2);
     }
 
@@ -83,6 +83,7 @@ public class WelcomeScreenController implements Initializable, IChangeScene, INe
         displayDate = LocalDate.now();
         pane_no = 1;
         double r=30;
+        city.setText(Main.user.getSettings().getShownCity());
         btnSvk.setShape(new Circle(r));
         btnSvk.setMinSize(2*r, 2*r);
         btnSvk.setMaxSize(2*r, 2*r);
@@ -110,12 +111,12 @@ public class WelcomeScreenController implements Initializable, IChangeScene, INe
     }
 
     public void btnEngOnAction(){
-        Main.currentLocale = new Locale("en", "US");
+        Main.user.setLocale(new Locale("en", "US"));
         sceneChanger("welcomescreen");
     }
 
     public void btnSvkOnAction(){
-        Main.currentLocale = new Locale("sk", "SK");
+        Main.user.setLocale(new Locale("sk", "SK"));
         sceneChanger("welcomescreen");
     }
 }

@@ -16,10 +16,16 @@ import javafx.scene.layout.*;
 import model.Main;
 import model.Translations;
 import model.calendar.AnchorPaneNode;
+import model.days.Activity;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
+
+/**
+ * Author: GitHub user SirGoose3432
+ * Modified by: Dušan
+ */
 public class CalendarController implements Initializable, IChangeScene {
 
     @FXML Pane calendarPane;
@@ -27,7 +33,7 @@ public class CalendarController implements Initializable, IChangeScene {
     @FXML GridPane gridDays;
     @FXML Label lblMonth;
     private ArrayList<AnchorPaneNode> allCalendarDays = new ArrayList<>(35);
-    private ResourceBundle bundle = ResourceBundle.getBundle("MessagesBundle", Main.currentLocale);
+    private ResourceBundle bundle = ResourceBundle.getBundle("MessagesBundle", Main.user.getLocale());
     private YearMonth currentYearMonth;
 
     @Override
@@ -71,10 +77,11 @@ public class CalendarController implements Initializable, IChangeScene {
         // Populate the model.calendar with day numbers
         for (AnchorPaneNode ap : allCalendarDays) {
             if (ap.getChildren().size() != 0) {
-                ap.getChildren().remove(0);
+                ap.getChildren().clear();
             }
             Text txt = new Text(String.valueOf(calendarDate.getDayOfMonth()));
             ap.setDate(calendarDate);
+            addNote(ap, calendarDate);
             AnchorPane.setTopAnchor(txt, 5.0);
             AnchorPane.setLeftAnchor(txt, 5.0);
             ap.getChildren().add(txt);
@@ -114,5 +121,21 @@ public class CalendarController implements Initializable, IChangeScene {
 
     public void setCurrentYearMonth(YearMonth currentYearMonth) {
         this.currentYearMonth = currentYearMonth;
+    }
+
+
+    private void addNote(AnchorPaneNode ap, LocalDate calendarDate){
+        Activity a = Main.user.getActivityDue(calendarDate);
+        if(a == null) return;
+        Label lbl = new Label(a.getName());
+        lbl.setWrapText(true);
+        ap.getChildren().add(lbl);
+        lbl.setMaxWidth(Double.MAX_VALUE);
+        ap.setLeftAnchor(lbl, 0.0);
+        ap.setRightAnchor(lbl, 0.0);
+        ap.setTopAnchor(lbl, 30.0);
+        ap.setBottomAnchor(lbl, 30.0);
+        lbl.setAlignment(Pos.CENTER);
+
     }
 }
