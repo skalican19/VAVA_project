@@ -38,12 +38,12 @@ public class MainSceneController implements IChangeScene, Initializable {
 
     public void btnEngOnAction(){
         Main.user.setLocale(new Locale("en", "US"));
-        sceneChanger("welcomescreen");
+        sceneChanger("mainscene");
     }
 
     public void btnSvkOnAction(){
         Main.user.setLocale(new Locale("sk", "SK"));
-        sceneChanger("welcomescreen");
+        sceneChanger("mainscene");
     }
 
     public void btnCloseOnAction(){
