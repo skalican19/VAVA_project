@@ -21,6 +21,11 @@ import model.days.Activity;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+
+/**
+ * Author: GitHub user SirGoose3432
+ * Modified by: Dušan
+ */
 public class CalendarController implements Initializable, IChangeScene {
 
     @FXML Pane calendarPane;
@@ -72,7 +77,7 @@ public class CalendarController implements Initializable, IChangeScene {
         // Populate the model.calendar with day numbers
         for (AnchorPaneNode ap : allCalendarDays) {
             if (ap.getChildren().size() != 0) {
-                ap.getChildren().remove(0);
+                ap.getChildren().clear();
             }
             Text txt = new Text(String.valueOf(calendarDate.getDayOfMonth()));
             ap.setDate(calendarDate);
@@ -125,9 +130,12 @@ public class CalendarController implements Initializable, IChangeScene {
         Label lbl = new Label(a.getName());
         lbl.setWrapText(true);
         ap.getChildren().add(lbl);
-        ap.setLeftAnchor(lbl, 2.0);
+        lbl.setMaxWidth(Double.MAX_VALUE);
+        ap.setLeftAnchor(lbl, 0.0);
+        ap.setRightAnchor(lbl, 0.0);
         ap.setTopAnchor(lbl, 30.0);
-        ap.setRightAnchor(lbl, 2.0);
         ap.setBottomAnchor(lbl, 30.0);
+        lbl.setAlignment(Pos.CENTER);
+
     }
 }
