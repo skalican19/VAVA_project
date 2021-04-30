@@ -56,6 +56,7 @@ public class User implements Serializable {
     }
 
     public boolean verifyLogin(String password) {
+        this.getSettings().setShownCity(this.getSettings().getDefaultCity());
         return this.password.equals(password);
     }
 

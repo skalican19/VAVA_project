@@ -57,7 +57,7 @@ public class SettingsController implements Initializable, IChangeScene {
         if (locale != null) {
             Main.user.setLocale(locale);
         }
-        if (validate() || tfCity.getText().equals("")) {
+        if (validate() && !tfCity.getText().equals("")) {
             settings.setDefaultCity(tfCity.getText());
         }
         else {
@@ -111,6 +111,7 @@ public class SettingsController implements Initializable, IChangeScene {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        tfCity.setText(Main.user.getSettings().getDefaultCity());
         double r=30;
 
         btnSvk.setShape(new Circle(r));

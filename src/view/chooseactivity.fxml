@@ -29,11 +29,11 @@
       </Pane>
       <TableView fx:id="tableActivities" layoutX="29.0" layoutY="335.0" onMouseClicked="#tableOnClick" prefHeight="150.0" prefWidth="649.0">
          <columns>
-            <TableColumn fx:id="columnType" prefWidth="92.79998588562012" text="%type" />
-            <TableColumn fx:id="columnPriority" prefWidth="59.19995880126953" text="%priority" />
-            <TableColumn fx:id="columnName" prefWidth="132.0" text="%activity" />
-            <TableColumn fx:id="columnDesc" prefWidth="235.19992065429688" text="%description" />
-            <TableColumn fx:id="columnLast" prefWidth="129.60000000000002" text="%last" />
+            <TableColumn fx:id="columnType" prefWidth="92.79998588562012" resizable="false" text="%type" />
+            <TableColumn fx:id="columnPriority" prefWidth="59.19995880126953" resizable="false" text="%priority" />
+            <TableColumn fx:id="columnName" prefWidth="132.0" resizable="false" text="%activity" />
+            <TableColumn fx:id="columnDesc" prefWidth="235.19992065429688" resizable="false" text="%description" />
+            <TableColumn fx:id="columnLast" prefWidth="129.60000000000002" resizable="false" text="%last" />
          </columns>
       </TableView>
       <Label layoutX="31.0" layoutY="163.0" text="%recommendations">

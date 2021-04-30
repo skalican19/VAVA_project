@@ -32,6 +32,7 @@ public class Main extends Application {
         primaryStage.sizeToScene();
         primaryStage.setScene(scene);
         primaryStage.getIcons().add(new Image("/Images/Logo.png"));
+        primaryStage.setTitle("TimeTurner");
         primaryStage.setOnHiding( event -> {
             try {
                 DatabaseManager.getInstance().saveUsers();

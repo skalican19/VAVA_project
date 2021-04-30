@@ -9,13 +9,13 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="530.0" style="-fx-border-color: black;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ShowDayController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="530.0" style="-fx-border-color: black;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ShowDayController">
    <children>
       <TableView fx:id="tableActivities" layoutX="25.0" layoutY="191.0" prefHeight="187.0" prefWidth="476.0">
          <columns>
-            <TableColumn fx:id="columnStart" prefWidth="113.60004043579102" text="%start_activity" />
-            <TableColumn fx:id="columnEnd" prefWidth="146.3999481201172" text="%end_activity" />
-            <TableColumn fx:id="columnActivity" prefWidth="215.20001220703125" text="%activity" />
+            <TableColumn fx:id="columnStart" prefWidth="113.60004043579102" resizable="false" text="%start_activity" />
+            <TableColumn fx:id="columnEnd" prefWidth="146.3999481201172" resizable="false" text="%end_activity" />
+            <TableColumn fx:id="columnActivity" prefWidth="215.20001220703125" resizable="false" text="%activity" />
          </columns>
       </TableView>
       <TextArea layoutX="132.0" layoutY="38.0" prefHeight="95.0" prefWidth="368.0" />
