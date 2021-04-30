@@ -1,6 +1,7 @@
 package model.user;
 
 import controller.databases.DatabaseManager;
+import controller.flowcontrol.INewWindowScene;
 import model.Main;
 import model.days.Activity;
 import model.days.Day;
@@ -12,6 +13,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Locale;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -23,6 +26,11 @@ public class User implements Serializable {
     private HashMap<LocalDate, Day> recordedDays = new HashMap<>();
     private ArrayList<Activity> activities = new ArrayList<>();
 
+    Logger LOG = Logger.getLogger(User.class.getName());
+
+    /***
+     * author: Michal
+     */
 
     public User() {
         this.settings = new Settings();
@@ -40,6 +48,7 @@ public class User implements Serializable {
                 manager.updateUsers(this);
             } catch (IOException e) {
                 e.printStackTrace();
+                LOG.log(Level.SEVERE, "Could not update database.");
                 return false;
             }
             return true;
@@ -58,6 +67,12 @@ public class User implements Serializable {
     }
 
     public boolean verifyLogin(String password) {
+        if (this.password.equals(password)) {
+            LOG.log(Level.FINE, this.getUserName() + " has logged in.");
+        }
+        else {
+            LOG.log(Level.WARNING, this.getUserName() + " could not be logged in.");
+        }
         return this.password.equals(password);
     }
 

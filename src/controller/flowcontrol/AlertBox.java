@@ -12,6 +12,9 @@ import javafx.scene.layout.VBox;
 import javafx.stage.*;
 import model.Translations;
 
+/***
+ * author: Michal
+ */
 
 public class AlertBox {
 

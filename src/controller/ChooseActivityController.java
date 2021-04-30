@@ -81,6 +81,10 @@ public class ChooseActivityController implements INewWindowScene, Initializable 
         new ActivityTableMethods().removeActivity(a);
     }
 
+    /***
+     * author: Michal
+     */
+
     public void btnChooseOnAction(){
         if (!validate()) return;
 

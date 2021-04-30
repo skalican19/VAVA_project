@@ -14,9 +14,12 @@ import model.weather.WeatherDay;
 import model.weather.WeatherHour;
 import model.weather.WeatherWeek;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+/***
+ * author: Michal
+ */
 
 public class WeatherPaneController implements Initializable {
     @FXML private ImageView image;

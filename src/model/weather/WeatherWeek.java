@@ -17,10 +17,17 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
+/***
+ * author: Michal
+ */
 
 public class WeatherWeek {
     private ArrayList<WeatherDay> weatherDays;
+
+    Logger LOG = Logger.getLogger(WeatherWeek.class.getName());
 
     public WeatherWeek() {
     }
@@ -106,6 +113,7 @@ public class WeatherWeek {
             code = connection.getResponseCode();
         } catch (IOException e) {
             e.printStackTrace();
+            LOG.log(Level.WARNING, "No city of that name exists in the database");
         }
 
         return code != 404;
