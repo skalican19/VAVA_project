@@ -3,6 +3,11 @@ package model.days;
 import java.io.Serializable;
 import java.time.LocalTime;
 
+/***
+ * author: together
+ */
+
+
 public class PerformedActivity implements Serializable {
     private LocalTime start;
     private LocalTime end;

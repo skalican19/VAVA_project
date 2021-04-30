@@ -10,6 +10,10 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
+/***
+ * author: Michal
+ */
+
 public class WeatherDay {
     private ArrayList<WeatherHour> weatherHours;
     private LocalDate date;

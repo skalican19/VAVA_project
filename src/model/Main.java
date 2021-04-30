@@ -10,6 +10,11 @@ import model.user.User;
 import java.io.IOException;
 import java.util.ResourceBundle;
 
+/***
+ * author: together
+ */
+
+
 public class Main extends Application {
     public static Stage primaryStage = new Stage();
     public static User user = new User();

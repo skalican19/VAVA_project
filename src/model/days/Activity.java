@@ -37,28 +37,6 @@ public class Activity implements Serializable {
         return description;
     }
 
-    public LocalDate getLastDone() {
-        HashMap<LocalDate, Day> recordedDays =  Main.user.getRecordedDays();
-        LocalDate maxDate = null;
-
-        for(Day day: recordedDays.values()) {
-
-            for (PerformedActivity activity: day.getActivities()) {
-                if (activity.getActivity() == null) { continue; }
-                if (activity.getActivity().getName().equals(this.getName())) {
-
-                    if (maxDate == null || maxDate.isBefore(day.getDate())) {
-
-                        if (day.getDate().isBefore(WelcomeScreenController.displayDate)) {
-                            maxDate = day.getDate();
-                        }
-                    }
-                }
-            }
-        }
-        return maxDate;
-    }
-
     @Override
     public String toString(){
         return this.name;
@@ -88,5 +66,31 @@ public class Activity implements Serializable {
 
     public void setLastDone(LocalDate lastDone) {
         this.lastDone = lastDone;
+    }
+
+    /***
+     * author: Michal
+     */
+
+    public LocalDate getLastDone() {
+        HashMap<LocalDate, Day> recordedDays =  Main.user.getRecordedDays();
+        LocalDate maxDate = null;
+
+        for(Day day: recordedDays.values()) {
+
+            for (PerformedActivity activity: day.getActivities()) {
+                if (activity.getActivity() == null) { continue; }
+                if (activity.getActivity().getName().equals(this.getName())) {
+
+                    if (maxDate == null || maxDate.isBefore(day.getDate())) {
+
+                        if (day.getDate().isBefore(WelcomeScreenController.displayDate)) {
+                            maxDate = day.getDate();
+                        }
+                    }
+                }
+            }
+        }
+        return maxDate;
     }
 }

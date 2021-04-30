@@ -19,6 +19,10 @@ import java.time.LocalDate;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
+/***
+ * author: Michal
+ */
+
 public class WelcomeScreenController implements Initializable, IChangeScene, INewWindowScene {
 
     @FXML

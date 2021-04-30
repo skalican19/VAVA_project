@@ -4,6 +4,10 @@ import javafx.scene.image.Image;
 
 import java.time.LocalTime;
 
+/***
+ * author: Michal
+ */
+
 public class WeatherHour {
     private int index;
     private LocalTime time;

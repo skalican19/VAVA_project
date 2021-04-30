@@ -29,6 +29,10 @@ import java.util.ArrayList;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
+/***
+ * author: Michal
+ */
+
 public class SettingsController implements Initializable, IChangeScene {
 
     @FXML private TableView<Activity> tableActivities;

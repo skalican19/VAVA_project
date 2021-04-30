@@ -11,6 +11,10 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
+/***
+ * author: Michal
+ */
+
 public class Recommendation {
     private ArrayList<Activity> recommendations;
     private int tasks;
