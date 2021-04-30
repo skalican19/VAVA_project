@@ -1,15 +1,16 @@
 package controller.databases;
 
 
+import controller.flowcontrol.IChangeScene;
 import model.user.User;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 
 public class DatabaseManager {
     public static DatabaseManager instance = null;
-//    private ArrayList<> usersDatabase = new DatabaseAdmin<>().download("kkti");
 
     private ArrayList<User> usersDatabase = new DatabaseAdmin<User>().download("databases/user_database");
 

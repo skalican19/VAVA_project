@@ -9,6 +9,10 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/***
+ * Author Dušan
+ */
+
 public interface INewWindowScene {
     Logger LOG = Logger.getLogger(INewWindowScene.class.getName());
 

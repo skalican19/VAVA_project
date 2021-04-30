@@ -1,9 +1,12 @@
 package controller.databases;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class DatabaseAdmin<T> implements Serializable{
+    public static Logger LOG = Logger.getLogger(DatabaseAdmin.class.getName());
 
     public void upload(String path,ArrayList <T> uploaded ){
 
@@ -18,6 +21,7 @@ public class DatabaseAdmin<T> implements Serializable{
         catch (IOException ioe)
         {
             ioe.printStackTrace();
+            LOG.log(Level.SEVERE, "Couldnt load serialization files.");
         }
     }
 
@@ -29,8 +33,10 @@ public class DatabaseAdmin<T> implements Serializable{
 
         try {
             newFile = inFile.createNewFile();
+            LOG.log(Level.FINE, "Creating new database file.");
         } catch (IOException e) {
             e.printStackTrace();
+            LOG.log(Level.SEVERE, "Could not create new database file.");
         }
 
 
@@ -44,11 +50,12 @@ public class DatabaseAdmin<T> implements Serializable{
             }
             catch (IOException ioe)
             {
+                LOG.log(Level.WARNING, "Couldnt load Database from serialization files, creating new Database.");
                 return Database;
             }
             catch (ClassNotFoundException c)
             {
-                System.out.println("Class not found");
+                LOG.log(Level.SEVERE, "Class not found.");
                 c.printStackTrace();
             }
         }
