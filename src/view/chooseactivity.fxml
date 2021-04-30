@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ChooseActivityController">
+   <children>
+      <Pane layoutY="50.0" prefHeight="100.0" prefWidth="700.0" style="-fx-background-color: #d35f3f;">
+         <children>
+            <Label layoutX="29.0" layoutY="21.0" text="%choose_activity" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="40.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="504.0" layoutY="-25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/Logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <TableView fx:id="tableActivities" layoutX="29.0" layoutY="335.0" onMouseClicked="#tableOnClick" prefHeight="150.0" prefWidth="649.0">
+         <columns>
+            <TableColumn fx:id="columnType" prefWidth="92.79998588562012" text="%type" />
+            <TableColumn fx:id="columnPriority" prefWidth="59.19995880126953" text="%priority" />
+            <TableColumn fx:id="columnName" prefWidth="132.0" text="%activity" />
+            <TableColumn fx:id="columnDesc" prefWidth="235.19992065429688" text="%description" />
+            <TableColumn fx:id="columnLast" prefWidth="129.60000000000002" text="%last" />
+         </columns>
+      </TableView>
+      <Label layoutX="31.0" layoutY="163.0" text="%recommendations">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Button layoutX="501.0" layoutY="194.0" mnemonicParsing="false" onAction="#btnNewOnAction" prefHeight="24.0" prefWidth="170.0" style="-fx-background-color: #d35f3f;" text="%add_activity" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </Button>
+      <ComboBox fx:id="cbActivities" layoutX="255.0" layoutY="165.0" onMouseClicked="#boxOnClick" prefWidth="150.0" promptText="Aktivity" />
+      <Button layoutX="501.0" layoutY="297.0" mnemonicParsing="false" onAction="#btnShowOnAction" prefHeight="22.0" prefWidth="86.0" style="-fx-background-color: #d35f3f;" text="%show" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </Button>
+      <Button layoutX="501.0" layoutY="238.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="24.0" prefWidth="170.0" style="-fx-background-color: #d35f3f;" text="%delete" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </Button>
+      <Button layoutX="590.0" layoutY="297.0" mnemonicParsing="false" onAction="#btnChooseOnAction" prefHeight="22.0" prefWidth="86.0" style="-fx-background-color: #d35f3f;" text="%choose" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </Button>
+      <Label layoutX="31.0" layoutY="294.0" text="%all_activities">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="31.0" layoutY="206.0" text="%start_hour">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="31.0" layoutY="250.0" text="%end_hour">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="cbStart" layoutX="255.0" layoutY="208.0" prefWidth="150.0" promptText="%starting_hour" />
+      <ComboBox fx:id="cbEnd" layoutX="255.0" layoutY="252.0" prefWidth="150.0" promptText="%ending_hour" />
+   </children>
+</AnchorPane>

@@ -1,17 +1,24 @@
 package controller.flowcontrol;
-
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import models.Main;
-
+import model.Main;
 import java.io.IOException;
+import java.util.ResourceBundle;
 
 public interface IChangeScene {
 
-    default void sceneChanger(String view) throws IOException {
-        FXMLLoader loader = new FXMLLoader(Main.class.getResource("/views/" + view + ".fxml"));
-        Scene scene = new Scene(loader.load());
+    default void sceneChanger(String view){
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/" + view + ".fxml"),
+                ResourceBundle.getBundle("MessagesBundle", Main.user.getLocale()));
+        Scene scene = null;
+        try {
+            scene = new Scene(loader.load());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         Main.primaryStage.setScene(scene);
         Main.primaryStage.show();
     }
 }
+
+

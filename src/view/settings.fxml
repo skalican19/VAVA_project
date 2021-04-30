@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SettingsController">
+   <children>
+      <Pane layoutY="62.0" prefHeight="100.0" prefWidth="902.0" style="-fx-background-color: #d35f3f;">
+         <children>
+            <Label fx:id="lblSettings" layoutX="94.0" layoutY="21.0" text="%settings" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="40.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="654.0" layoutY="-25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/Logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Label layoutX="129.0" layoutY="275.0" prefHeight="39.0" prefWidth="301.0" text="%set_city">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfCity" layoutX="451.0" layoutY="282.0" prefHeight="24.0" prefWidth="320.0" />
+      <Button fx:id="btnSvk" layoutX="76.0" layoutY="618.0" mnemonicParsing="false" onAction="#btnSvkOnAction" prefHeight="24.0" prefWidth="58.0" style="-fx-background-color: #d35f3f;" text="SK" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnEng" layoutX="217.0" layoutY="618.0" mnemonicParsing="false" onAction="#btnEngOnAction" prefHeight="24.0" prefWidth="58.0" style="-fx-background-color: #d35f3f;" text="EN" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnSave" layoutX="634.0" layoutY="642.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="24.0" prefWidth="96.0" style="-fx-background-color: #d35f3f;" text="%save" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </Button>
+      <TableView fx:id="tableActivities" layoutX="76.0" layoutY="425.0" prefHeight="150.0" prefWidth="750.0">
+         <columns>
+            <TableColumn fx:id="columnType" prefWidth="92.79998588562012" text="%type" />
+            <TableColumn fx:id="columnPriority" prefWidth="59.19995880126953" text="%priority" />
+            <TableColumn fx:id="columnName" prefWidth="132.0" text="%activity" />
+            <TableColumn fx:id="columnDesc" prefWidth="272.0" text="%description" />
+            <TableColumn fx:id="columnLast" prefWidth="193.5999755859375" text="%last" />
+         </columns>
+      </TableView>
+      <Button layoutX="76.0" layoutY="388.0" mnemonicParsing="false" onAction="#btnNewOnAction" prefHeight="24.0" prefWidth="170.0" style="-fx-background-color: #d35f3f;" text="%add_activity" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </Button>
+      <Button layoutX="662.0" layoutY="388.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="24.0" prefWidth="170.0" style="-fx-background-color: #d35f3f;" text="%delete" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnClose" layoutX="770.0" layoutY="642.0" mnemonicParsing="false" onAction="#btnCloseOnAction" prefHeight="24.0" prefWidth="96.0" style="-fx-background-color: #d35f3f;" text="%back" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

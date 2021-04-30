@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.WelcomeScreenController">
+   <children>
+      <Button layoutX="58.0" layoutY="389.0" mnemonicParsing="false" onAction="#btnSummarizeDayOnAction" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #d35f3f; -fx-border-color: #aa492e;" text="%summarize_day" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="10.0" />
+         </font>
+      </Button>
+      <Button layoutX="58.0" layoutY="322.0" mnemonicParsing="false" onAction="#btnAddActivityOnAction" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #d35f3f; -fx-border-color: #aa492e;" text="%add_activity" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="10.0" />
+         </font>
+      </Button>
+      <Button layoutX="491.0" layoutY="632.0" mnemonicParsing="false" onAction="#btnShowCalendarOnAction" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #d35f3f; -fx-border-color: #aa492e;" text="%show_calendar" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="10.0" />
+         </font>
+      </Button>
+      <Pane layoutY="54.0" prefHeight="100.0" prefWidth="900.0" style="-fx-background-color: #d35f3f;">
+         <children>
+            <Label fx:id="lblWelcome" layoutX="94.0" layoutY="21.0" text="%welcome" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="40.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="654.0" layoutY="-25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/Logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane fx:id="paneView" layoutX="307.0" layoutY="221.0" prefHeight="400.0" prefWidth="530.0" style="-fx-background-color: #dbdbdb;" />
+      <Button layoutX="840.0" layoutY="258.0" mnemonicParsing="false" prefHeight="310.0" prefWidth="50.0" style="-fx-background-color: WHITE;" text="PRIDAŤ AKTIVITU" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="10.0" />
+         </font>
+      </Button>
+      <Button layoutX="251.0" layoutY="258.0" mnemonicParsing="false" prefHeight="310.0" prefWidth="50.0" style="-fx-background-color: WHITE;" text="PRIDAŤ AKTIVITU" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="10.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="252.0" fitWidth="38.0" layoutX="258.0" layoutY="382.0" onMouseClicked="#changePane" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/images.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="262.0" fitWidth="42.0" layoutX="844.0" layoutY="380.0" onMouseClicked="#changePane" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/imagesright.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="58.0" layoutY="458.0" mnemonicParsing="false" onAction="#btnSettingsOnAction" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #d35f3f; -fx-border-color: #aa492e;" text="%settings" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="10.0" />
+         </font>
+      </Button>
+      <Button layoutX="706.0" layoutY="186.0" mnemonicParsing="false" onAction="#addDay" prefHeight="24.0" prefWidth="130.0" style="-fx-background-color: #d35f3f;" text="%next" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </Button>
+      <Button layoutX="307.0" layoutY="186.0" mnemonicParsing="false" onAction="#subDay" prefHeight="24.0" prefWidth="130.0" style="-fx-background-color: #d35f3f;" text="%prev" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </Button>
+      <Label fx:id="date" alignment="CENTER" layoutX="494.0" layoutY="181.0" prefHeight="17.0" prefWidth="150.0" text="Date">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font></Label>
+      <TextField fx:id="city" layoutX="58.0" layoutY="221.0" onAction="#changeLocation" prefHeight="26.0" prefWidth="163.0" promptText="%set_city" />
+   </children>
+</AnchorPane>
