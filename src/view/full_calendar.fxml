@@ -8,15 +8,16 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="calendarPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CalendarController">
+<Pane fx:id="calendarPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: #dbdbdb;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CalendarController">
    <children>
-      <BorderPane layoutX="47.0" layoutY="64.0" prefHeight="572.0" prefWidth="772.0">
+      <BorderPane layoutX="47.0" layoutY="64.0" prefHeight="572.0" prefWidth="772.0" style="-fx-background-color: #dbdbdb;">
          <center>
             <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" BorderPane.alignment="CENTER">
               <items>
-                  <GridPane fx:id="gridDays" gridLinesVisible="true" style="-fx-background-color: white;">
+                  <GridPane fx:id="gridDays" gridLinesVisible="true" style="-fx-background-color: #f5b752;">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -30,7 +31,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                   </GridPane>
-                  <GridPane fx:id="gridCalendar" gridLinesVisible="true" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: white;">
+                  <GridPane fx:id="gridCalendar" gridLinesVisible="true" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #f5b752;">
                      <columnConstraints>
                         <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
@@ -52,9 +53,9 @@
             </SplitPane>
          </center>
          <left>
-            <Button mnemonicParsing="false" onAction="#btnPrevOnAction" prefHeight="609.0" prefWidth="50.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+            <Button mnemonicParsing="false" onAction="#btnPrevOnAction" prefHeight="149.0" prefWidth="26.0" style="-fx-background-color: #d35f3f;" BorderPane.alignment="CENTER">
                <graphic>
-                  <Label prefHeight="26.0" prefWidth="43.0" text="&lt;">
+                  <Label prefHeight="26.0" prefWidth="43.0" text="&lt;" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="50.0" />
                      </font>
@@ -63,9 +64,9 @@
             </Button>
          </left>
          <right>
-            <Button mnemonicParsing="false" onAction="#btnNextOnAction" prefHeight="609.0" prefWidth="50.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+            <Button mnemonicParsing="false" onAction="#btnNextOnAction" prefHeight="146.0" prefWidth="52.0" style="-fx-background-color: #d35f3f;" BorderPane.alignment="CENTER">
                <graphic>
-                  <Label text="&gt;">
+                  <Label text="&gt;" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="50.0" />
                      </font>
@@ -74,11 +75,16 @@
             </Button>
          </right>
          <top>
-            <Label fx:id="lblMonth" text="%month" BorderPane.alignment="CENTER">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Label>
+            <Pane prefHeight="35.0" prefWidth="808.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d35f3f" height="33.0" layoutX="57.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="699.0" />
+                  <Label fx:id="lblMonth" layoutX="366.0" layoutY="3.0" text="%month" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
          </top>
       </BorderPane>
       <Button layoutX="391.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnBackOnAction" prefHeight="26.0" prefWidth="118.0" style="-fx-background-color: #d35f3f;" text="%back" textFill="WHITE">

@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
 import java.time.LocalDate;
@@ -51,13 +52,15 @@ public class CalendarController implements Initializable, IChangeScene {
                 allCalendarDays.add(ap);
             }
         }
-        Text[] dayNames = Translations.TranslateDays();
+        Label[] dayNames = Translations.TranslateDays();
         int col = 0;
-        for (Text txt : dayNames) {
+        for (Label lbl : dayNames) {
+            lbl.setStyle("-fx-text-fill: white;" + "-fx-font-weight: bold;");
             HBox ap = new HBox();
             ap.setAlignment(Pos.CENTER);
             ap.setPrefSize(200, 10);
-            ap.getChildren().add(txt);
+            ap.getChildren().add(lbl);
+            ap.setStyle("-fx-border-color: black;");
             gridDays.add(ap, col++, 0);
         }
 
@@ -84,12 +87,19 @@ public class CalendarController implements Initializable, IChangeScene {
             if (ap.getChildren().size() != 0) {
                 ap.getChildren().clear();
             }
-            Text txt = new Text(String.valueOf(calendarDate.getDayOfMonth()));
+            Label lbl = new Label(String.valueOf(calendarDate.getDayOfMonth()));
+            lbl.setStyle("-fx-text-fill: white;" + "-fx-font-weight: bold;");
+            if(calendarDate.equals(LocalDate.now())) {
+                ap.setStyle("-fx-background-color: #d35f3f;" + "-fx-border-color: black;");
+            }
+            else{
+                ap.setStyle("-fx-background-color:  #f5b752;" + "-fx-border-color: black;");
+            }
             ap.setDate(calendarDate);
             addNote(ap, calendarDate);
-            AnchorPane.setTopAnchor(txt, 5.0);
-            AnchorPane.setLeftAnchor(txt, 5.0);
-            ap.getChildren().add(txt);
+            AnchorPane.setTopAnchor(lbl, 5.0);
+            AnchorPane.setLeftAnchor(lbl, 5.0);
+            ap.getChildren().add(lbl);
             calendarDate = calendarDate.plusDays(1);
         }
         // Change the title of the model.calendar
@@ -132,6 +142,7 @@ public class CalendarController implements Initializable, IChangeScene {
     private void addNote(AnchorPaneNode ap, LocalDate calendarDate){
         if(!Main.user.isActivitiesDue(calendarDate)) return;
         Label lbl = new Label(Translations.Translate("due_activity"));
+        lbl.setStyle("-fx-text-fill: white;" + "-fx-font-weight: bold;");
         lbl.setWrapText(true);
         ap.getChildren().add(lbl);
         lbl.setMaxWidth(Double.MAX_VALUE);

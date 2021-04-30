@@ -1,5 +1,6 @@
 package model;
 
+import javafx.scene.control.Label;
 import javafx.scene.text.Text;
 
 import java.util.ArrayList;
@@ -20,16 +21,16 @@ public class Translations {
 
 
 
-    public static Text[] TranslateDays(){
+    public static Label[] TranslateDays(){
         bundle = ResourceBundle.getBundle("MessagesBundle", Main.user.getLocale());
-        return new Text[]{
-                new Text(bundle.getString("monday")),
-                new Text(bundle.getString("tuesday")),
-                new Text(bundle.getString("wednesday")),
-                new Text(bundle.getString("thursday")),
-                new Text(bundle.getString("friday")),
-                new Text(bundle.getString("saturday")),
-                new Text(bundle.getString("sunday"))
+        return new Label[]{
+                new Label(bundle.getString("monday")),
+                new Label(bundle.getString("tuesday")),
+                new Label(bundle.getString("wednesday")),
+                new Label(bundle.getString("thursday")),
+                new Label(bundle.getString("friday")),
+                new Label(bundle.getString("saturday")),
+                new Label(bundle.getString("sunday"))
         };
     }
 
