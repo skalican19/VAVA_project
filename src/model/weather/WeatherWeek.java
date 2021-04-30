@@ -79,7 +79,8 @@ public class WeatherWeek {
         DocumentBuilder db;
 
         try {
-            URL url = new URL("http://api.openweathermap.org/data/2.5/forecast?q=" + city + ",sk&mode=xml&APPID=67a8a7b7f5444aaa03b228f1f4e68b32");
+            URL url = new URL("http://api.openweathermap.org/data/2.5/forecast?q=" + city +
+                    ",sk&mode=xml&APPID=67a8a7b7f5444aaa03b228f1f4e68b32");
             if (checkCity(url)) {
                 try {
                     db = dbf.newDocumentBuilder();

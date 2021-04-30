@@ -21,7 +21,7 @@ public class WeatherHour {
         this.weatherImage = new Image(url);
         this.precipitation = Math.round(Double.parseDouble(precipitation) * 100) + " %";
         double temp = Double.parseDouble(temperature) - 273;
-        this.temperature = Math.round(temp*100.0) / 100.0 + " °C";
+        this.temperature = Math.round(temp*100.0) / 100.0 + " \u00b0C";
         this.wind = wind + " m/s";
     }
 

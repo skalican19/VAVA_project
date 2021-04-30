@@ -1,15 +1,10 @@
-package controller;
+package controller.calendar;
 import controller.flowcontrol.IChangeScene;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Text;
 
 import java.time.LocalDate;
 import java.time.YearMonth;
@@ -19,11 +14,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.layout.*;
 import model.Main;
 import model.Translations;
-import model.calendar.AnchorPaneNode;
-import model.days.Activity;
+import controller.calendar.AnchorPaneNode;
 
 import java.net.URL;
-import java.util.Observable;
 import java.util.ResourceBundle;
 
 
@@ -69,12 +62,12 @@ public class CalendarController implements Initializable, IChangeScene {
 
 
     /**
-     * Set the days of the model.calendar to correspond to the appropriate date
+     * Set the days of the controller.calendar to correspond to the appropriate date
      * @param yearMonth year and month of month to render
      */
     public void populateCalendar(YearMonth yearMonth) {
 
-        // Get the date we want to start with on the model.calendar
+        // Get the date we want to start with on the controller.calendar
         LocalDate calendarDate = LocalDate.of(yearMonth.getYear(), yearMonth.getMonthValue(), 1);
 
         // Dial back the day until it is SUNDAY (unless the month starts on a sunday)
@@ -82,7 +75,7 @@ public class CalendarController implements Initializable, IChangeScene {
             calendarDate = calendarDate.minusDays(1);
         }
 
-        // Populate the model.calendar with day numbers
+        // Populate the controller.calendar with day numbers
         for (AnchorPaneNode ap : allCalendarDays) {
             if (ap.getChildren().size() != 0) {
                 ap.getChildren().clear();
@@ -102,12 +95,12 @@ public class CalendarController implements Initializable, IChangeScene {
             ap.getChildren().add(lbl);
             calendarDate = calendarDate.plusDays(1);
         }
-        // Change the title of the model.calendar
+        // Change the title of the controller.calendar
         lblMonth.setText(Translations.TranslateMonth(yearMonth.getMonth().toString()) + " " + yearMonth.getYear());
     }
 
     /**
-     * Move the month back by one. Repopulate the model.calendar with the correct dates.
+     * Move the month back by one. Repopulate the controller.calendar with the correct dates.
      */
     public void btnPrevOnAction() {
         currentYearMonth = currentYearMonth.minusMonths(1);
@@ -115,7 +108,7 @@ public class CalendarController implements Initializable, IChangeScene {
     }
 
     /**
-     * Move the month forward by one. Repopulate the model.calendar with the correct dates.
+     * Move the month forward by one. Repopulate the controller.calendar with the correct dates.
      */
     public void btnNextOnAction() {
         currentYearMonth = currentYearMonth.plusMonths(1);

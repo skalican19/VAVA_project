@@ -1,10 +1,11 @@
-package model.calendar;
+package controller.calendar;
 
 import controller.ShowDayController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.Main;
@@ -41,6 +42,7 @@ public class AnchorPaneNode extends AnchorPane {
                 stage.setTitle(date.toString());
                 Scene scene = new Scene(root);
                 stage.setScene(scene);
+                stage.getIcons().add(new Image("/Images/Logo.png"));
                 stage.show();
             } catch (IOException e) {
                 e.printStackTrace();
