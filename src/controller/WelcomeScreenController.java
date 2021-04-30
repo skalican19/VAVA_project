@@ -1,4 +1,5 @@
 package controller;
+import controller.databases.DatabaseManager;
 import controller.flowcontrol.IChangeScene;
 import controller.flowcontrol.INewWindowScene;
 import javafx.fxml.FXML;
@@ -10,6 +11,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
 import model.Main;
+import model.user.User;
+
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -31,6 +34,16 @@ public class WelcomeScreenController implements Initializable, IChangeScene, INe
     public static LocalDate displayDate;
 
     private int pane_no;
+
+    public void btnSignOutOnAction(){
+        try {
+            DatabaseManager.getInstance().saveUsers();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Main.user = new User();
+        sceneChanger("mainscene");
+    }
 
     @FXML
     public void changePane() {
@@ -81,6 +94,7 @@ public class WelcomeScreenController implements Initializable, IChangeScene, INe
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        Main.user.getSettings().setShownCity(Main.user.getSettings().getDefaultCity());
         displayDate = LocalDate.now();
         pane_no = 1;
         city.setText(Main.user.getSettings().getShownCity());

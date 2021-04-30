@@ -1,6 +1,7 @@
 package model.user;
 
 import controller.databases.DatabaseManager;
+import model.Main;
 import model.days.Activity;
 import model.days.Day;
 import model.days.Task;
@@ -33,6 +34,7 @@ public class User implements Serializable {
             this.email = email;
             this.password = password;
             this.settings = new Settings();
+            this.settings.setCurrentLocale(Main.user.getLocale());
             try {
                 DatabaseManager manager = DatabaseManager.getInstance();
                 manager.updateUsers(this);
@@ -56,7 +58,6 @@ public class User implements Serializable {
     }
 
     public boolean verifyLogin(String password) {
-        this.getSettings().setShownCity(this.getSettings().getDefaultCity());
         return this.password.equals(password);
     }
 
