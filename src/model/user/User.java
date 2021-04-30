@@ -1,8 +1,10 @@
 package model.user;
 
 import controller.databases.DatabaseManager;
+import controller.flowcontrol.AlertBox;
 import controller.flowcontrol.INewWindowScene;
 import model.Main;
+import model.Translations;
 import model.days.Activity;
 import model.days.Day;
 import model.days.Task;
@@ -26,7 +28,6 @@ public class User implements Serializable {
     private HashMap<LocalDate, Day> recordedDays = new HashMap<>();
     private ArrayList<Activity> activities = new ArrayList<>();
 
-    Logger LOG = Logger.getLogger(User.class.getName());
 
     /***
      * author: Michal
@@ -37,8 +38,8 @@ public class User implements Serializable {
     }
 
     public boolean registerUser(String userName, String email, String password) {
-        if (this.validate(email)) {
-            this.userName = userName;
+        this.userName = userName;
+        if (this.validate(email, userName, password)) {
             this.email = email;
             this.password = password;
             this.settings = new Settings();
@@ -48,7 +49,6 @@ public class User implements Serializable {
                 manager.updateUsers(this);
             } catch (IOException e) {
                 e.printStackTrace();
-                LOG.log(Level.SEVERE, "Could not update database.");
                 return false;
             }
             return true;
@@ -67,19 +67,38 @@ public class User implements Serializable {
     }
 
     public boolean verifyLogin(String password) {
-        if (this.password.equals(password)) {
-            LOG.log(Level.FINE, this.getUserName() + " has logged in.");
-        }
-        else {
-            LOG.log(Level.WARNING, this.getUserName() + " could not be logged in.");
-        }
         return this.password.equals(password);
     }
 
-    public boolean validate(String emailStr) {
+    public boolean validate(String emailStr, String userName, String password) {
+        /***
+         * regex from http://emailregex.com
+         */
         Pattern ptr = Pattern.compile("(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])");
         Matcher matcher = ptr.matcher(emailStr);
-        return matcher.find();
+        if (!matcher.find()){
+            AlertBox.show(Translations.Translate("alert_invalid_e-mail"), "Warning");
+            return  false;}
+        if (userName.equals("")) {
+            AlertBox.show(Translations.TranslateAlertBox("alert_invalid_reg_credentials"), "Warning");
+            return false;
+        }
+        if (password.equals("")) {
+            AlertBox.show(Translations.TranslateAlertBox("alert_invalid_reg_credentials"), "Warning");
+            return false;
+        }
+        try {
+            ArrayList<User> users = DatabaseManager.getInstance().getUsersDatabase();
+            for (User user: users){
+                if (this.getUserName().equals(user.getUserName())){
+                    AlertBox.show(Translations.TranslateAlertBox("alert_username_taken"), "Warning");
+                    return false;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return true;
     }
 
     /***

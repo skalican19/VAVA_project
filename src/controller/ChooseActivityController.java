@@ -14,6 +14,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import model.Translations;
 import model.days.*;
@@ -64,6 +65,7 @@ public class ChooseActivityController implements INewWindowScene, Initializable 
             e.printStackTrace();
         }
         stage.setResizable(false);
+        stage.getIcons().add(new Image("/Images/Logo.png"));
         stage.setScene(scene);
         stage.sizeToScene();
         stage.showAndWait();
@@ -145,15 +147,15 @@ public class ChooseActivityController implements INewWindowScene, Initializable 
     private boolean validate(){
 
         if(cbStart.getValue() == null || cbEnd.getValue() == null){
-            AlertBox.show(Translations.TranslateAlertBox("alert_choose_time"),"warning");
+            AlertBox.show(Translations.TranslateAlertBox("alert_choose_time"),"Warning");
             return false;
         }
         if(cbEnd.getValue().isBefore(cbStart.getValue())){
-            AlertBox.show(Translations.TranslateAlertBox("alert_choose_valid_time"),"warning");
+            AlertBox.show(Translations.TranslateAlertBox("alert_choose_valid_time"),"Warning");
             return false;
         }
         if (tableActivities.getSelectionModel().getSelectedItem() == null){
-            AlertBox.show(Translations.TranslateAlertBox("alert_choose_activity"),"warning");
+            AlertBox.show(Translations.TranslateAlertBox("alert_choose_activity"),"Warning");
             return false;
         }
         return true;

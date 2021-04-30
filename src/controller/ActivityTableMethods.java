@@ -19,7 +19,7 @@ public class ActivityTableMethods {
 
     public void showActivity(Activity a, Boolean backBtnVisible){
         if (a == null){
-            AlertBox.show(Translations.TranslateAlertBox("alert_choose_activity"), "warning");
+            AlertBox.show(Translations.TranslateAlertBox("alert_choose_activity"), "Warning");
             return;
         }
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/showactivity.fxml"),
@@ -51,7 +51,7 @@ public class ActivityTableMethods {
 
     public void removeActivity(Activity a){
         if (a == null){
-            AlertBox.show(Translations.TranslateAlertBox("alert_choose_activity"), "warning");
+            AlertBox.show(Translations.TranslateAlertBox("alert_choose_activity"), "Warning");
             return;
         }
         Main.user.removeActivity(a);

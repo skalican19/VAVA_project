@@ -94,7 +94,7 @@ public class ShowActivityController implements Initializable, IChangeScene {
             lblDueDate.setVisible(false);
             lblProgress.setVisible(false);
             dpDueDate.setVisible(false);
-            activityImage.setImage(new Image("/images/hobbys.png"));
+            activityImage.setImage(new Image("/Images/hobbys.png"));
         }
         else{
             tfAcName.setText(Translations.Translate("task"));
@@ -104,7 +104,7 @@ public class ShowActivityController implements Initializable, IChangeScene {
             dpDueDate.setValue(((Task) current).getDueDate());
 
             progressbar.setProgress(progressVal);
-            activityImage.setImage(new Image("/images/tasks.png"));
+            activityImage.setImage(new Image("/Images/tasks.png"));
         }
         tfName.setText(current.getName());
         LocalDate lastDate = current.getLastDone();

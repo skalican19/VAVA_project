@@ -14,6 +14,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import model.Main;
@@ -87,6 +88,7 @@ public class SettingsController implements Initializable, IChangeScene {
             e.printStackTrace();
         }
         stage.setResizable(false);
+        stage.getIcons().add(new Image("/Images/Logo.png"));
         stage.setScene(scene);
         stage.sizeToScene();
         stage.showAndWait();

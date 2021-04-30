@@ -35,7 +35,7 @@ public class DatabaseManager {
         new DatabaseAdmin<User>().upload("databases/user_database", usersDatabase);
     }
 
-    public ArrayList getUsersDatabase() {
+    public ArrayList<User> getUsersDatabase() {
         return usersDatabase;
     }
 

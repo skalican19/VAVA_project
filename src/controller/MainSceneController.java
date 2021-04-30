@@ -77,9 +77,6 @@ public class MainSceneController implements IChangeScene, Initializable {
             AlertBox.show(Translations.TranslateAlertBox("alert_successful_registration"), "Success");
             clearAll();
         }
-        else {
-            AlertBox.show(Translations.TranslateAlertBox("alert_invalid_e-mail"), "Warning");
-        }
     }
 
     private void clearAll(){

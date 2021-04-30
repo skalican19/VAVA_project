@@ -89,20 +89,20 @@ public class CreateActivityController implements Initializable{
 
     private boolean validate(){
         if (cbType.getValue() == null){
-            AlertBox.show(Translations.TranslateAlertBox("alert_choose_activity_type"), "warning");
+            AlertBox.show(Translations.TranslateAlertBox("alert_choose_activity_type"), "Warning");
             return false;
         }
         if (tfName.getText().isEmpty() || tfDesc.getText().isEmpty()){
-            AlertBox.show(Translations.TranslateAlertBox("alert_fill_name_desc"), "warning");
+            AlertBox.show(Translations.TranslateAlertBox("alert_fill_name_desc"), "Warning");
             return false;
         }
         if (type.equals(Translations.Translate("task"))) {
             if (cbPriority.getValue() == null) {
-                AlertBox.show(Translations.TranslateAlertBox("alert_fill_priority"), "warning");
+                AlertBox.show(Translations.TranslateAlertBox("alert_fill_priority"), "Warning");
                 return false;
             }
             if (dpDueDate.getValue() == null || dpDueDate.getValue().isBefore(LocalDate.now())) {
-                AlertBox.show(Translations.TranslateAlertBox("alert_choose_valid_date"), "warning");
+                AlertBox.show(Translations.TranslateAlertBox("alert_choose_valid_date"), "Warning");
                 return false;
             }
         }

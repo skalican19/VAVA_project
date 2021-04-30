@@ -98,7 +98,7 @@ public class DaySummaryController implements Initializable, IChangeScene {
             new ActivityTableMethods().showActivity(a, true);
         }
         catch (NullPointerException e){
-            AlertBox.show(Translations.TranslateAlertBox("alert_choose_activity"), "warning");
+            AlertBox.show(Translations.TranslateAlertBox("alert_choose_activity"), "Warning");
         }
     }
 
