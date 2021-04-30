@@ -5,6 +5,11 @@ import model.Main;
 import java.io.IOException;
 import java.util.ResourceBundle;
 
+
+/***
+ * Author Dušan
+ */
+
 public interface IChangeScene {
 
     default void sceneChanger(String view){
