@@ -74,12 +74,17 @@ public class Recommendation {
 
     private boolean recommendHobby(Hobby activity, WeatherWeek week){
         if (activity.isOutdoor()) {
-            if (week.getDayFromDate(date).isBadWeather()) {
-                return false;
+            try {
+                if (week.getDayFromDate(date).isBadWeather()) {
+                    return false;
+                }
+                if (this.tasks > 2) {
+                    LocalDate tomorrow = date.plusDays(1);
+                    return !week.getDayFromDate(tomorrow).isBadWeather();
+                }
             }
-            if (this.tasks > 2) {
-                LocalDate tomorrow = date.plusDays(1);
-                return week.getDayFromDate(tomorrow).isBadWeather() || this.tasks == 2;
+            catch (NullPointerException e) {
+                return false;
             }
         }
         return this.tasks <= 2;

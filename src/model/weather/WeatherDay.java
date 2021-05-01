@@ -94,6 +94,16 @@ public class WeatherDay {
     public void addToWeatherHours(WeatherHour hour){
         weatherHours.add(hour);
         if (hour.getTime() == LocalTime.of(12, 0, 0)) {
+
+            ArrayList<String> badWeather = new ArrayList<String>(){{
+                add("09d");
+                add("10d");
+                add("11d");
+                add("13d");
+                add("50d");
+            }};
+            this.badWeather = badWeather.contains(hour.getWeatherState());
+
             this.noonTemperature = hour.getTemperature();
             this.noonImage = hour.getWeatherImage();
         }
@@ -103,15 +113,7 @@ public class WeatherDay {
         if (hour.getTime() == LocalTime.of(0, 0, 0) && this.noonTemperature == null) {
             this.noonImage = hour.getWeatherImage();
         }
-        ArrayList<String> badWeather = new ArrayList<String>(){{
-            add("09d");
-            add("10d");
-            add("11d");
-            add("13d");
-            add("50d");
-        }};
 
-        this.badWeather = badWeather.contains(hour.getWeatherState());
 
     }
 }
